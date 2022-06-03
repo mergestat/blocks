@@ -1,42 +1,21 @@
-.t-step-title {
-  color: #727C8D;
-  font-weight: 600;
-  font-size: 20px;
-  cursor: pointer;
+.t-breadcrumb-item {
+  @apply text-gray-450
+          cursor-pointer
+          font-semibold
+          overflow-ellipsis
+          flex
+          gap-2
+          items-center
+          min-w-0
+          whitespace-nowrap
+          text-xl;
 }
 
-.t-step-title-icon {
-  cursor: default;
+
+.t-breadcrumb-item p {
+  @apply truncate;
 }
 
-.t-last-step {
-  color: #111827;
-}
-
-.t-black-white {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  background-color: #111827;
-  color: white;
-  font-size: 26px;
-}
-
-.t-black-white .t-icon {
-  width: 25px;
-  height: 25px;
-}
-
-.t-red{
-  color: #DC2626;
-}
-
-.t-gray.t-icon{
-  width: 15px;
-  height: 15px;
-  color: #727C8D;
-  font-size: 12px;
+.t-breadcrumb-divider {
+  @apply cursor-default;
 }

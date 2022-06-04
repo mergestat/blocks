@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import cx from 'classnames';
 import { CaretDownIcon, CaretRightIcon } from '@mergestat/icons';
 import { Checkbox, CHECKBOX_STATES } from '../Form/Checkbox';
@@ -86,6 +86,8 @@ export const Table: React.FC<TableProps> = ({
         ...data,
         checked: selectAll
       })))
+
+      onSelectedChange(selectAll ? data : []);
     }
   }, [selectAll])
 
@@ -125,7 +127,7 @@ export const Table: React.FC<TableProps> = ({
     </div>
   ) : (
     <div
-      className={cx('overflow-hidden bg-white relative', {
+      className={cx('overflow-hidden bg-white', {
         'overflow-x-auto': responsive,
         'overflow-y-auto': !!scrollY,
         'border border-gray-200 rounded': !borderless,
@@ -211,8 +213,8 @@ export const Table: React.FC<TableProps> = ({
             const rowKey = d.id || Math.random();
 
             return (
-              <>
-                <tr key={rowKey}>
+              <Fragment key={rowKey}>
+                <tr>
                   {collapsible && (
                     <td className="w-0 pl-6">
                       <span
@@ -249,13 +251,13 @@ export const Table: React.FC<TableProps> = ({
                   ))}
                 </tr>
                 {d.collapsed && (
-                  <tr key={'row-expanded-' + index}>
+                  <tr>
                     <td colSpan={columns.length + (checkable ? 2 : 1)} className="p-6">
                       <>{renderCollapse ? renderCollapse(d) : ""}</>
                     </td>
                   </tr>
                 )}
-              </>
+              </Fragment>
             );
           })}
         </tbody>

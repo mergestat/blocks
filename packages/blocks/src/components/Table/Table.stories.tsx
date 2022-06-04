@@ -93,4 +93,5 @@ CollapsibleCheckableTable.args = {
   collapsible: true,
   checkable: true,
   hasSelectAll: false,
+  renderCollapse: (d: any) => d.description
 }

@@ -1,0 +1,51 @@
+/* ==========================================================================
+  t-colored-box
+   ========================================================================== */
+
+.t-colored-box {
+  @apply flex
+         bg-gray-100
+         text-gray-500
+         items-center
+         flex-grow-0
+         justify-center
+         rounded
+         font-medium
+         text-sm;
+}
+
+.t-colored-box.is-interactive {
+  @apply hover_opacity-75
+         cursor-pointer;
+}
+
+hover_opacity-75
+cursor-pointer
+.t-colored-box-blue {
+  color: #0284C7;
+  background: #F0F9FF;
+}
+
+.t-colored-box-purple {
+  color: #8652E0;
+  background: #EFE8FD;
+}
+
+.t-colored-box-yellow {
+  color: #F59E0B;
+  background: #FEF5E6;
+}
+
+.t-colored-box-aqua {
+  color: #0891B2;
+  background: #E7F9FE;
+}
+
+.t-colored-box-indigo {
+  color: #1D4ED8;
+  background: #E8EEFC;
+}
+
+.t-colored-box-circle {
+  @apply rounded-full;
+}

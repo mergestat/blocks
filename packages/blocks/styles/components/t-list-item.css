@@ -1,0 +1,21 @@
+.t-list-item-container{
+    @apply flex
+           justify-between
+           items-center
+           w-full;
+}
+
+.t-list-item-left{
+  gap: 16px;
+  @apply flex
+         items-center;
+}
+.t-list-item-left h3 {
+  @apply font-medium
+         text-base
+         mb-1;
+}
+.t-list-item-left p {
+   @apply text-sm
+          text-gray-500;
+}

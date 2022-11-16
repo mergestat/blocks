@@ -1,0 +1,76 @@
+/* ==========================================================================
+   t-menu
+   ---
+   Dropdown menu
+   ========================================================================== */
+
+.t-menu {
+    min-width: 8rem;
+    @apply origin-top-right
+           relative
+           py-1
+           rounded-md
+           shadow-lg
+           border
+           border-gray-200
+           bg-white
+           focus_outline-none
+           invisible
+           opacity-0
+           z-50;
+}
+
+.t-menu.active {
+    @apply visible
+           opacity-100;
+}
+
+.t-menu-item {
+    @apply flex
+           items-center
+           my-1
+           relative;
+}
+.t-menu-item:first-child {
+       @apply mt-0
+}
+.t-menu-item:last-child {
+       @apply mb-0
+}
+.t-menu-item.disabled {
+  @apply from-gray-100
+         to-gray-100
+         text-gray-400
+         border-gray-200
+         pointer-events-none;
+
+}
+.t-menu-item.disabled > a {
+  @apply text-gray-400
+         border-gray-200
+         pointer-events-none;
+}
+
+.t-menu-label,
+.t-menu-item .t-checkbox {
+    @apply text-gray-700
+           flex
+           justify-items-start
+           items-center
+           w-full
+           px-4
+           py-2
+           hover_bg-gray-100
+           focus_bg-gray-100;
+}
+.t-menu-label .t-icon {
+    @apply mr-3
+           flex-none;
+}
+
+.t-menu-divider {
+    @apply border-t
+           my-1
+           block;
+}
+

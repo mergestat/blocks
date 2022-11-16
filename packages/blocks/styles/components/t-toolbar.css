@@ -1,0 +1,44 @@
+/* ==========================================================================
+   t-toolbar
+   ---
+   Component for aligning multiple sub components on a horizontal axis
+   ========================================================================== */
+
+.t-toolbar {
+    @apply flex
+           justify-around
+           flex-shrink
+           w-full;
+}
+
+.t-toolbar-left,
+.t-toolbar-right {
+    @apply flex-auto;
+}
+.t-toolbar-left {
+    @apply flex
+           flex-row
+           space-x-2
+           justify-start
+           items-center;
+}
+
+.t-toolbar-right {
+    @apply flex
+           flex-row
+           space-x-2
+           justify-end
+           items-center;
+}
+
+.t-toolbar-item {
+    @apply flex
+           flex-row;
+}
+
+
+.t-toolbar-title {
+    @apply text-xl
+           text-gray-900
+           font-semibold;
+}

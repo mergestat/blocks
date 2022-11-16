@@ -1,0 +1,9 @@
+.t-inline-banner {
+  font-size: 14px;
+  color: #727C8D;
+}
+.t-inline-banner a {
+  color: #0EA5E9 ;
+  text-decoration: underline;
+  cursor: pointer;
+}

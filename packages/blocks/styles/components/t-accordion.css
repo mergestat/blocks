@@ -1,0 +1,26 @@
+/* ==========================================================================
+   t-accordion
+   ========================================================================== */
+
+.t-accordion {
+    @apply appearance-none;
+}
+
+.t-accordion summary {
+    @apply flex
+           items-center
+           justify-items-start
+           cursor-pointer;
+}
+
+.t-accordion summary .t-icon {
+    @apply w-4
+           h-4
+           flex-none
+           mr-2;
+}
+
+.t-accordion[open] > summary .t-icon-heroicons-chevron-right:first-child {
+    @apply transform
+           rotate-90;
+}

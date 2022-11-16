@@ -1,0 +1,44 @@
+/* ==========================================================================
+   t-nav
+   ========================================================================== */
+
+.t-nav {
+    @apply flex
+           h-14
+           items-center;
+}
+
+.t-nav-item {
+    @apply h-full
+           text-gray-200
+           cursor-pointer;
+}
+
+.t-nav-divider {
+    @apply h-8
+           border-l
+           border-gray-500;
+}
+
+.t-nav-item > a,
+.t-nav-item > button {
+    @apply px-5
+           border-0
+           bg-transparent
+           gap-3
+           font-medium
+           inline-flex
+           items-center
+           h-full
+           focus_outline-none
+           focus_ring-2
+           ring-inset
+           focus_ring-blue-500
+           hover_bg-gray-600
+           cursor-pointer;
+}
+
+.t-nav-item-active {
+    @apply text-gray-50
+            bg-gray-600;
+}

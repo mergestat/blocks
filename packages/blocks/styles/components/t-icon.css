@@ -1,0 +1,62 @@
+/* ==========================================================================
+   t-icon
+   ========================================================================== */
+
+/* Set stroke to current fill color but only for hero icons */
+.t-icon[class^="t-icon-heroicons"] * {
+  /* purgecss ignore current */
+  stroke: currentColor;
+}
+
+.t-icon {
+    @apply w-5
+           h-5
+           relative;
+}
+
+.t-icon-small {
+    @apply w-4
+           h-4;
+}
+
+.t-icon svg {
+    @apply fill-current
+           w-full
+           h-full;
+}
+
+.t-button .t-icon {
+    display: inline;
+}
+
+.t-icon-muted {
+    @apply text-gray-400;
+}
+
+.t-icon-info {
+    @apply text-blue-500;
+}
+
+.t-icon-default {
+    @apply text-gray-500;
+}
+
+.t-icon-primary {
+    @apply text-blue-600;
+}
+
+.t-icon-success {
+    @apply text-green-500;
+}
+
+.t-icon-warning {
+    @apply text-yellow-500;
+}
+
+.t-icon-danger {
+    @apply text-red-500;
+}
+
+.t-icon-i {
+    @apply text-gray-400;
+}

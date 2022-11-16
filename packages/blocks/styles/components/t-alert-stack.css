@@ -1,0 +1,80 @@
+/* ==========================================================================
+   t-alert-stack
+   ========================================================================== */
+
+.t-alert-stack {
+    max-width: 26rem;
+    width: 100%;
+    @apply fixed
+           right-6
+           pl-8;
+}
+
+.t-alert-stack li + li {
+  @apply mt-4;
+}
+
+/* custom rc notification */
+.t-notification {
+  @apply fixed z-50;
+}
+
+.t-notification .t-alert-message {
+  @apply line-clamp-5;
+}
+
+.t-notification-notice {
+  @apply mb-2 relative;
+}
+
+.t-notification-notice-close {
+  top: 1.125rem;
+  @apply absolute
+         right-4
+         text-white
+         outline-none;
+}
+
+.t-notification-notice-closable .t-alert-body {
+  @apply pr-6;
+}
+
+.t-notification-fade-appear,
+.t-notification-fade-enter {
+  opacity: 0;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused;
+}
+.t-notification-fade-leave {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused;
+}
+.t-notification-fade-appear.t-notification-fade-appear-active,
+.t-notification-fade-enter.t-notification-fade-enter-active {
+  animation-name: rcNotificationFadeIn;
+  animation-play-state: running;
+}
+.t-notification-fade-leave.t-notification-fade-leave-active {
+  animation-name: rcDialogFadeOut;
+  animation-play-state: running;
+}
+@keyframes rcNotificationFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rcDialogFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

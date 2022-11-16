@@ -1,0 +1,24 @@
+.t-multi-select-wrapper {
+  @apply relative
+         w-full;
+}
+
+.t-multi-select-wrapper .t-menu {
+  @apply absolute
+         left-0
+         right-0
+         mt-2
+         w-full;
+}
+
+.t-multi-select-value-list {
+  max-height: 20rem;
+  @apply overflow-y-auto;
+
+}
+.t-multi-select-tag-list {
+  @apply flex
+         gap-2
+         mb-5
+         flex-wrap;
+}

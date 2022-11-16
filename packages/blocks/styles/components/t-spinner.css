@@ -1,0 +1,32 @@
+/* ==========================================================================
+    t-spinner
+   ========================================================================== */
+
+.t-spinner {
+    @apply inline-block
+           rounded-full;
+           animation: spin 0.75s linear infinite;
+          }
+
+.t-spinner-primary {
+    @apply border-blue-200;
+           border-right-color: #0ea5e9; /* Replace with Tailwind v3 class border-r-blue-500 */
+}
+
+.t-spinner-muted {
+    @apply border-gray-200;
+           border-right-color: #9ca3af; /* Replace with Tailwind v3 class border-r-gray-500 */
+
+}
+
+.t-spinner-md {
+    @apply h-10
+           w-10
+           border-4;
+}
+
+.t-spinner-sm {
+    @apply h-4
+           w-4
+           border-2;
+}

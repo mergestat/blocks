@@ -1,0 +1,25 @@
+/* ==========================================================================
+   t-text
+   ---
+   Usage: use these text utility classes for consistent usage of semantic colors
+   ========================================================================== */
+
+.t-text-header {
+  @apply text-gray-900;
+}
+
+.t-text-default {
+  @apply text-gray-700;
+}
+
+.t-text-muted {
+  @apply text-gray-450;
+}
+
+.t-text-danger {
+  @apply text-red-600;
+}
+
+.t-text-success {
+  @apply text-green-600;
+}

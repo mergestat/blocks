@@ -1,0 +1,32 @@
+.t-toggle-container {
+  width: 26px;
+  height: 16px;
+  padding: 2px;
+  background: #F3F4F6;
+  position: relative;
+  border-radius: 13px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.t-toggle {
+  transition: 0.1s;
+  position: absolute;
+  left: 2px;
+  top:2px;
+  right: auto;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-radius: 13px;
+  box-shadow: 0px 0px 3px 0px rgba(34, 60, 80, 0.2);
+}
+
+.t-active {
+  background: #0EA5E9;
+}
+
+.t-active .t-toggle {
+  right: 2px;
+  left: auto;
+}

@@ -1,0 +1,13 @@
+.t-split-button {
+  @apply flex
+         items-center
+         -space-x-0.5;
+}
+
+.t-split-button-left {
+  @apply rounded-r-none;
+}
+
+.t-split-button-right {
+  @apply rounded-l-none;
+}

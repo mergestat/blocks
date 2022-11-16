@@ -1,0 +1,12 @@
+.t-log-box {
+  @apply relative
+         p-6;
+}
+
+.t-log-box .log-copy-btn {
+  font-family: 'Inter UI';
+  @apply absolute
+         top-6
+         right-6
+         bg-none;
+}

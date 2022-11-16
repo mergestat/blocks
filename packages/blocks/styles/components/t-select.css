@@ -1,0 +1,27 @@
+/* ==========================================================================
+    t-select
+   ========================================================================== */
+
+.t-select {
+  padding-top: 0.4375rem;
+  padding-bottom: 0.4375rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right .5rem center;
+  background-size: 1.5em 1.5em;
+  @apply appearance-none
+         block
+         w-full
+         leading-5
+         pl-3
+         pr-10
+         border
+         bg-no-repeat
+         border-gray-300
+         text-gray-700
+         text-base
+         rounded
+         placeholder-gray-400
+         focus_outline-none
+         focus_ring-blue-500
+         focus_border-blue-500;
+ }

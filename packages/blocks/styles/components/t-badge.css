@@ -1,0 +1,99 @@
+/* ==========================================================================
+   t-badge
+   ========================================================================== */
+
+.t-badge {
+    padding: 0.1875rem 0.5rem;
+    @apply font-medium
+           rounded
+           leading-4
+           inline-flex
+           border
+           items-center
+           text-sm;
+}
+
+.t-badge .t-icon {
+    @apply w-4
+           h-4;
+}
+
+.t-badge:not(.t-badge-icon) > .t-icon:first-child {
+    @apply mr-1;
+}
+
+.t-badge:not(.t-badge-icon) > .t-icon:last-child {
+    @apply ml-1;
+}
+
+.t-badge-icon {
+    @apply px-1;
+}
+
+/* Badge skins */
+.t-badge-default {
+    @apply bg-gray-100
+           border-gray-200
+           mix-blend-multiply
+           text-gray-500;
+}
+
+.t-badge-primary {
+    @apply bg-blue-600
+           border-blue-700
+           text-white;
+}
+
+.t-badge-danger {
+    @apply bg-red-600
+           border-red-700
+           text-white;
+}
+
+.t-badge-warning {
+    @apply bg-yellow-500
+           border-yellow-600
+           text-white;
+}
+
+.t-badge-success {
+    @apply bg-green-600
+           border-green-700
+           text-white;
+}
+
+.t-badge-group {
+  @apply inline-flex
+         items-center;
+}
+
+
+.t-badge-group .t-badge:first-child {
+  @apply rounded-r-none
+         border-r-0;
+}
+
+.t-badge-group .t-badge:last-child {
+  @apply rounded-l-none;
+}
+
+
+.t-badge-default.t-badge-action {
+  @apply hover_bg-gray-200;
+}
+
+.t-badge-primary.t-badge-action {
+  @apply hover_bg-blue-700;
+}
+
+.t-badge-success.t-badge-action {
+  @apply hover_bg-green-700;
+}
+
+.t-badge-warning.t-badge-action {
+  @apply hover_bg-yellow-600;
+}
+
+.t-badge-danger.t-badge-action {
+  @apply hover_bg-red-700;
+}

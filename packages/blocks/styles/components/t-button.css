@@ -1,0 +1,187 @@
+/* ==========================================================================
+   t-button
+   ========================================================================== */
+
+.t-button {
+  padding-top: 0.4375rem;
+  padding-bottom: 0.4375rem;
+  @apply border
+         inline-flex
+         items-center
+         px-3
+         leading-5
+         focus_outline-none
+         focus_ring-2
+         focus_ring-offset-2
+         focus_ring-blue-500
+         font-medium
+         rounded;
+}
+
+.t-button:not(.t-button-icon) .t-icon:first-child {
+  @apply mr-2;
+}
+
+.t-button:not(.t-button-icon) .t-icon:last-child {
+  @apply ml-2;
+}
+
+.t-button .t-icon svg * {
+  @apply fill-current;
+}
+
+/* Button variants */
+.t-button-icon {
+  padding: 0.4375rem;
+}
+
+.t-button-block {
+  @apply w-full
+         flex
+         justify-center;
+}
+
+/* Button sizes */
+.t-button-small {
+  @apply px-2
+         text-sm
+         leading-4
+         py-1.5;
+}
+
+.t-button-small.t-button-icon {
+  @apply px-1.5;
+}
+.t-button-small .t-icon {
+  @apply w-4
+         h-4;
+}
+.t-button-small:not(.t-button-icon) .t-icon:first-child {
+  @apply mr-1;
+}
+
+.t-button-small:not(.t-button-icon) .t-icon:last-child {
+  @apply ml-1;
+}
+
+.t-button-large {
+  font-size: 0.9375rem;
+  @apply px-4
+         py-2.5;
+}
+
+/* Button skins */
+.t-button-ghost-i {
+  @apply border-gray-500
+         text-gray-200
+         hover_bg-gray-700;
+}
+
+.t-button-secondary {
+  @apply bg-gradient-to-b
+         border-gray-300
+         text-gray-700
+         from-white
+         to-gray-100
+         hover_to-gray-150
+         active_from-gray-200
+         active_shadow-inner;
+}
+
+.t-button-primary {
+  @apply border-blue-700
+         bg-gradient-to-b
+         from-blue-500
+         to-blue-600
+         hover_from-blue-600
+         hover_to-blue-700
+         active_from-blue-700
+         active_shadow-inner
+         text-white;
+}
+
+.t-button-borderless,
+.t-button-borderless-i,
+.t-button-borderless-muted {
+  @apply border-transparent
+        bg-transparent
+        border-0
+        px-0;
+}
+
+.t-button-borderless {
+  @apply text-blue-600;
+}
+
+.t-button-borderless-i {
+  @apply text-gray-200;
+}
+
+.t-button-borderless-muted {
+  @apply text-gray-600;
+}
+
+.t-button-danger-primary {
+  @apply border-red-800
+          bg-gradient-to-b
+          text-white
+          from-red-500
+          to-red-600
+          hover_from-red-600
+          hover_to-red-700
+          active_from-red-700
+          active_shadow-inner;
+}
+
+.t-button-danger {
+  @apply border
+      border-gray-300
+      text-red-600
+      bg-gradient-to-b
+      from-white
+      to-gray-100
+      hover_from-gray-100
+      hover_to-gray-50;
+}
+
+.t-button-primary[disabled],
+.t-button-secondary[disabled],
+.t-button-disabled {
+  @apply from-gray-100
+        to-gray-100
+        text-gray-400
+        border-gray-200
+        pointer-events-none
+        cursor-not-allowed;
+}
+
+.t-button-active {
+  @apply shadow-inner;
+}
+
+.t-button-display-primary {
+  @apply bg-blue-600
+          border-blue-600
+          text-white;
+}
+
+.t-button-display-secondary {
+  @apply border-gray-300
+          text-gray-900;
+}
+
+.t-button-display-secondary-i {
+  @apply border-gray-300
+          text-white;
+}
+
+.t-button-group {
+  @apply inline-flex;
+}
+
+.t-button-group > button:not(:last-of-type) {
+  @apply rounded-r-none;
+}
+.t-button-group > button:not(:first-of-type) {
+  @apply rounded-l-none border-l-0;
+}

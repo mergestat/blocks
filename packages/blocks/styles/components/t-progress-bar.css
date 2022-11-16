@@ -1,0 +1,40 @@
+/* ==========================================================================
+  t-progress-bar
+  ---
+  Progress bar that changes width AND color using a CSS variable
+  By Lea verou - http://dabblet.com/gist/9ef99ce3555ba569c24c7532ef37dc9a
+   ========================================================================== */
+
+.t-progress-bar {
+    @apply flex
+           items-center
+           w-full;
+}
+
+.t-progress-bar-inner {
+    @apply flex
+           flex-1
+           rounded-lg
+           h-1
+           bg-gray-300;
+}
+
+.t-progress-bar-inner:before {
+    content: "";
+    width: calc(var(--value) * 100%);
+    animation: fill 250ms linear 1;
+    @apply bg-blue-500
+           rounded-tl-lg
+           rounded-bl-lg;
+}
+
+@keyframes fill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--value);
+    }
+}
+
+

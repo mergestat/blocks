@@ -1,0 +1,104 @@
+/* ==========================================================================
+   t-avatar
+   ========================================================================== */
+
+.t-avatar {
+    @apply inline-flex
+           items-center
+           justify-center
+           h-8
+           w-8
+           rounded-full
+           font-medium
+           overflow-hidden
+           bg-gray-200
+           text-gray-500;
+}
+
+.t-avatar-img {
+    @apply bg-none
+           overflow-hidden
+           border
+           border-gray-200;
+}
+
+/* Variants */
+.t-avatar-square {
+    @apply rounded-md;
+}
+
+/* Sizes */
+.t-avatar-sm {
+    @apply h-6
+           w-6;
+}
+
+.t-avatar-sm .t-icon {
+    @apply w-4
+           h-4;
+}
+
+.t-avatar-lg {
+    @apply h-12
+           w-12;
+}
+
+.t-avatar-lg .t-icon {
+    @apply w-6
+           h-6;
+}
+
+.t-avatar-xl {
+    @apply w-16
+           h-16;
+}
+
+.t-avatar-xl .t-icon {
+    @apply w-8
+           h-8;
+}
+
+.t-avatar-2xl {
+    @apply w-24
+           h-24;
+}
+.t-avatar-2xl .t-icon {
+    @apply w-8
+           h-8;
+}
+
+/* Skins */
+.t-avatar-primary {
+    @apply bg-blue-600
+           text-white;
+}
+
+.t-avatar-success {
+    @apply bg-green-500
+           text-white;
+}
+
+.t-avatar-warning {
+    @apply bg-yellow-500
+           text-white;
+}
+
+.t-avatar-danger {
+    @apply bg-red-600
+           text-white;
+}
+
+.t-avatar-dark {
+    @apply bg-gray-700
+            text-white;
+}
+
+.t-avatar-primary-light {
+    @apply bg-blue-200
+           text-blue-600;
+}
+
+.t-avatar-lime-light {
+    @apply bg-lime-200
+           text-lime-600;
+}

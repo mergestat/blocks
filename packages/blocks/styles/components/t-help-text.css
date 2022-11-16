@@ -1,0 +1,20 @@
+/* ==========================================================================
+    t-help-text
+   ========================================================================== */
+
+.t-help-text {
+    @apply text-sm
+           py-2;
+}
+
+.t-help-text-default {
+    @apply text-gray-500;
+}
+
+.t-help-text-error {
+    @apply text-red-600;
+}
+
+.t-help-text-success {
+    @apply text-green-600;
+}

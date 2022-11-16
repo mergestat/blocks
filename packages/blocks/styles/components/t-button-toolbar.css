@@ -1,0 +1,14 @@
+/* ==========================================================================
+  t-button-toolbar
+  ---
+  Group multiple buttons together
+   ========================================================================== */
+
+.t-button-toolbar {
+    @apply flex
+           items-center;
+}
+
+.t-button-toolbar .t-button + .t-button {
+    @apply ml-2;
+}

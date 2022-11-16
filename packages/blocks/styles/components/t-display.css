@@ -1,0 +1,58 @@
+/* ==========================================================================
+   t-display
+   ---
+   Usage: wrap a .t-display class around content to turn it into rich text.
+
+   .t-display-1, .t-display-2, .t-display-3, .t-display-4 .t-display-body
+   ---
+   Usage: use these classes to style individual components like their rich text equivalent
+   ========================================================================== */
+
+.t-display-1,
+.t-display-2,
+.t-display-3,
+.t-display-4,
+.t-display h1,
+.t-display h2,
+.t-display h3,
+.t-display h4 {
+    @apply font-semibold
+           text-gray-900;
+}
+
+.t-display-1,
+.t-display h1 {
+    @apply text-5xl
+           leading-tight
+           mb-6;
+}
+
+.t-display-2,
+.t-display h2 {
+    @apply text-4xl
+           leading-tight
+           mb-6;
+}
+
+.t-display-3,
+.t-display h3 {
+    @apply text-2xl
+           leading-tight
+           mb-4;
+}
+
+.t-display-4,
+.t-display h4 {
+    @apply text-lg
+           mb-2;
+}
+
+.t-lead {
+    @apply text-xl;
+}
+
+.t-display-body,
+.t-display p {
+    @apply text-lg
+           leading-6;
+}

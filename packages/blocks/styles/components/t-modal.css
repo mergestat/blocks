@@ -1,0 +1,77 @@
+/* ==========================================================================
+   t-modal
+   ---
+   Modal windows
+   ========================================================================== */
+
+.t-modal-context {
+    @apply fixed
+           z-10
+           inset-0
+           overflow-y-auto
+           flex
+           items-center
+           justify-center
+           min-h-screen
+           pt-4
+           px-4
+           pb-20
+           text-center
+           sm_block
+           sm_p-0;
+}
+
+.t-modal-overlay {
+    @apply fixed
+           inset-0
+           bg-gray-500
+           bg-opacity-75
+           transition-opacity;
+}
+
+.t-modal-push {
+    @apply hidden
+           sm_inline-block
+           sm_align-middle
+           sm_h-screen;
+}
+
+.t-modal {
+  max-height: calc(100vh - 4.8rem);
+  @apply inline-flex
+          flex-col
+          bg-white
+          rounded-md
+          text-left
+          overflow-hidden
+          shadow-xl
+          transform
+          transition-all
+          sm_align-middle
+          sm_max-w-2xl
+          w-full;
+}
+
+.t-modal-sm {
+    @apply sm_max-w-lg;
+}
+
+.t-modal-lg {
+    @apply max-w-5xl;
+}
+
+.t-modal-header,
+.t-modal-footer {
+    @apply flex-none;
+}
+
+.t-modal-body {
+    @apply flex-initial
+           overflow-y-auto;
+}
+
+.t-modal-title {
+    @apply text-xl
+           font-semibold;
+}
+

@@ -1,0 +1,59 @@
+/* ==========================================================================
+   t-input
+   ========================================================================== */
+
+.t-input {
+    padding-top: 0.4375rem;
+    padding-bottom: 0.4375rem;
+    @apply appearance-none
+         block
+         w-full
+         px-3
+         leading-5
+         border
+         border-gray-300
+         text-gray-700
+         text-base
+         rounded
+         placeholder-gray-400
+         focus_outline-none
+         focus_ring-blue-500
+         focus_border-blue-500;
+}
+
+.t-input-with-icon {
+    @apply block
+           text-gray-400
+           relative;
+}
+.t-input-with-icon .t-icon {
+    @apply top-2
+           left-2
+           absolute;
+
+}
+.t-input-with-icon .t-input {
+    @apply pl-8;
+}
+
+.t-input-error {
+    @apply border-red-500;
+}
+
+.t-input-with-prepend {
+  @apply flex
+         items-center;
+}
+
+.t-input-with-prepend *:first-child {
+  @apply z-10;
+}
+
+.t-input-with-prepend .t-button {
+  @apply rounded-r-none;
+}
+
+.t-input-with-prepend .t-input {
+  @apply rounded-l-none
+         -ml-px;
+}

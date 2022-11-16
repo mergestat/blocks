@@ -1,0 +1,59 @@
+.t-tag {
+    min-height: 1.75rem;
+    @apply inline-flex
+           items-center
+           text-sm
+           font-medium
+           cursor-pointer
+           rounded
+           px-3
+           gap-1
+           leading-6
+           border
+           focus_outline-none
+           focus_ring-offset-2
+           focus_ring-blue-500
+}
+
+.t-tag .t-icon {
+  @apply w-4
+         h-4;
+}
+
+.t-tag:not(.t-tag-icon) > .t-icon:first-child {
+  @apply -ml-1;
+}
+
+.t-tag:not(.t-tag-icon) > .t-icon:last-child {
+  @apply -mr-1;
+}
+
+.t-tag-gray {
+    @apply  border-gray-200
+            text-gray-600
+            bg-gray-100
+            hover_bg-gray-150
+            active_shadow-inner;
+}
+
+.t-tag-blue {
+    @apply  border-blue-200
+            bg-blue-100
+            hover_bg-blue-200
+            active_shadow-inner
+            text-blue-600
+}
+
+.t-tag-group {
+  @apply inline-flex
+         items-center;
+}
+
+.t-tag-group .t-tag:first-child {
+  @apply rounded-r-none
+         border-r-0;
+}
+
+.t-tag-group .t-tag:last-child {
+  @apply rounded-l-none;
+}

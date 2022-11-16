@@ -1,0 +1,248 @@
+/* ==========================================================================
+  t-table
+  ---
+  Apply a .t-table-default modifier to tables to avoid adding individual classes
+  to every th/td element
+   ========================================================================== */
+
+.t-table-default {
+  @apply w-full;
+}
+
+/* Table with sticky header */
+.t-table-sticky-header {
+  border-collapse: collapse;
+}
+
+.t-table-sticky-header thead tr {
+  @apply sticky
+         z-10
+         top-0;
+}
+
+.t-table-sticky-header thead tr th:before {
+  content: '';
+  @apply absolute
+         left-0
+         w-full
+         -bottom-px
+         border-b-2;
+}
+
+/* When a table heading occurs in the tbody part */
+.t-table-heading-in-body {
+  @apply px-6
+         py-4
+         whitespace-nowrap
+         font-medium
+         text-gray-900;
+}
+
+/* custom class rc table */
+.t-table-thead-in-body {
+  @apply px-6
+         py-4
+         whitespace-nowrap
+         font-medium
+         text-gray-900;
+}
+
+/* A regular cell */
+.t-table-cell,
+.t-table-default td {
+  @apply border-b
+         border-gray-200;
+}
+
+/* A regular heading */
+.t-table-heading,
+/* custom class rc table */
+.t-table-thead,
+.t-table-default th {
+  @apply py-3
+         text-left
+         border-b-2
+         font-semibold
+         bg-gray-50
+         text-gray-700;
+}
+
+/* Alignment for button toolbars */
+.t-table-default .t-button-toolbar,
+.t-table-cell .t-button-toolbar {
+  @apply justify-end;
+}
+
+/* Last rows should not show a border */
+.t-table tr:last-child .t-table-cell,
+.t-table-default tr:last-child td {
+  @apply border-0;
+}
+
+.t-table-hover tbody .t-table-row-muted:hover,
+.t-table-hover tbody .t-table-row-muted:focus-within {
+  @apply bg-gray-100;
+}
+
+/* custom class rc table */
+.t-table-content table {
+  @apply w-full;
+}
+
+/* Code in props tables */
+.t-table-props code {
+  @apply bg-gray-100
+         text-sm
+         text-red-500
+         p-1;
+}
+
+/* When table cell content should not wrap */
+.t-table-nowrap th,
+.t-table-nowrap td {
+  white-space: nowrap;
+}
+
+/* Table with hover effect on rows */
+.t-table-hover tbody tr:hover,
+.t-table-hover tbody tr:focus-within {
+  @apply bg-gray-50;
+}
+
+/* Table with hover actions */
+.t-table-hover-actions .t-button-toolbar {
+  @apply hidden;
+}
+
+.t-table-hover-actions tbody tr {
+  @apply relative;
+}
+
+.t-table-hover-actions tbody tr:hover .t-button-toolbar {
+  @apply block
+         top-1/2
+         transform
+         -translate-y-1/2
+         absolute
+         right-6;
+}
+
+/* Table with clickable rows  */
+.t-table-clickable tr[data-href]:hover {
+  @apply bg-gray-50
+           cursor-pointer;
+}
+
+/* Table col visible for screen readers only */
+.t-sr-accessible-table-col {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Sortable tables */
+.sortable__th__arrow-wrapper {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sortable__th__arrow {
+  margin-left: 5px;
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  width: 0px;
+  height: 0px;
+  font-size: 0px;
+  line-height: 0;
+  content: '';
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
+.sortable__th__arrowup {
+  border-bottom-width: 4px;
+  border-bottom-color: #cccccc;
+  border-top: none;
+}
+
+.sortable__th__arrowdown {
+  margin-top: 3px;
+  border-top-width: 4px;
+  border-top-color: #cccccc;
+  border-bottom: none;
+}
+
+table th.up .sortable__th__arrow {
+  border-bottom-color: #00a8ea;
+}
+
+table th.down .sortable__th__arrow {
+  border-top-color: #00a8ea;
+}
+
+/* Last rows should not show a border */
+.t-table tr:last-child .t-table-cell,
+.t-table-default tr:last-child td {
+  @apply border-0;
+}
+
+/* Table spacing */
+.t-table-default td,
+.t-table-default th {
+  @apply px-6;
+}
+
+.t-table-default td:first-child,
+.t-table-default th:first-child {
+  @apply pl-8;
+}
+
+.t-table-default td:last-child,
+.t-table-default th:last-child {
+  @apply pr-8;
+}
+
+/* Bordered tables */
+.t-table-bordered td,
+.t-table-bordered th {
+  @apply border
+         border-gray-250;
+}
+
+.t-table-bordered th {
+  @apply border-t-0
+         border-b-2;
+}
+
+.t-table-bordered tr:last-child td {
+  @apply border-0
+          border-r
+          border-l;
+}
+
+.t-table-bordered td:first-child,
+.t-table-bordered th:first-child,
+.t-table-bordered tr:last-child td:first-child {
+  @apply border-l-0;
+}
+
+.t-table-bordered td:last-child,
+.t-table-bordered th:last-child,
+.t-table-bordered tr:last-child td:last-child {
+  @apply border-r-0;
+}
+
+/* Dense tables */
+.t-table-dense th,
+.t-table-dense td {
+  @apply py-2.5
+         text-sm;
+}
+
+/* Muted table row */
+.t-table-row-muted {
+  @apply bg-gray-50;
+}

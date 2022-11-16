@@ -1,0 +1,57 @@
+/* ==========================================================================
+   t-content
+   ---
+   Usage: wrap a .t-content class around content to turn it into rich text.
+
+   .t-h1, .t-h2, .t-body-1, t-body 2
+   ---
+   Usage: use these classes to style individual components like their rich text equivalent
+   ========================================================================== */
+
+.t-h1,
+.t-h2,
+.t-h3,
+.t-h4,
+.t-content h1,
+.t-content h2,
+.t-content h3,
+.t-content h4 {
+    @apply text-gray-900
+           font-semibold;
+}
+
+.t-h1,
+.t-content h1 {
+    @apply text-2xl
+           mb-6;
+}
+
+.t-h2,
+.t-content h2 {
+    @apply text-xl
+           mb-4;
+}
+
+.t-h3,
+.t-content h3 {
+    @apply text-lg
+           mb-3;
+}
+
+.t-h4,
+.t-content h4 {
+    @apply text-base
+           mb-2;
+}
+
+.t-body-1 {
+    @apply text-base
+           leading-5
+           mb-2;
+}
+
+.t-body-2 {
+    @apply text-sm
+           leading-4
+           mb-2;
+}

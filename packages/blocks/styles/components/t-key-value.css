@@ -1,0 +1,10 @@
+.t-key-value h3 {
+  @apply text-sm
+         font-medium
+         text-gray-500
+         mb-2;
+}
+.t-key-value p {
+  @apply text-gray-700
+          text-base;
+}

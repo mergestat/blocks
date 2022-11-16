@@ -1,0 +1,31 @@
+.t-radio-card {
+  width: fit-content;
+  min-height: 64px;
+  min-width: 240px;
+  cursor: pointer;
+  @apply bg-white
+         rounded-md
+         font-medium
+         flex
+         items-center
+         p-5
+         gap-x-4
+         text-base
+         border
+         border-gray-200
+         hover_bg-gray-50
+         active_bg-gray-150
+         active_shadow-inner
+         text-gray-600;
+}
+
+.t-radio-card.t-tag-blue {
+  @apply bg-blue-100
+         text-blue-600
+         ring-1
+         ring-inset
+         ring-blue-500
+         border-blue-500
+         hover_from-blue-100
+         hover_to-blue-100;
+}

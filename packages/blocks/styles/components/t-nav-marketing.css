@@ -1,0 +1,125 @@
+/* ==========================================================================
+   t-nav-marketing
+   ========================================================================== */
+
+/* purgecss start ignore */
+.t-nav-marketing-menu {
+    @apply hidden
+           md_flex
+           items-center
+           space-x-8;
+}
+
+.t-nav-marketing-item {
+    @apply py-2
+           px-0
+           text-lg
+           flex
+           opacity-50
+           items-center
+           border-b-2
+           border-transparent
+           font-medium;
+}
+
+.t-nav-marketing-item-active {
+    @apply border-blue-600
+           text-blue-600
+           opacity-100;
+}
+
+.t-nav-marketing-i .t-nav-marketing-item {
+    @apply text-white;
+}
+
+.t-nav-marketing-i .t-nav-marketing-item-active {
+    @apply border-white;
+}
+
+.t-nav-marketing-active {
+    @apply bg-gray-700
+           bottom-0
+           top-28
+           left-0
+           right-0
+           fixed
+           opacity-100
+           h-full
+           w-full
+           overflow-auto
+           z-10;
+}
+
+.t-nav-marketing-active .t-nav-marketing-menu {
+    @apply space-x-0
+           space-y-8
+           pt-14
+           px-8
+           block
+           container
+           mx-auto;
+}
+
+.t-nav-marketing-active .t-nav-marketing-item {
+    @apply text-2xl
+           border-b-0;
+}
+
+.t-nav-marketing-toggle {
+    @apply w-6
+           h-6
+           flex
+           bg-none
+           appearance-none
+           cursor-pointer
+           border-none
+           items-center
+           justify-center;
+}
+
+.t-nav-marketing-toggle .t-icon {
+    z-index: 11;
+    @apply block
+           w-6
+           h-6
+           text-white;
+}
+
+.t-nav-marketing-toggle .t-icon * {
+    fill: currentColor;
+}
+
+.t-nav-marketing-toggle:not(.t-nav-marketing-toggle-active) {
+    @apply md_hidden;
+}
+
+.t-nav-marketing-toggle-line1,
+.t-nav-marketing-toggle-line2,
+.t-nav-marketing-toggle-line3 {
+    transform-origin: 12px 13px;
+}
+
+.t-nav-marketing-toggle-line1 {
+    @apply transform
+           -translate-y-2;
+}
+
+.t-nav-marketing-toggle-line3 {
+    @apply transform
+           translate-y-2;
+}
+
+
+.t-nav-marketing-toggle-active .t-nav-marketing-toggle-line1 {
+    transform: rotate(45deg);
+}
+
+.t-nav-marketing-toggle-active .t-nav-marketing-toggle-line2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.t-nav-marketing-toggle-active .t-nav-marketing-toggle-line3 {
+    transform: rotate(-45deg);
+}
+/* purgecss end ignore */

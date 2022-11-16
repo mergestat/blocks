@@ -1,0 +1,48 @@
+/* ==========================================================================
+   t-tabs
+   ---
+   Top navigation (usually inside of a toolbar)
+   ========================================================================== */
+
+.t-tabs ul {
+    @apply flex
+            space-x-4;
+}
+
+.t-tab {
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+    @apply px-1
+           flex
+           items-center
+           border-b-2
+           border-transparent
+           font-medium
+           -mb-px;
+}
+
+.t-tab[disabled] {
+    @apply from-gray-100
+           to-gray-100
+           text-gray-200
+           opacity-50
+           border-gray-200
+           pointer-events-none;
+}
+
+/* purgecss start ignore */
+.t-tab.t-tab-active,
+.t-tab[aria-selected="true"] {
+    @apply border-blue-500
+           text-blue-600
+           whitespace-nowrap;
+}
+
+.t-tab.t-tab-default,
+.t-tab[aria-selected="false"] {
+    @apply border-transparent
+           text-gray-500
+           hover_text-gray-700
+           hover_border-gray-300;
+}
+/* purgecss end ignore */

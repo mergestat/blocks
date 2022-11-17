@@ -12,4 +12,12 @@ export type IconPropsT = {
   width?: string | number;
   height?: string | number;
   className?: string;
-} & React.SVGAttributes<SVGAElement>;
+} & React.SVGAttributes<SVGAElement> &
+  React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > &
+  React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  >

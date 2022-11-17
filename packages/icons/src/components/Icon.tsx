@@ -22,13 +22,11 @@ const fallbackIcon = {
   viewBox: '0 0 24 24',
 };
 
-export const Icon: React.FC<
-  IconPropsT &
-  React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  >
-> = ({ as: element, className, ...props }) => {
+interface IconStyleProp {
+  [key: string]: string | number
+}
+
+export const Icon: React.FC<IconPropsT> = ({ as: element, className, ...props }) => {
   const {
     viewBox,
     color = 'currentColor',
@@ -40,7 +38,7 @@ export const Icon: React.FC<
   const _className = className ? cx('mergestat-icon', { [className]: !!className }) : 'mergestat-icon'
   const _viewBox = viewBox ?? fallbackIcon.viewBox;
 
-  const styles: any = {
+  const styles: IconStyleProp = {
     lineHeight: '1em',
     flexShrink: 0,
     color,
@@ -59,7 +57,7 @@ export const Icon: React.FC<
     if (typeof element === 'string') {
       return (
         <div className={_className}>
-          <img src={element} {...shared} {...rest} />
+          <img src={element} {...shared} {...rest} alt='' />
         </div>
       );
     }

@@ -26,14 +26,14 @@ module.exports = {
       blue: colors.sky,
       yellow: colors.amber,
       white: colors.white,
-    },
+    }
   },
   variants: {
     extend: {
       backgroundColor: ['active'],
       backgroundImage: ['active'],
       boxShadow: ['active'],
-      gradientColorStops: ['active'],
+      gradientColorStops: ['active']
     },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],

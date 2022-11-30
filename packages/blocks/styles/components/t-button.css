@@ -85,6 +85,7 @@
          to-gray-100
          hover_to-gray-150
          active_from-gray-200
+         active_to-gray-200
          active_shadow-inner;
 }
 
@@ -96,6 +97,7 @@
          hover_from-blue-600
          hover_to-blue-700
          active_from-blue-700
+         active_to-blue-700
          active_shadow-inner
          text-white;
 }
@@ -130,6 +132,7 @@
           hover_from-red-600
           hover_to-red-700
           active_from-red-700
+          active_to-red-700
           active_shadow-inner;
 }
 
@@ -140,6 +143,8 @@
       bg-gradient-to-b
       from-white
       to-gray-100
+      active_from-gray-200
+      active_to-gray-200
       hover_from-gray-100
       hover_to-gray-50;
 }

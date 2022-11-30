@@ -1,8 +1,7 @@
-import Tippy, { useSingleton } from '@tippyjs/react';
+import { createPopper, Instance } from '@popperjs/core';
 import cx from 'classnames';
-import React, { Fragment } from 'react';
-
-import 'tippy.js/dist/tippy.css';
+import React, { useEffect, useId, useState } from 'react';
+import './Button.css';
 import type { ButtonBaseProps, ButtonProps } from './types';
 
 export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
@@ -21,11 +20,9 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
     isActive = false,
     tooltip,
     tooltipOffset,
-    tooltipPlacement = 'auto',
+    tooltipPlacement = 'top',
     ...props
   }, ref) => {
-    const [source, target] = useSingleton({ overrides: ['placement'] });
-
     const getButtonSkin = (skin: string) => {
       switch (skin) {
         case 'primary':
@@ -76,9 +73,47 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
 
     const _classname = className ? { [className]: !!className } : {}
 
+    const [popperInstance, setPopperInstance] = useState<Instance>()
+    const [tooltipElement, setTooltipElement] = useState<HTMLElement>()
+
+    const idButton = useId()
+    const idTooltip = useId()
+    const idArrow = useId()
+
+    const show = () => {
+      tooltipElement && tooltipElement.setAttribute('data-show', '')
+      popperInstance && popperInstance.update();
+    }
+
+    const hide = () => {
+      tooltipElement && tooltipElement.removeAttribute('data-show')
+    }
+
+    useEffect(() => {
+      const buttonElement = document.getElementById(idButton)
+      const tooltipElement = document.getElementById(idTooltip) as HTMLElement
+
+      if (buttonElement && tooltipElement) {
+        setTooltipElement(tooltipElement)
+
+        setPopperInstance(createPopper(buttonElement, tooltipElement, {
+          placement: tooltipPlacement,
+          modifiers: [
+            {
+              name: 'offset',
+              options: {
+                offset: tooltipOffset || [0, 10],
+              },
+            },
+          ],
+        }))
+      }
+    }, [tooltipPlacement, tooltipOffset, idButton, idTooltip])
+
     const MainComp = (
       <button
         {...props}
+        id={idButton}
         ref={ref as React.LegacyRef<HTMLButtonElement>}
         onClick={onClick}
         className={cx(
@@ -94,6 +129,11 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
           size && `t-button-${size}`
         )}
         type={type || 'button'}
+        aria-describedby="tooltip"
+        onMouseEnter={show}
+        onFocus={show}
+        onMouseLeave={hide}
+        onBlur={hide}
       >
         {startIcon && startIcon}
         {(children || label) && (
@@ -106,40 +146,42 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
     )
 
     return tooltip ? (
-      <Fragment>
-        <Tippy
-          singleton={source}
-          delay={100}
-          offset={tooltipOffset || [0, 10]}
-        />
-
-        <Tippy content={tooltip} singleton={target} placement={tooltipPlacement}>
-          {props.disabled ? (
-            <div
-              ref={ref as React.LegacyRef<HTMLDivElement>}
-              className={cx(
-                't-button t-button-disabled pointer-events-auto cursor-default bg-gray-100',
-                {
-                  't-button-icon': isIconOnly,
-                  't-button-block': isBlock,
-                  ..._classname,
-                },
-                size && `t-button-${size}`
-              )}
-            >
-              {startIcon && startIcon}
-              {(children || label) && (
-                <span>
-                  {children ? children : label ? label : ''}
-                </span>
-              )}
-              {endIcon && endIcon}
-            </div>
-          ) : (
-            MainComp
-          )}
-        </Tippy>
-      </Fragment>
+      <>
+        {props.disabled ? (
+          <div
+            id={idButton}
+            ref={ref as React.LegacyRef<HTMLDivElement>}
+            className={cx(
+              't-button t-button-disabled pointer-events-auto cursor-default bg-gray-100',
+              {
+                't-button-icon': isIconOnly,
+                't-button-block': isBlock,
+                ..._classname,
+              },
+              size && `t-button-${size}`
+            )}
+            aria-describedby="tooltip"
+            onMouseEnter={show}
+            onFocus={show}
+            onMouseLeave={hide}
+            onBlur={hide}
+          >
+            {startIcon && startIcon}
+            {(children || label) && (
+              <span>
+                {children ? children : label ? label : ''}
+              </span>
+            )}
+            {endIcon && endIcon}
+          </div>
+        ) : (
+          MainComp
+        )}
+        <div id={idTooltip} className='tooltip' role="tooltip">
+          {tooltip}
+          <div id={idArrow} className='arrow' data-popper-arrow></div>
+        </div>
+      </>
     ) : (
       MainComp
     );

@@ -93,6 +93,7 @@ export const Tooltip = () => {
   return (
     <>
       <Button tooltip='Button example with Tooltip' className='mr-2'>Button</Button>
+      <Button tooltip='Button example with Tooltip' className='mr-2' tooltipPlacement='right'>Button</Button>
       <Button disabled tooltip='Button example with Tooltip'>Button</Button>
     </>
   );

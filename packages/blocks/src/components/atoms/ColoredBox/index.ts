@@ -1,0 +1,1 @@
+export { ColoredBox } from './ColoredBox';

@@ -1,7 +1,7 @@
 import { ChevronRightIcon, ClipboardIcon } from '@mergestat/icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Button } from '../Button';
-import { Label } from '../Label';
+import { Button } from '../../atoms/Button/Button';
+import { Label } from '../../atoms/Label';
 import { Toolbar } from '../Toolbar';
 import { Accordion } from './Accordion';
 

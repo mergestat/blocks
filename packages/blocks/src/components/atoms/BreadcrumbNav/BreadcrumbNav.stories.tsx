@@ -1,6 +1,6 @@
-import { ColoredBox } from '@atoms/ColoredBox/ColoredBox';
 import { CircleErrorFilledIcon, ExternalLinkIcon, RepositoryIcon } from '@mergestat/icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ColoredBox } from '../ColoredBox/ColoredBox';
 import { BreadcrumbNav } from './BreadcrumbNav';
 
 export default {

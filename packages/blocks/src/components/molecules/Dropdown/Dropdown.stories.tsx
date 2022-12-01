@@ -1,7 +1,7 @@
-import { Button } from '@atoms/Button';
 import { CaretDownIcon } from '@mergestat/icons';
-import { Menu } from '@molecules/Menu/Menu';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Button } from '../../atoms/Button';
+import { Menu } from '../Menu/Menu';
 import { Dropdown } from './Dropdown';
 
 export default {

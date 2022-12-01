@@ -23,12 +23,6 @@
       ],
       "@mergestat/icons": [
         "packages/icons/src/index.ts"
-      ],
-      "@atoms/*": [
-        "packages/blocks/src/components/atoms/*"
-      ],
-      "@molecules/*": [
-        "packages/blocks/src/components/molecules/*"
       ]
     }
   },

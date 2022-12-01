@@ -1,8 +1,8 @@
-import { Button } from '@atoms/Button';
-import { Label } from '@atoms/Label';
 import { ChevronRightIcon, ClipboardIcon } from '@mergestat/icons';
-import { Toolbar } from '@molecules/Toolbar/Toolbar';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Button } from '../../atoms/Button';
+import { Label } from '../../atoms/Label/Label';
+import { Toolbar } from '../Toolbar/Toolbar';
 import { Accordion } from './Accordion';
 
 export default {

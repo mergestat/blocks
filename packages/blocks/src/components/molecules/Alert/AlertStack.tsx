@@ -2,7 +2,6 @@ import cx from 'classnames';
 import Notification from 'rc-notification';
 import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
 import React from 'react';
-
 import { Alert } from './Alert';
 
 const defaultDuration = 4.5;

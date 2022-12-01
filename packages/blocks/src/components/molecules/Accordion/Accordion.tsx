@@ -1,7 +1,7 @@
+import { Label } from '@atoms/Label';
 import { ChevronRightIcon } from '@mergestat/icons';
 import cx from 'classnames';
 import React from 'react';
-import { Label } from '../../atoms/Label';
 
 type AccordionProps = {
   title?: string | React.ReactNode;

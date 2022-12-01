@@ -1,5 +1,5 @@
+import { Spinner } from '@atoms/Loader/Spinner';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Spinner } from '../../atoms/Loader/Spinner';
 import { Alert } from './Alert';
 
 export default {

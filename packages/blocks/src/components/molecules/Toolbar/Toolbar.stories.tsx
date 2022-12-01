@@ -1,7 +1,7 @@
+import { Button } from '@atoms/Button';
 import { PencilIcon } from '@mergestat/icons';
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import { Button } from '../../atoms/Button/Button';
 import { Toolbar } from './Toolbar';
 
 export default {

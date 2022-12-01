@@ -1,6 +1,6 @@
+import { Spinner } from '@atoms/Loader/Spinner';
 import { ClipboardIcon } from '@mergestat/icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Spinner } from '../Loader/Spinner';
 import { Button, ButtonGroup } from './Button';
 
 export default {

@@ -1,7 +1,7 @@
+import { Button } from '@atoms/Button';
 import { XIcon } from '@mergestat/icons';
 import cx from 'classnames';
 import React, { useState } from 'react';
-import { Button } from '../../atoms/Button';
 import { AlertIcon } from './AlertIcon';
 
 type AlertProps = {

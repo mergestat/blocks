@@ -7,4 +7,6 @@ export * from './components/atoms/Label';
 export * from './components/atoms/Loader';
 export * from './components/molecules/Accordion';
 export * from './components/molecules/Alert';
+export * from './components/molecules/Dropdown';
+export * from './components/molecules/Menu';
 export * from './components/molecules/Toolbar';

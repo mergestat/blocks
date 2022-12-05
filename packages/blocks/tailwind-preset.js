@@ -36,6 +36,12 @@ module.exports = {
       gradientColorStops: ['active']
     },
   },
+  safelist: [
+    {
+      pattern: /text-(3|6|7|8|9)xl/,
+      variants: ['sm', 'md', 'lg'],
+    },
+  ],
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],
   separator: '_',
 }

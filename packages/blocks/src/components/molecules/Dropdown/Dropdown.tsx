@@ -3,13 +3,15 @@ import React, { useState } from 'react';
 import { Dropdown as RoDropdown, useDropdownMenu, useDropdownToggle } from 'react-overlays';
 import type { DropDirection } from 'react-overlays/DropdownContext';
 
+type DropdownZIndex = 0 | 10 | 20 | 30 | 40 | 50 | 'auto' | undefined
+
 type DropdownProps = {
   alignEnd?: boolean
   trigger: React.ReactNode
   role?: string
   drop?: DropDirection
   disabled?: boolean
-  zIndex?: number
+  zIndex?: DropdownZIndex
   overlay: (close: () => void) => React.ReactNode
 }
 
@@ -22,19 +24,19 @@ type DropdownToggleProps = {
 const DropdownContent: React.FC<
   {
     overlay: () => React.ReactNode;
-    zIndex: number;
+    zIndex: DropdownZIndex;
   } & React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLSpanElement>,
     HTMLSpanElement
   >
 > = ({ overlay, zIndex }) => {
-  const [props, { show }] = useDropdownMenu({ flip: true, offset: [0, 8] })
+  const [props, { show }] = useDropdownMenu({ flip: true })
 
   return (
-    <div {...props} className={cx('absolute flex-col', show ? 'flex' : 'hidden', { 'z-index': zIndex })}>
+    <div {...props} className={cx('absolute flex-col', show ? 'flex' : 'hidden', zIndex ? `z-${zIndex}` : 'z-10')}>
       {overlay()}
     </div>
-  );
+  )
 }
 
 const DropdownToggle: React.FC<DropdownToggleProps> = ({ id, disabled, children }) => {
@@ -54,8 +56,8 @@ const DropdownToggle: React.FC<DropdownToggleProps> = ({ id, disabled, children 
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
 export const Dropdown: React.FC<DropdownProps> = ({
   alignEnd,
@@ -64,7 +66,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   trigger,
   overlay,
   disabled = false,
-  zIndex = 9,
+  zIndex,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -90,5 +92,5 @@ export const Dropdown: React.FC<DropdownProps> = ({
         </>
       }
     />
-  );
+  )
 }

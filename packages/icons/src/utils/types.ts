@@ -5,6 +5,7 @@ export type IconProps = JSX.IntrinsicAttributes & {
   className?: string;
 } & React.SVGAttributes<SVGAElement> &
   React.ClassAttributes<HTMLDivElement> &
+  React.ClassAttributes<HTMLImageElement> &
   React.HTMLAttributes<HTMLDivElement> & { children?: React.ReactNode };
 
 export type IconPropsT = {

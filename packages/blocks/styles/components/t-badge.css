@@ -30,6 +30,11 @@
     @apply px-1;
 }
 
+.t-badge-rounded {
+  @apply rounded-full
+         px-3;
+}
+
 /* Badge skins */
 .t-badge-default {
     @apply bg-gray-100
@@ -62,11 +67,16 @@
            text-white;
 }
 
+.t-badge-dark {
+  @apply bg-gray-700
+         border-gray-600
+         text-white;
+}
+
 .t-badge-group {
   @apply inline-flex
          items-center;
 }
-
 
 .t-badge-group .t-badge:first-child {
   @apply rounded-r-none

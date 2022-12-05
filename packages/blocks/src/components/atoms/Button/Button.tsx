@@ -1,7 +1,7 @@
 import { createPopper, Instance } from '@popperjs/core';
 import cx from 'classnames';
 import React, { useEffect, useId, useState } from 'react';
-import './Button.css';
+import '../../../../styles/components/t-tooltip.css';
 import type { ButtonBaseProps, ButtonProps } from './types';
 
 export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
@@ -108,7 +108,8 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
           ],
         }))
       }
-    }, [tooltipPlacement, tooltipOffset, idButton, idTooltip])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const MainComp = (
       <button

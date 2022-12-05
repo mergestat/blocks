@@ -3,17 +3,17 @@ import cx from 'classnames';
 import React, { useState } from 'react';
 
 type BadgeProps = {
-  label?: string;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  className?: string;
-  variant?: 'primary' | 'success' | 'warning' | 'danger' | 'default';
-  iconOnly?: boolean;
-  closable?: boolean;
-  action?: boolean;
+  label?: string
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode
+  className?: string
+  variant?: 'primary' | 'success' | 'warning' | 'danger' | 'dark' | 'default';
+  rounded?: boolean
+  iconOnly?: boolean
+  closable?: boolean
+  action?: boolean
   children?: React.ReactNode
-  onClose?: () => void;
-  onClick?: () => void;
+  onClose?: () => void
 }
 
 export const Badge: React.FC<BadgeProps> = ({
@@ -22,12 +22,12 @@ export const Badge: React.FC<BadgeProps> = ({
   startIcon,
   endIcon,
   variant = 'default',
+  rounded = false,
   iconOnly,
   closable,
   action,
   children,
-  onClose,
-  onClick
+  onClose
 }) => {
   const [visible, setVisible] = useState<boolean>(true);
 
@@ -40,6 +40,7 @@ export const Badge: React.FC<BadgeProps> = ({
       className={cx('t-badge', `t-badge-${variant}`, {
         't-badge-icon': iconOnly,
         't-badge-action cursor-pointer': action,
+        't-badge-rounded': rounded,
         ..._classname
       })}
     >
@@ -69,6 +70,5 @@ export const Badge: React.FC<BadgeProps> = ({
     </div>
   ) : (
     MainComp
-  )
-  )
+  ))
 }

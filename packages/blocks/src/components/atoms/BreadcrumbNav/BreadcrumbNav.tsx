@@ -1,8 +1,9 @@
-import React from 'react';
 import { ChevronRightIcon } from '@mergestat/icons';
 import cx from 'classnames';
+import React from 'react';
 
 type BreadcrumbNavProps = {
+  size?: 'default' | 'sm'
   data: {
     text: string;
     startIcon?: React.ReactNode;
@@ -11,9 +12,9 @@ type BreadcrumbNavProps = {
   }[];
 };
 
-export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ data }) => {
+export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ data, size }) => {
   return (
-    <div className="t-breadcrumb-nav">
+    <div className={cx("t-breadcrumb-nav", { 't-breadcrumb-nav-sm': size === 'sm' })}>
       {data.map((item, index) => {
         return (
           <div

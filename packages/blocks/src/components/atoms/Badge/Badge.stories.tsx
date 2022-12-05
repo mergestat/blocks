@@ -6,6 +6,15 @@ export default {
   title: 'Atoms/Badge',
   component: Badge,
   argTypes: {},
+  parameters: {
+    backgrounds: {
+      default: 'default',
+      values: [
+        { name: 'default', value: '#FFFFFF' },
+        { name: 'dark', value: '#1F2937' },
+      ],
+    },
+  },
 } as ComponentMeta<typeof Badge>;
 
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
@@ -36,6 +45,13 @@ BadgeSecondary.args = {
   variant: 'default',
 }
 
+export const BadgeRounded = Template.bind({});
+BadgeRounded.args = {
+  label: 'Badge',
+  variant: 'default',
+  rounded: true
+}
+
 export const BadgeSuccess = Template.bind({});
 BadgeSuccess.args = {
   label: 'Badge',
@@ -53,6 +69,16 @@ BadgeDanger.args = {
   label: 'Badge',
   variant: 'danger',
 }
+
+export const BadgeDark = Template.bind({});
+BadgeDark.args = {
+  label: 'Badge',
+  variant: 'dark',
+}
+
+BadgeDark.parameters = {
+  backgrounds: { default: 'dark' },
+};
 
 export const BadgeCounter = Template.bind({});
 BadgeCounter.args = {

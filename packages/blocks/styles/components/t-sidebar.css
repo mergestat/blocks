@@ -1,0 +1,142 @@
+/* ==========================================================================
+    t-sidebar
+   ========================================================================== */
+
+.t-sidebar {
+  @apply h-full
+         border-r
+         border-gray-200
+         bg-white
+         overflow-y-auto
+         w-64;
+}
+
+.t-sidebar-inner {
+  @apply flex
+         flex-col
+         h-full
+         flex-grow
+         flex-shrink
+         overflow-y-auto;
+}
+
+.t-sidebar-header {
+  @apply px-6
+         py-5
+         mb-5;
+}
+
+.t-sidebar-footer {
+  @apply px-6
+         py-5
+         mt-5;
+}
+
+.t-sidebar-main {
+  @apply flex-grow
+         list-none;
+}
+
+.t-sidebar-main li + li {
+  @apply mt-1;
+}
+
+.t-sidebar-logo img {
+  @apply h-7;
+}
+
+.t-sidebar-item {
+  @apply  flex
+          items-center
+          py-2
+          px-6
+          space-x-3
+          font-medium
+          text-gray-500
+          focus_outline-none
+          focus_ring-2
+          ring-inset
+          focus_ring-blue-500
+          hover_bg-blue-50
+          hover_text-blue-600
+          cursor-pointer;
+}
+
+.t-sidebar-item-icon-wrap {
+  color: inherit;
+  @apply flex-shrink-0;
+}
+
+.t-sidebar-divider {
+  @apply border-b
+       border-gray-200
+         pt-2
+         mb-2;
+}
+
+.t-sidebar-item.active {
+    @apply text-blue-600
+           bg-blue-100;
+}
+
+.t-sidebar-item.disabled {
+    @apply from-gray-100
+           to-gray-100
+           text-gray-400
+           border-gray-200
+           pointer-events-none
+           cursor-not-allowed;
+}
+
+.t-sidebar-item-sub {
+  @apply text-sm
+         py-2.5
+         pl-14;
+}
+
+.t-sidebar-nav-sub {
+  @apply  hidden
+          mb-4
+          mt-1;
+}
+
+.t-sidebar-nav-sub.active {
+  @apply block;
+}
+
+.t-sidebar-compact {
+  @apply w-28;
+}
+
+.t-sidebar-item-compact {
+  @apply flex-col
+         text-center
+         space-x-0
+         mx-0
+         py-4;
+}
+
+.t-sidebar-item-compact .t-sidebar-item-icon-wrap {
+  @apply mr-0
+         mb-1;
+}
+
+.t-sidebar-dark .t-sidebar-item {
+  @apply text-gray-400
+          hover_bg-gray-700
+          hover_text-gray-300;
+}
+
+.t-sidebar-dark .t-sidebar-divider {
+  @apply border-gray-700;
+}
+
+.t-sidebar-dark {
+  @apply bg-gray-800
+         text-gray-300;
+}
+
+.t-sidebar-dark .t-sidebar-item.active {
+  @apply bg-gray-700
+         text-white;
+}

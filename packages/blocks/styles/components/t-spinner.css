@@ -4,8 +4,8 @@
 
 .t-spinner {
     @apply inline-block
-           rounded-full;
-           animation: spin 0.75s linear infinite;
+           rounded-full
+           animate-spin;
 }
 
 .t-spinner-primary {

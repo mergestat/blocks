@@ -9,6 +9,7 @@
     @apply origin-top-right
            relative
            py-1
+           mt-1
            rounded-md
            shadow-lg
            border

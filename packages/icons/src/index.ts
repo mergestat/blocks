@@ -1,3 +1,4 @@
+export { Icon } from './components/Icon';
 export { default as ArchiveIcon } from './icons//Archive';
 export { default as ArrowDownIcon } from './icons//ArrowDown';
 export { default as ArrowLeftIcon } from './icons//ArrowLeft';
@@ -82,3 +83,4 @@ export { default as WarningIcon } from './icons/Warning';
 export { default as WarningFilledIcon } from './icons/WarningFilled';
 export { default as XIcon } from './icons/X';
 export * from './utils/types';
+

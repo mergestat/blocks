@@ -18,7 +18,7 @@
     "lint:icons": "npx nx lint icons",
     "start:blocks": "npx nx storybook blocks",
     "start:icons": "npx nx storybook icons",
-    "storybook:build": "npx nx build-storybook blocks"
+    "build-storybook": "npx nx build-storybook blocks"
   },
   "private": true,
   "dependencies": {

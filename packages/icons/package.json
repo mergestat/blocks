@@ -1,0 +1,16 @@
+{
+  "name": "@mergestat/icons",
+  "version": "1.2.3",
+  "description": "Set of Icon for MergeStat project",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:mergestat/blocks-next.git",
+    "directory": "packages/icons"
+  },
+  "homepage": "https://github.com/mergestat/blocks-next/tree/main/packages/icons#readme",
+  "publishConfig": {
+    "access": "public",
+    "name": "@mergestat/icons",
+    "registry": "https://registry.npmjs.org"
+  }
+}

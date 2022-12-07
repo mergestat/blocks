@@ -1,8 +1,25 @@
 {
-  "name": "ui-components",
-  "version": "0.0.0",
+  "name": "blocks",
+  "version": "1.0.0",
+  "description": "MergeStat frontend packages",
+  "homepage": "https://github.com/mergestat/blocks/#readme",
+  "bugs": {
+    "url": "https://github.com/mergestat/blocks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/mergestat/blocks.git"
+  },
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "release": "npx nx build blocks && cd dist/packages/blocks && npm publish",
+    "release:icons": "npx nx build icons && cd dist/packages/icons && npm publish",
+    "lint:blocks": "npx nx lint blocks",
+    "lint:icons": "npx nx lint icons",
+    "start:blocks": "npx nx storybook blocks",
+    "start:icons": "npx nx storybook icons",
+    "build-storybook": "npx nx build-storybook blocks"
+  },
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.4",
@@ -48,6 +65,7 @@
     "autoprefixer": "^10.4.13",
     "babel-jest": "28.1.1",
     "babel-loader": "8.1.0",
+    "chromatic": "^6.11.4",
     "cypress": "^11.0.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",

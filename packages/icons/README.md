@@ -1,7 +1,33 @@
-# icons
+# MergeStat UI Icon Library
 
-This library was generated with [Nx](https://nx.dev).
+MergeStat UI Icon is a set of React components and hooks used to build pages MergeStat project.
 
-## Running unit tests
+## Setup
 
-Run `nx test icons` to execute the unit tests via [Jest](https://jestjs.io).
+Instal the package by run this command:
+
+```sh
+npm i @mergestat/icons
+```
+
+import css assets into top level of component project.
+
+```js
+import '@mergestat/icons/styles/main.css'
+```
+
+import the icon like other common package. example.
+
+```js
+import { Github } form '@mergestat/icons'
+
+export const Example = () => (
+  <div>
+    <Github />
+  <div>
+)
+```
+
+## Available Icons
+
+Check this docs to see the available icons [Storybook documentation]()

@@ -1,3 +1,5 @@
+@import "tailwindcss/base";
+
 @import "./custom-base-styles.css";
 @import "./custom-component-styles.css";
 
@@ -46,6 +48,7 @@
 @import "./components/t-textarea.css";
 @import "./components/t-toggle.css";
 @import "./components/t-toolbar.css";
+@import "./components/t-tooltip.css";
 @import "./components/t-vertical-nav.css";
 
 @import "./custom-fonts.css";
@@ -56,3 +59,6 @@
 @import "./vendor/v-prism-live.css";
 @import "./vendor/v-prism-line-numbers.css";
 /* purgecss end ignore */
+
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

@@ -1,0 +1,16 @@
+{
+  "name": "@mergestat/blocks",
+  "version": "1.5.5",
+  "description": "Set of UI components for MergeStat project",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:mergestat/blocks-next.git",
+    "directory": "packages/blocks"
+  },
+  "homepage": "https://github.com/mergestat/blocks-next/tree/main/packages/blocks#readme",
+  "publishConfig": {
+    "access": "public",
+    "name": "@mergestat/blocks",
+    "registry": "https://registry.npmjs.org"
+  }
+}

@@ -1,7 +1,6 @@
 import { createPopper, Instance } from '@popperjs/core';
 import cx from 'classnames';
 import React, { useEffect, useId, useState } from 'react';
-import '../../../../styles/components/t-tooltip.css';
 import type { ButtonBaseProps, ButtonProps } from './types';
 
 export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(

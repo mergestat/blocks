@@ -5,6 +5,31 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/blocks",
+        "tsConfig": "packages/blocks/tsconfig.lib.json",
+        "project": "packages/blocks/package.json",
+        "entryFile": "packages/blocks/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/blocks/README.md",
+            "input": ".",
+            "output": "."
+          },
+          {
+            "glob": "packages/blocks/styles/*",
+            "input": ".",
+            "output": "./styles"
+          }
+        ]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

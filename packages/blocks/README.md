@@ -1,7 +1,21 @@
-# blocks
+# MergeStat Blocks Library
 
-This library was generated with [Nx](https://nx.dev).
+MergeStat Blocks is a set of React components and hooks used to build pages MergeStat project.
 
-## Running unit tests
+## Setup
 
-Run `nx test blocks` to execute the unit tests via [Jest](https://jestjs.io).
+Instal the package by run command bellow
+
+```sh
+npm i @mergestat/blocks
+```
+
+import css assets into top level of component project.
+
+```js
+import '@mergestat/blocks/styles/main.css'
+```
+
+## How to use the Blocks
+
+If you want to use components from the Blocks, check the [Storybook documentation](https://624b441a141307004a094f09-iskoqummxn.chromatic.com/)

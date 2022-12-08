@@ -14,6 +14,7 @@
 }
 
 .t-badge .t-icon {
+    color: inherit;
     @apply w-4
            h-4;
 }
@@ -26,13 +27,13 @@
     @apply ml-1;
 }
 
-.t-badge-icon {
-    @apply px-1;
-}
-
 .t-badge-rounded {
   @apply rounded-full
          px-3;
+}
+
+.t-badge-icon {
+  @apply px-1;
 }
 
 /* Badge skins */

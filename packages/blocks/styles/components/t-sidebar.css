@@ -2,6 +2,7 @@
     t-sidebar
    ========================================================================== */
 
+/* Sidebar */
 .t-sidebar {
   @apply h-full
          border-r
@@ -20,18 +21,28 @@
          overflow-y-auto;
 }
 
+/*Sidebar header */
 .t-sidebar-header {
   @apply px-6
          py-5
-         mb-5;
+         flex
+         items-center;
 }
 
+/*Sidebar footer */
 .t-sidebar-footer {
   @apply px-6
-         py-5
-         mt-5;
+         h-14
+         flex
+         mt-4
+         items-center;
 }
 
+.t-sidebar-footer + .t-sidebar-footer {
+  @apply mt-0;
+}
+
+/*Sidebar main */
 .t-sidebar-main {
   @apply flex-grow
          list-none;
@@ -41,10 +52,12 @@
   @apply mt-1;
 }
 
+/*Sidebar logo */
 .t-sidebar-logo img {
   @apply h-7;
 }
 
+/*Sidebar item */
 .t-sidebar-item {
   @apply  flex
           items-center
@@ -67,13 +80,6 @@
   @apply flex-shrink-0;
 }
 
-.t-sidebar-divider {
-  @apply border-b
-       border-gray-200
-         pt-2
-         mb-2;
-}
-
 .t-sidebar-item.active {
     @apply text-blue-600
            bg-blue-100;
@@ -88,22 +94,32 @@
            cursor-not-allowed;
 }
 
+/* Sidebar sub item */
+.t-sidebar-sub-menu {
+  @apply  hidden
+          mb-4
+          mt-1;
+}
+
 .t-sidebar-item-sub {
   @apply text-sm
          py-2.5
          pl-14;
 }
 
-.t-sidebar-nav-sub {
-  @apply  hidden
-          mb-4
-          mt-1;
-}
-
-.t-sidebar-nav-sub.active {
+.t-sidebar-sub-menu.active {
   @apply block;
 }
 
+/*Sidebar divider */
+.t-sidebar-divider {
+  @apply border-b
+       border-gray-200
+         pt-2
+         mb-2;
+}
+
+/* Compact sidebar styles */
 .t-sidebar-compact {
   @apply w-28;
 }
@@ -113,7 +129,8 @@
          text-center
          space-x-0
          mx-0
-         py-4;
+         py-4
+         px-2;
 }
 
 .t-sidebar-item-compact .t-sidebar-item-icon-wrap {
@@ -121,6 +138,7 @@
          mb-1;
 }
 
+/* Dark sidebar styles */
 .t-sidebar-dark .t-sidebar-item {
   @apply text-gray-400
           hover_bg-gray-700
@@ -138,5 +156,78 @@
 
 .t-sidebar-dark .t-sidebar-item.active {
   @apply bg-gray-700
+         text-white;
+}
+
+/* Collapsed sidebar styles */
+.t-sidebar-collapsed {
+  width: 64px;
+}
+
+.t-sidebar-collapsed .t-sidebar-footer,
+.t-sidebar-collapsed .t-sidebar-header {
+  @apply px-1
+         justify-center;
+}
+
+.t-sidebar-collapsed .t-sidebar-item {
+  @apply flex-col
+         text-xs
+         items-center
+         space-y-1
+         space-x-0
+         justify-center
+         px-1
+         py-3;
+}
+
+.t-sidebar-collapsed .t-sidebar-item-has-children {
+  @apply relative;
+}
+
+.t-sidebar-collapsed .t-sidebar-item-has-children::after  {
+  content: '';
+  -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  @apply block
+         w-1.5
+         h-1.5
+         absolute
+         bottom-1.5
+         right-2
+         bg-gray-400;
+}
+
+.t-sidebar-collapsed .t-sidebar-item-sub {
+  @apply text-gray-700
+           text-base
+           font-normal
+           text-left
+           items-start
+           hover_bg-gray-100
+           hover_text-gray-700
+           px-4
+           py-2;
+}
+
+.t-sidebar-collapsed .t-sidebar-item-sub.active {
+  @apply bg-gray-100
+          text-gray-900;
+}
+
+.t-sidebar-collapsed .t-sidebar-sub-menu {
+  margin-left: 68px;
+  @apply -mt-11
+         -mb-11;
+}
+
+.t-sidebar-dark div[aria-expanded="true"] .t-sidebar-item {
+  @apply bg-gray-700;
+}
+
+.t-sidebar-dark .t-badge {
+  @apply bg-gray-700
+          mix-blend-normal
+         border-gray-600
          text-white;
 }

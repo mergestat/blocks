@@ -1,13 +1,13 @@
 {
   "name": "@mergestat/icons",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Set of Icon for MergeStat project",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:mergestat/blocks-next.git",
+    "url": "ssh://git@github.com:mergestat/blocks.git",
     "directory": "packages/icons"
   },
-  "homepage": "https://github.com/mergestat/blocks-next/tree/main/packages/icons#readme",
+  "homepage": "https://github.com/mergestat/blocks/tree/main/packages/icons#readme",
   "publishConfig": {
     "access": "public",
     "name": "@mergestat/icons",

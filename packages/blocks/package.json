@@ -1,13 +1,13 @@
 {
   "name": "@mergestat/blocks",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "Set of UI components for MergeStat project",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:mergestat/blocks-next.git",
+    "url": "ssh://git@github.com:mergestat/blocks.git",
     "directory": "packages/blocks"
   },
-  "homepage": "https://github.com/mergestat/blocks-next/tree/main/packages/blocks#readme",
+  "homepage": "https://github.com/mergestat/blocks/tree/main/packages/blocks#readme",
   "publishConfig": {
     "access": "public",
     "name": "@mergestat/blocks",

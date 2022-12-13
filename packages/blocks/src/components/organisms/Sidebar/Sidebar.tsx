@@ -65,7 +65,7 @@ const SidebarOuter: React.FC<
             <nav className='t-sidebar-inner' aria-label='Sidebar'>
               {children}
               {collapsible &&
-                <Sidebar.Footer className={cx('border-t border-gray-700', { 'justify-end': !collapsed })}>
+                <Sidebar.Footer className='border-t border-gray-700'>
                   <Button
                     onClick={() => setCollapsed(!collapsed)}
                     isIconOnly={collapsed}

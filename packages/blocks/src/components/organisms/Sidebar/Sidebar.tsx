@@ -26,6 +26,10 @@ type SidebarProps = {
   collapsible?: boolean
 }
 
+type SidebarLogoProps = {
+  onClick?: () => void;
+}
+
 const SidebarContext = createContext(false)
 const ToggleSidebarContext = createContext({})
 
@@ -61,7 +65,7 @@ const SidebarOuter: React.FC<
             <nav className='t-sidebar-inner' aria-label='Sidebar'>
               {children}
               {collapsible &&
-                <Sidebar.Footer className={cx('border-t border-gray-700', { 'justify-end': !collapsed })}>
+                <Sidebar.Footer className='border-t border-gray-700'>
                   <Button
                     onClick={() => setCollapsed(!collapsed)}
                     isIconOnly={collapsed}
@@ -91,23 +95,6 @@ const SidebarOuter: React.FC<
     )
   }
 
-/* Header */
-const SidebarHeader: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({
-  children,
-  className }) => {
-    const _classname = className ? { [className]: !!className } : {}
-
-    return (
-      <div className={cx('t-sidebar-header', { ..._classname })}>
-        {children ? children :
-          <Sidebar.Logo />
-        }
-      </div>
-    )
-  }
-
 /* Sidebar item */
 const SidebarItem: React.FC<
   SidebarItemProps &
@@ -128,19 +115,24 @@ const SidebarItem: React.FC<
     disabled = false,
     compact = true,
     subNav,
-    level
+    level,
+    ...props
   }, ref) => {
     const [showSubNav, setShowSubNav] = useState(false);
     const collapsedContext = React.useContext(SidebarContext)
 
     const _classname = className ? { [className]: !!className } : {}
 
+    const toggleSubNav = () => {
+      setShowSubNav(!showSubNav)
+    }
     return (
       <li className='list-none'>
         {collapsedContext && subNav ?
           <Dropdown
             trigger={
-              <div
+              <a
+                {...props}
                 className={cx('t-sidebar-item default t-sidebar-item-has-children', {
                   ..._classname,
                   't-sidebar-item-compact ': compact,
@@ -148,19 +140,25 @@ const SidebarItem: React.FC<
                   disabled: disabled,
                   active: active,
                 })}
+                href={href}
+                ref={ref}
+                onClick={onClick ? onClick : () => toggleSubNav()}
               >
                 {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
-              </div>
+              </a>
             }
-            overlay={() => (
+            overlay={(close) => (
               <Menu className='t-sidebar-sub-menu'>
                 <h4 className='font-medium text-sm t-text-muted my-2 px-4'>{label}</h4>
-                {subNav}
+                <div onClick={close}>
+                  {subNav}
+                </div>
               </Menu>
             )}
           />
           : <>
             <a
+              {...props}
               className={cx('t-sidebar-item default', {
                 ..._classname,
                 't-sidebar-item-compact ': compact,
@@ -171,14 +169,21 @@ const SidebarItem: React.FC<
               })}
               href={href}
               ref={ref}
-              onClick={onClick ? onClick : () => setShowSubNav(!showSubNav)}
+              onClick={onClick ? onClick : () => toggleSubNav()}
             >
               {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
               {(!collapsedContext || level === 'sub') &&
                 <div className='flex-1 truncate max-w-full'>{label}</div>
               }
-              {subNav && !collapsedContext && <div className='t-sidebar-item-icon-wrap'>
-                {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}</div>
+              {subNav && !collapsedContext &&
+                <div
+                  className='t-sidebar-item-icon-wrap'
+                  onClick={(e) => {
+                    e.preventDefault()
+                    toggleSubNav()
+                  }}>
+                  {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}
+                </div>
               }
             </a>
 
@@ -196,16 +201,62 @@ const SidebarItem: React.FC<
 
 /* Logo */
 const SidebarLogo: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({
-  className }) => {
+  SidebarLogoProps &
+  RefAttributes<HTMLAnchorElement> &
+  React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
+> = React.forwardRef(
+  ({
+    className,
+    href,
+    onClick,
+  }, ref) => {
     const collapsedContext = React.useContext(SidebarContext)
     const _classname = className ? { [className]: !!className } : {}
 
     return (
-      <div className={cx('t-sidebar-logo', { ..._classname })}>
+      <a
+        className={cx('t-sidebar-logo', { ..._classname })}
+        href={href}
+        ref={ref}
+        onClick={onClick}>
         <img src={collapsedContext ? logoMark : logo} alt='MergeStat' />
+      </a>
+    )
+  }
+)
+
+/* Header */
+const SidebarHeader: React.FC<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({
+  children,
+  className }) => {
+    const _classname = className ? { [className]: !!className } : {}
+
+    return (
+      <div className={cx('t-sidebar-header', { ..._classname })}>
+        {children ? children :
+          <Sidebar.Logo href='/' />
+        }
       </div>
+    )
+  }
+
+/* Main */
+const SidebarMain: React.FC<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({
+  children,
+  className }) => {
+    const _classname = className ? { [className]: !!className } : {}
+
+    return (
+      <ul className={cx('t-sidebar-main', { ..._classname })}>
+        {children}
+      </ul>
     )
   }
 
@@ -222,21 +273,6 @@ const SidebarFooter: React.FC<
         {children}
       </div>
     );
-  }
-
-/* Main? */
-const SidebarMain: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({
-  children,
-  className }) => {
-    const _classname = className ? { [className]: !!className } : {}
-
-    return (
-      <ul className={cx('t-sidebar-main', { ..._classname })}>
-        {children}
-      </ul>
-    )
   }
 
 /* Divider */
@@ -262,8 +298,7 @@ const SidebarVersion: React.FC<
                 <path fillRule='evenodd' clipRule='evenodd' d='M7 4C5.34315 4 4 5.34315 4 7V12C4 12.2985 4.12956 12.5656 4.33882 12.7503L4.36217 12.7709L11.3584 19.7671C11.5326 19.9131 11.755 20 12 20C12.245 20 12.4674 19.9131 12.6416 19.7671L19.6158 12.7929C19.6305 12.7782 19.6456 12.764 19.6612 12.7503C19.8704 12.5656 20 12.2985 20 12C20 11.755 19.9131 11.5326 19.7671 11.3584L12.7929 4.38419C12.7782 4.36952 12.764 4.35438 12.7503 4.33882C12.5656 4.12956 12.2985 4 12 4H7ZM2 7C2 4.23858 4.23858 2 7 2H12C12.8838 2 13.6793 2.3834 14.2269 2.98978L21.2071 9.96998C21.2218 9.98466 21.236 9.99979 21.2497 10.0154C21.716 10.5436 22 11.2398 22 12C22 12.8838 21.6166 13.6793 21.0102 14.2269L14.03 21.2071C14.0153 21.2218 14.0002 21.236 13.9846 21.2497C13.4564 21.716 12.7602 22 12 22C11.2398 22 10.5436 21.716 10.0154 21.2497C9.99979 21.236 9.98466 21.2218 9.96998 21.2071L2.98978 14.2269C2.3834 13.6793 2 12.8838 2 12V7ZM6 7C6 6.44772 6.44772 6 7 6H7.01C7.56228 6 8.01 6.44772 8.01 7C8.01 7.55228 7.56228 8 7.01 8H7C6.44772 8 6 7.55228 6 7Z' />
               </svg>
             </div>
-          }
-        />
+          } />
       </Tooltip>
       :
       <Badge
@@ -275,8 +310,7 @@ const SidebarVersion: React.FC<
               <path fillRule='evenodd' clipRule='evenodd' d='M7 4C5.34315 4 4 5.34315 4 7V12C4 12.2985 4.12956 12.5656 4.33882 12.7503L4.36217 12.7709L11.3584 19.7671C11.5326 19.9131 11.755 20 12 20C12.245 20 12.4674 19.9131 12.6416 19.7671L19.6158 12.7929C19.6305 12.7782 19.6456 12.764 19.6612 12.7503C19.8704 12.5656 20 12.2985 20 12C20 11.755 19.9131 11.5326 19.7671 11.3584L12.7929 4.38419C12.7782 4.36952 12.764 4.35438 12.7503 4.33882C12.5656 4.12956 12.2985 4 12 4H7ZM2 7C2 4.23858 4.23858 2 7 2H12C12.8838 2 13.6793 2.3834 14.2269 2.98978L21.2071 9.96998C21.2218 9.98466 21.236 9.99979 21.2497 10.0154C21.716 10.5436 22 11.2398 22 12C22 12.8838 21.6166 13.6793 21.0102 14.2269L14.03 21.2071C14.0153 21.2218 14.0002 21.236 13.9846 21.2497C13.4564 21.716 12.7602 22 12 22C11.2398 22 10.5436 21.716 10.0154 21.2497C9.99979 21.236 9.98466 21.2218 9.96998 21.2071L2.98978 14.2269C2.3834 13.6793 2 12.8838 2 12V7ZM6 7C6 6.44772 6.44772 6 7 6H7.01C7.56228 6 8.01 6.44772 8.01 7C8.01 7.55228 7.56228 8 7.01 8H7C6.44772 8 6 7.55228 6 7Z' />
             </svg>
           </div>
-        }
-      />
+        } />
   )
 }
 

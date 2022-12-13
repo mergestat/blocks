@@ -55,3 +55,7 @@ npm login
 ```sh
 npm run release
 ```
+
+## Architecture
+
+![repo structure](./public/blocks-architecture.svg)

@@ -115,19 +115,24 @@ const SidebarItem: React.FC<
     disabled = false,
     compact = true,
     subNav,
-    level
+    level,
+    ...props
   }, ref) => {
     const [showSubNav, setShowSubNav] = useState(false);
     const collapsedContext = React.useContext(SidebarContext)
 
     const _classname = className ? { [className]: !!className } : {}
 
+    const toggleSubNav = () => {
+      setShowSubNav(!showSubNav)
+    }
     return (
       <li className='list-none'>
         {collapsedContext && subNav ?
           <Dropdown
             trigger={
-              <div
+              <a
+                {...props}
                 className={cx('t-sidebar-item default t-sidebar-item-has-children', {
                   ..._classname,
                   't-sidebar-item-compact ': compact,
@@ -135,47 +140,60 @@ const SidebarItem: React.FC<
                   disabled: disabled,
                   active: active,
                 })}
+                href={href}
+                ref={ref}
+                onClick={onClick ? onClick : () => toggleSubNav()}
               >
                 {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
-              </div>
+              </a>
             }
-            overlay={() => (
-              <Menu className='t-sidebar-sub-menu'>
-                <h4 className='font-medium text-sm t-text-muted my-2 px-4'>{label}</h4>
-                {subNav}
-              </Menu>
+            overlay={(close) => (
+                <Menu className='t-sidebar-sub-menu'>
+                  <h4 className='font-medium text-sm t-text-muted my-2 px-4'>{label}</h4>
+                  <div onClick={close}>
+                  {subNav}
+                  </div>
+                </Menu>
             )}
           />
           : <>
-            <a
-              className={cx('t-sidebar-item default', {
-                ..._classname,
-                't-sidebar-item-compact ': compact,
-                't-sidebar-item-sub': level === 'sub',
-                't-sidebar-item-has-children': children,
-                disabled: disabled,
-                active: active,
-              })}
-              href={href}
-              ref={ref}
-              onClick={onClick ? onClick : () => setShowSubNav(!showSubNav)}
-            >
-              {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
-              {(!collapsedContext || level === 'sub') &&
-                <div className='flex-1 truncate max-w-full'>{label}</div>
-              }
-              {subNav && !collapsedContext && <div className='t-sidebar-item-icon-wrap'>
-                {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}</div>
-              }
-            </a>
+              <a
+                {...props}
+                className={cx('t-sidebar-item default', {
+                  ..._classname,
+                  't-sidebar-item-compact ': compact,
+                  't-sidebar-item-sub': level === 'sub',
+                  't-sidebar-item-has-children': children,
+                  disabled: disabled,
+                  active: active,
+                })}
+                href={href}
+                ref={ref}
+                onClick={onClick ? onClick : () => toggleSubNav()}
+              >
+                {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
+                {(!collapsedContext || level === 'sub') &&
+                  <div className='flex-1 truncate max-w-full'>{label}</div>
+                }
+                {subNav && !collapsedContext &&
+                  <div
+                    className='t-sidebar-item-icon-wrap'
+                    onClick={(e) => {
+                      e.preventDefault()
+                      toggleSubNav()
+                    }}>
+                    {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}
+                  </div>
+                }
+              </a>
 
-            {subNav &&
-              <ul className={cx('t-sidebar-sub-menu', { 'active': showSubNav })}>
-                {subNav}
-              </ul>
-            }
-          </>
-        }
+              {subNav &&
+                <ul className={cx('t-sidebar-sub-menu', { 'active': showSubNav })}>
+                  {subNav}
+                </ul>
+              }
+            </>
+          }
       </li>
     )
   }

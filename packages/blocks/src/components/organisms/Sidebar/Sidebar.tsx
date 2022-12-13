@@ -26,6 +26,10 @@ type SidebarProps = {
   collapsible?: boolean
 }
 
+type SidebarLogoProps = {
+  onClick?: () => void;
+}
+
 const SidebarContext = createContext(false)
 const ToggleSidebarContext = createContext({})
 
@@ -196,16 +200,29 @@ const SidebarItem: React.FC<
 
 /* Logo */
 const SidebarLogo: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({
-  className }) => {
+  SidebarLogoProps &
+  RefAttributes<HTMLAnchorElement> &
+  React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+  >
+> = React.forwardRef (
+  ({
+    className,
+    href,
+    onClick,
+  }, ref) => {
     const collapsedContext = React.useContext(SidebarContext)
     const _classname = className ? { [className]: !!className } : {}
 
     return (
-      <div className={cx('t-sidebar-logo', { ..._classname })}>
+      <a
+        className={cx('t-sidebar-logo', { ..._classname })}
+        href={href}
+        ref={ref}
+        onClick={onClick}>
         <img src={collapsedContext ? logoMark : logo} alt='MergeStat' />
-      </div>
+      </a>
     )
   }
 

@@ -11,7 +11,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14.19.3' # should match .nvmrc
+          node-version: '18.12.1' # should match .nvmrc
 
       - name: Install dependencies
         run: |

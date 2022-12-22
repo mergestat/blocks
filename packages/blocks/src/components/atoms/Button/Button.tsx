@@ -1,9 +1,10 @@
-import { createPopper, Instance } from '@popperjs/core';
 import cx from 'classnames';
-import React, { useEffect, useId, useState } from 'react';
+import React from 'react';
+import useTooltip from '../../hooks/useTooltip';
+import { TooltipBox } from '../Tooltip/TooltipBox';
 import type { ButtonBaseProps, ButtonProps } from './types';
 
-export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
+export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
   ({
     children,
     skin,
@@ -20,8 +21,9 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
     tooltip,
     tooltipOffset,
     tooltipPlacement = 'top',
+    tooltipDelay = 100,
     ...props
-  }, ref) => {
+  }) => {
     const getButtonSkin = (skin: string) => {
       switch (skin) {
         case 'primary':
@@ -72,49 +74,12 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
 
     const _classname = className ? { [className]: !!className } : {}
 
-    const [popperInstance, setPopperInstance] = useState<Instance>()
-    const [tooltipElement, setTooltipElement] = useState<HTMLElement>()
-
-    const idButton = useId()
-    const idTooltip = useId()
-    const idArrow = useId()
-
-    const show = () => {
-      tooltipElement && tooltipElement.setAttribute('data-show', '')
-      popperInstance && popperInstance.update();
-    }
-
-    const hide = () => {
-      tooltipElement && tooltipElement.removeAttribute('data-show')
-    }
-
-    useEffect(() => {
-      const buttonElement = document.getElementById(idButton)
-      const tooltipElement = document.getElementById(idTooltip) as HTMLElement
-
-      if (buttonElement && tooltipElement) {
-        setTooltipElement(tooltipElement)
-
-        setPopperInstance(createPopper(buttonElement, tooltipElement, {
-          placement: tooltipPlacement,
-          modifiers: [
-            {
-              name: 'offset',
-              options: {
-                offset: tooltipOffset || [0, 10],
-              },
-            },
-          ],
-        }))
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    const tooltipBoxProps = useTooltip(tooltipPlacement, tooltipOffset || [0, 10], tooltipDelay)
 
     const MainComp = (
       <button
         {...props}
-        id={idButton}
-        ref={ref as React.LegacyRef<HTMLButtonElement>}
+        ref={tooltipBoxProps.reference}
         onClick={onClick}
         className={cx(
           't-button',
@@ -129,11 +94,6 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
           size && `t-button-${size}`
         )}
         type={type || 'button'}
-        aria-describedby="tooltip"
-        onMouseEnter={show}
-        onFocus={show}
-        onMouseLeave={hide}
-        onBlur={hide}
       >
         {startIcon && startIcon}
         {(children || label) && (
@@ -149,8 +109,7 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
       <>
         {props.disabled ? (
           <div
-            id={idButton}
-            ref={ref as React.LegacyRef<HTMLDivElement>}
+            ref={tooltipBoxProps.reference}
             className={cx(
               't-button t-button-disabled pointer-events-auto cursor-default bg-gray-100',
               {
@@ -160,11 +119,6 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
               },
               size && `t-button-${size}`
             )}
-            aria-describedby="tooltip"
-            onMouseEnter={show}
-            onFocus={show}
-            onMouseLeave={hide}
-            onBlur={hide}
           >
             {startIcon && startIcon}
             {(children || label) && (
@@ -177,16 +131,13 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = React.forwardRef(
         ) : (
           MainComp
         )}
-        <div id={idTooltip} className='tooltip' role="tooltip">
-          {tooltip}
-          <div id={idArrow} className='arrow' data-popper-arrow></div>
-        </div>
+        {tooltipBoxProps.isOpen && <TooltipBox content={tooltip} {...tooltipBoxProps} />}
       </>
     ) : (
       MainComp
-    );
+    )
   }
-);
+)
 
 Button.defaultProps = {
   skin: 'primary',
@@ -210,5 +161,5 @@ export const ButtonGroup: React.FC<
     >
       {children}
     </div>
-  );
+  )
 }

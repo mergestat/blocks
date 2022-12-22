@@ -6,6 +6,7 @@ export * from './components/atoms/ColoredBox';
 export * from './components/atoms/EmptyState';
 export * from './components/atoms/Form';
 export * from './components/atoms/HelpText';
+export * from './components/atoms/HoverCard';
 export * from './components/atoms/InlineBanner';
 export * from './components/atoms/Label';
 export * from './components/atoms/ListItem';
@@ -35,3 +36,4 @@ export * from './components/organisms/MultiSelect';
 export * from './components/organisms/Navbar';
 export * from './components/organisms/Sidebar';
 export * from './components/Page';
+

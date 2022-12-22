@@ -9,7 +9,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Tooltip>;
 
-export const ExamplePanel: React.FC = () => {
+export const ExampleTooltip: React.FC = () => {
   return (
     <Tooltip content={'Tooltip'}>
       <Button>Hover me</Button>{' '}

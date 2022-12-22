@@ -1,13 +1,15 @@
-import { createPopper, Instance } from '@popperjs/core';
 import cx from 'classnames';
-import React, { useEffect, useId, useState } from 'react';
+import React from 'react';
+import useTooltip from '../../hooks/useTooltip';
+import { TooltipBox } from './TooltipBox';
 
 type BaseProps = {
   children?: React.ReactNode | string
   className?: string
-  placement?: 'top' | 'bottom' | 'right' | 'left'
+  placement?: 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end'
   content: React.ReactNode | string
   offset?: [number, number] // default [skidding, distance]
+  delay?: number,
 }
 
 export const Tooltip = ({
@@ -16,64 +18,18 @@ export const Tooltip = ({
   placement = 'top',
   content,
   offset = [0, 20],
+  delay = 100,
 }: BaseProps) => {
-  const [popperInstance, setPopperInstance] = useState<Instance>()
-  const [tooltipElement, setTooltipElement] = useState<HTMLElement>()
-
   const _classname = className ? { [className]: !!className } : {}
 
-  const idElement = useId()
-  const idTooltip = useId()
-  const idArrow = useId()
-
-  const show = () => {
-    tooltipElement && tooltipElement.setAttribute('data-show', '')
-    popperInstance && popperInstance.update();
-  }
-
-  const hide = () => {
-    tooltipElement && tooltipElement.removeAttribute('data-show')
-  }
-
-  useEffect(() => {
-    const element = document.getElementById(idElement)
-    const tooltipElement = document.getElementById(idTooltip) as HTMLElement
-
-    if (element && tooltipElement) {
-      setTooltipElement(tooltipElement)
-
-      setPopperInstance(createPopper(element, tooltipElement, {
-        placement,
-        modifiers: [
-          {
-            name: 'offset',
-            options: {
-              offset: offset || [0, 10],
-            },
-          },
-        ],
-      }))
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const tooltipBoxProps = useTooltip(placement, offset, delay)
 
   return (
     <>
-      <span
-        id={idElement}
-        className={cx({ ..._classname })}
-        aria-describedby="tooltip"
-        onMouseEnter={show}
-        onFocus={show}
-        onMouseLeave={hide}
-        onBlur={hide}
-      >
+      <span className={cx({ ..._classname })} ref={tooltipBoxProps.reference}>
         {children}
       </span>
-      <div id={idTooltip} className='tooltip' role="tooltip">
-        {content}
-        <div id={idArrow} className='arrow' data-popper-arrow></div>
-      </div>
+      {tooltipBoxProps.isOpen && <TooltipBox content={content} {...tooltipBoxProps} />}
     </>
   )
 }

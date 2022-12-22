@@ -5,8 +5,8 @@ import logo from '../../../../public/logo-inverse.svg';
 import logoMark from '../../../../public/logo-mark-inverse.svg';
 import { Badge } from '../../atoms/Badge';
 import { Button } from '../../atoms/Button';
+import { HoverCard } from '../../atoms/HoverCard';
 import { Tooltip } from '../../atoms/Tooltip';
-import { Dropdown } from '../../molecules/Dropdown';
 import { Menu } from '../../molecules/Menu';
 
 type SidebarItemProps = {
@@ -18,6 +18,7 @@ type SidebarItemProps = {
   subNav?: React.ReactNode
   collapsed?: boolean
   level?: 'sub' | 'default'
+  onClick?: () => void
 }
 
 type SidebarProps = {
@@ -129,33 +130,37 @@ const SidebarItem: React.FC<
     return (
       <li className='list-none'>
         {collapsedContext && subNav ?
-          <Dropdown
-            trigger={
-              <a
-                {...props}
-                className={cx('t-sidebar-item default t-sidebar-item-has-children', {
-                  ..._classname,
-                  't-sidebar-item-compact ': compact,
-                  't-sidebar-item-sub': level === 'sub',
-                  disabled: disabled,
-                  active: active,
-                })}
-                href={href}
-                ref={ref}
-                onClick={onClick ? onClick : () => toggleSubNav()}
-              >
-                {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
-              </a>
-            }
+          <HoverCard
+            disableFit
+            offset={[0, 5]}
             overlay={(close) => (
-              <Menu className='t-sidebar-sub-menu'>
+              <Menu className='mt-0'>
                 <h4 className='font-medium text-sm t-text-muted my-2 px-4'>{label}</h4>
                 <div onClick={close}>
                   {subNav}
                 </div>
               </Menu>
-            )}
-          />
+            )}>
+            <a
+              {...props}
+              className={cx('t-sidebar-item default t-sidebar-item-has-children', {
+                ..._classname,
+                't-sidebar-item-compact ': compact,
+                't-sidebar-item-sub': level === 'sub',
+                disabled: disabled,
+                active: active,
+              })}
+              href={href}
+              ref={ref}
+              onClick={(e) => {
+                e.preventDefault()
+                onClick && onClick()
+                toggleSubNav()
+              }}
+            >
+              {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
+            </a>
+          </HoverCard>
           : <>
             <a
               {...props}
@@ -169,7 +174,11 @@ const SidebarItem: React.FC<
               })}
               href={href}
               ref={ref}
-              onClick={onClick ? onClick : () => toggleSubNav()}
+              onClick={(e) => {
+                e.preventDefault()
+                onClick && onClick()
+                toggleSubNav()
+              }}
             >
               {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
               {(!collapsedContext || level === 'sub') &&

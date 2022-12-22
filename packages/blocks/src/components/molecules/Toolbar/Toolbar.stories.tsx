@@ -10,7 +10,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Toolbar>;
 
-export const ExamplePanel: React.FC = () => {
+export const ExampleToolbar: React.FC = () => {
   return (
     <Toolbar>
       <Toolbar.Left>

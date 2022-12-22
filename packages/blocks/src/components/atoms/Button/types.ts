@@ -11,19 +11,20 @@ export type EnumSkin =
   | 'danger'
   | 'borderless'
   | 'borderless-muted'
-  | 'borderless-i';
+  | 'borderless-i'
 
 export interface ButtonProps {
-  href?: string;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  skin?: EnumSkin;
-  isBlock?: boolean;
-  isIconOnly?: boolean;
-  size?: EnumSize;
-  label?: string;
-  isActive?: boolean;
-  tooltip?: string;
-  tooltipOffset?: [number, number];
-  tooltipPlacement?: 'top' | 'bottom' | 'right' | 'left' | 'auto';
+  href?: string
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode
+  skin?: EnumSkin
+  isBlock?: boolean
+  isIconOnly?: boolean
+  size?: EnumSize
+  label?: string
+  isActive?: boolean
+  tooltip?: string
+  tooltipOffset?: [number, number]
+  tooltipPlacement?: 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end'
+  tooltipDelay?: number
 }

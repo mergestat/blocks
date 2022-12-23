@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
-import useTooltip from '../../hooks/useTooltip';
 import { TooltipBox } from './TooltipBox';
+import useTooltip from './useTooltip';
 
 type BaseProps = {
   children?: React.ReactNode | string

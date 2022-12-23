@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
-import useTooltip from '../../hooks/useTooltip';
 import { TooltipBox } from '../Tooltip/TooltipBox';
+import useTooltip from '../Tooltip/useTooltip';
 import type { ButtonBaseProps, ButtonProps } from './types';
 
 export const Button: React.FC<ButtonProps & ButtonBaseProps> = (

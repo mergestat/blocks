@@ -1,6 +1,6 @@
 {
   "name": "@mergestat/blocks",
-  "version": "1.5.14",
+  "version": "1.5.16",
   "description": "Set of UI components for MergeStat project",
   "repository": {
     "type": "git",

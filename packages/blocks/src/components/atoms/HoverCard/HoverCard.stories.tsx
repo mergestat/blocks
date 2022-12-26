@@ -38,6 +38,8 @@ export const ExampleForButton: React.FC = () => {
   )
 }
 
+// TODO(german-mergestat) This might be a non-standard example, consider
+// replacing it with a different "base" component to show a hover menu on.
 export const ExampleForColoredBox: React.FC = () => {
   return (
     <HoverCard

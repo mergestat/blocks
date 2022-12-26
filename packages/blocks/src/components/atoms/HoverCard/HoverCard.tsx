@@ -17,7 +17,7 @@ export const HoverCard = ({
   className,
   placement = 'right-start',
   overlay,
-  offset = [0, 10],
+  offset = [0, 6],
   delay = 100,
   disableFit = false
 }: BaseProps) => {

@@ -9,7 +9,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Sidebar>
 
-export const ExamplePanel: React.FC = () => {
+export const ExampleSideBar: React.FC = () => {
   return (
     <Sidebar>
       <Sidebar.Main>
@@ -45,17 +45,19 @@ export const ExampleDarkSideBar: React.FC = () => {
           compact={false}
           label='Queries'
           icon={<TerminalIcon className='t-icon' />}
+          onClick={() => console.log('Queries')}
           subNav={
             <>
-              <Sidebar.Item compact={false} label='Saved Queries' level='sub' active />
-              <Sidebar.Item compact={false} label='Example Queries' level='sub' />
-              <Sidebar.Item compact={false} label='History' level='sub' />
+              <Sidebar.Item compact={false} label='Saved Queries' level='sub' active onClick={() => console.log('Saved Queries')} />
+              <Sidebar.Item compact={false} label='Example Queries' level='sub' onClick={() => console.log('Example Queries')} />
+              <Sidebar.Item compact={false} label='History' level='sub' onClick={() => console.log('History')} />
             </>
           }
         />
         <Sidebar.Item
           compact={false}
           label='Views'
+          onClick={() => console.log('Views')}
           icon={<TableIcon className='t-icon' />}
         />
         <Sidebar.Item

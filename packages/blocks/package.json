@@ -2,6 +2,7 @@
   "name": "@mergestat/blocks",
   "version": "1.5.17",
   "description": "Set of UI components for MergeStat project",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:mergestat/blocks.git",

@@ -1,9 +1,9 @@
-import { OfficeBuildingIcon, PlusIcon, RepositoryIcon } from '@mergestat/icons';
+import { ClipboardIcon, CogIcon, OfficeBuildingIcon, PlusIcon, UsersIcon } from '@mergestat/icons';
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { Menu } from '../../molecules/Menu';
+import { VerticalNav } from '../../molecules/VerticalNav/VerticalNav';
 import { Button } from '../Button';
-import { ColoredBox } from '../ColoredBox';
 import { HoverCard } from './HoverCard';
 
 export default {
@@ -38,32 +38,54 @@ export const ExampleForButton: React.FC = () => {
   )
 }
 
-// TODO(german-mergestat) This might be a non-standard example, consider
-// replacing it with a different "base" component to show a hover menu on.
-export const ExampleForColoredBox: React.FC = () => {
+export const ExampleForNav: React.FC = () => {
   return (
-    <HoverCard
-      overlay={(close) => (
-        <Menu className='mt-0'>
-          <Menu.Item
-            text="Mono"
-            withIcon
-            icon={<OfficeBuildingIcon className="t-icon" />}
-          />
-          <Menu.Item withIcon text="Default" active />
-          <Menu.Item
-            withIcon
-            text="Create workspace"
-            color="text-blue-600"
-            icon={<PlusIcon className="t-icon" />}
-            onClick={close}
-          />
-        </Menu>
-      )}
-    >
-      <ColoredBox size='12'>
-        <RepositoryIcon className='t-icon t-icon-default' />
-      </ColoredBox>
-    </HoverCard>
+    <div className="w-64">
+      <VerticalNav>
+        <HoverCard
+          disableFit
+          overlay={(close) => (
+            <Menu className='mt-0'>
+              <Menu.Item
+                text="Saved Queries"
+                withIcon
+                icon={<ClipboardIcon className="t-icon" />}
+              />
+              <Menu.Item withIcon text="Examples" active />
+              <Menu.Item
+                withIcon
+                text="Add query"
+                color="text-blue-600"
+                icon={<PlusIcon className="t-icon" />}
+                onClick={close}
+              />
+            </Menu>
+          )}
+        >
+          <VerticalNav.Item text="Queries" active />
+        </HoverCard>
+        <HoverCard
+          disableFit
+          overlay={(close) => (
+            <Menu className='mt-0'>
+              <Menu.Item
+                text="User Management"
+                withIcon
+                icon={<UsersIcon className="t-icon" />}
+              />
+              <Menu.Item
+                withIcon
+                text="User Settings"
+                icon={<CogIcon className="t-icon" />}
+                onClick={close}
+              />
+            </Menu>
+          )}
+        >
+          <VerticalNav.Item text="Settings" />
+        </HoverCard>
+        <VerticalNav.Item text="Views" />
+      </VerticalNav>
+    </div>
   )
 }

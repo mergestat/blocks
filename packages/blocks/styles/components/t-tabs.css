@@ -73,9 +73,9 @@
 
 .t-tab-secondary.t-tab-active,
 .t-tab-secondary[aria-selected="true"] {
-    @apply border-b-transparent
-           bg-transparent
+    @apply bg-transparent
            text-gray-700
+           border-b-0
            whitespace-nowrap;
 }
 

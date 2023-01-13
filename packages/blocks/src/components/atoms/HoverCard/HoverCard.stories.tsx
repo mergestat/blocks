@@ -12,7 +12,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof HoverCard>;
 
-export const ExampleForButton: React.FC = () => {
+export const ExampleHoverInteraction: React.FC = () => {
   return (
     <HoverCard
       overlay={(close) => (
@@ -34,6 +34,33 @@ export const ExampleForButton: React.FC = () => {
       )}
     >
       <Button>Hover me</Button>
+    </HoverCard>
+  )
+}
+
+export const ExampleClickInteraction: React.FC = () => {
+  return (
+    <HoverCard
+      interaction='click'
+      overlay={(close) => (
+        <Menu className='mt-0'>
+          <Menu.Item
+            text="Mono"
+            withIcon
+            icon={<OfficeBuildingIcon className="t-icon" />}
+          />
+          <Menu.Item withIcon text="Default" active />
+          <Menu.Item
+            withIcon
+            text="Create workspace"
+            color="text-blue-600"
+            icon={<PlusIcon className="t-icon" />}
+            onClick={close}
+          />
+        </Menu>
+      )}
+    >
+      <Button>Click me</Button>
     </HoverCard>
   )
 }
@@ -66,6 +93,7 @@ export const ExampleForNav: React.FC = () => {
         </HoverCard>
         <HoverCard
           disableFit
+          interaction='click'
           overlay={(close) => (
             <Menu className='mt-0'>
               <Menu.Item

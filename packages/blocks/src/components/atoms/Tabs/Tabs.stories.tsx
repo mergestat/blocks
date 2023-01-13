@@ -77,7 +77,7 @@ export const ExampleTabsSecondary: React.FC = () => {
 
           <HoverCard
             interaction='click'
-            placement='bottom'
+            placement='bottom-start'
             overlay={(close) => (
               <Menu className='mt-0'>
                 <Menu.Item text="Line chart" withIcon

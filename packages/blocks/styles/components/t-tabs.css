@@ -6,7 +6,7 @@
 
 .t-tabs ul {
     @apply flex
-            space-x-4;
+           space-x-4;
 }
 
 .t-tab {
@@ -21,6 +21,30 @@
            -mb-px;
 }
 
+.t-tab-line-b {
+    @apply border-b
+           border-gray-200
+}
+
+.t-tab-secondary {
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+    @apply px-3
+           flex
+           text-gray-500
+           font-medium
+           items-center
+           bg-gray-100
+           hover_bg-gray-200
+           border-b
+           border-r
+}
+
+.t-tab-box-secondary {
+    @apply border-t
+           border-gray-200
+}
+
 .t-tab[disabled] {
     @apply from-gray-100
            to-gray-100
@@ -30,11 +54,28 @@
            pointer-events-none;
 }
 
+.t-tab-secondary[disabled] {
+    @apply from-gray-100
+           to-gray-100
+           text-gray-200
+           opacity-80
+           border-gray-200
+           pointer-events-none;
+}
+
 /* purgecss start ignore */
 .t-tab.t-tab-active,
 .t-tab[aria-selected="true"] {
     @apply border-blue-500
            text-blue-600
+           whitespace-nowrap;
+}
+
+.t-tab-secondary.t-tab-active,
+.t-tab-secondary[aria-selected="true"] {
+    @apply border-b-transparent
+           bg-transparent
+           text-gray-700
            whitespace-nowrap;
 }
 

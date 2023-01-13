@@ -1,6 +1,6 @@
-import { flip, offset as offsetFloating, safePolygon, shift, useFloating, useFocus, useHover, useInteractions } from '@floating-ui/react';
+import { flip, offset as offsetFloating, safePolygon, shift, useClick, useDismiss, useFloating, useFocus, useHover, useInteractions } from '@floating-ui/react';
 import cx from 'classnames';
-import React, { useState } from 'react';
+import React, { cloneElement, ReactElement, useState } from 'react';
 
 type BaseProps = {
   children?: React.ReactNode | string
@@ -9,7 +9,8 @@ type BaseProps = {
   overlay: (close: () => void) => React.ReactNode
   offset?: [number, number] // default [skidding, distance]
   delay?: number,
-  disableFit?: boolean
+  disableFit?: boolean,
+  interaction?: 'hover' | 'click'
 }
 
 export const HoverCard = ({
@@ -19,7 +20,8 @@ export const HoverCard = ({
   overlay,
   offset = [0, 6],
   delay = 100,
-  disableFit = false
+  disableFit = false,
+  interaction = 'hover'
 }: BaseProps) => {
   const _classname = className ? { [className]: !!className } : {}
 
@@ -38,15 +40,20 @@ export const HoverCard = ({
     ],
   })
 
-  const { getFloatingProps } = useInteractions([
-    useHover(context, { delay: { open: delay, close: 0 }, handleClose: safePolygon() }),
-    useFocus(context)
+  const { getFloatingProps, getReferenceProps } = useInteractions([
+    useHover(context, { enabled: interaction === 'hover', delay: { open: delay, close: 0 }, handleClose: safePolygon() }),
+    useClick(context, { enabled: interaction === 'click' }),
+    useFocus(context),
+    useDismiss(context)
   ]);
 
   return (
     <>
       <div className={cx(!disableFit ? 'w-fit' : '', { ..._classname })} ref={reference}>
-        {children}
+        {cloneElement(
+          children as ReactElement,
+          getReferenceProps({ ...(children as ReactElement).props })
+        )}
       </div>
       {isOpen &&
         <div

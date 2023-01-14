@@ -40,7 +40,7 @@ export const ExampleTabsSecondary: React.FC = () => {
   const [tabs, setTabs] = useState<TabData[]>([
     {
       title: <><TableIcon className='t-icon' /> <span className='ml-2'>Table</span></>,
-      content: <><div>Content Table</div><div>Footer Table</div></>
+      content: <div>Content Table</div>
     },
     {
       title: <><ChartBarIcon className='t-icon' /> <span className='ml-2'>Bar chart</span></>,
@@ -103,6 +103,7 @@ export const ExampleTabsSecondary: React.FC = () => {
               <CaretDownIcon className="t-icon" />
             </div>
           </HoverCard>
+          <div className='flex-1 border-b border-gray-200'></div>
         </Tabs.List>
         <Tabs.Panels>
           {tabs.map((tab, index) => (

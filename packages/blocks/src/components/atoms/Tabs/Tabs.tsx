@@ -52,13 +52,10 @@ const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEleme
       className={cx({ 't-tab-line-b': isDefault }, { ..._classname })}
       {...props}
     >
-      <nav className={cx('flex')}>
-        <div className={cx('flex', { 'space-x-2': isDefault }, { 't-tab-box-secondary': isSecondary })}>
-          {React.Children.map(children, child => {
-            return React.cloneElement(child as React.ReactElement, { variant })
-          })}
-        </div>
-        {isSecondary && <div className={cx('flex-grow border-b border-gray-200', { 'border-t': isSecondary })}></div>}
+      <nav className={cx('flex', { 'space-x-2': isDefault }, { 't-tab-box-secondary': isSecondary })}>
+        {React.Children.map(children, child => {
+          return React.cloneElement(child as React.ReactElement, { variant })
+        })}
       </nav>
     </RCTab.List>
   );

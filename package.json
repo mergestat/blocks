@@ -67,7 +67,7 @@
     "babel-loader": "9.1.2",
     "chromatic": "^6.11.4",
     "cypress": "^11.0.0",
-    "eslint": "~8.31.0",
+    "eslint": "~8.32.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-config-standard-with-typescript": "^27.0.0",
     "eslint-plugin-cypress": "^2.10.3",

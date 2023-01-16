@@ -80,7 +80,7 @@
 .t-button-ghost {
   @apply border-gray-300
          text-gray-700
-         hover_bg-gradient-to-b
+         bg-gradient-to-b
          hover_from-white
          hover_to-gray-100;
 }

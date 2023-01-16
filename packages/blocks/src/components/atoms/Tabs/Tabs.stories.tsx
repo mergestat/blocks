@@ -34,6 +34,7 @@ export const ExampleTabs: React.FC = () => {
 interface TabData {
   title: ReactElement | string
   content: ReactElement | string
+  disabled?: boolean
 }
 
 export const ExampleTabsSecondary: React.FC = () => {
@@ -44,8 +45,13 @@ export const ExampleTabsSecondary: React.FC = () => {
     },
     {
       title: <><ChartBarIcon className='t-icon' /> <span className='ml-2'>Bar chart</span></>,
-      content: 'Content Bar chart'
+      content: 'Content Bar chart',
+      disabled: true
     },
+    {
+      title: <><TrendUpIcon className='t-icon' /> <span className='ml-2'>Line chart</span></>,
+      content: 'Content Line chart'
+    }
   ])
 
   const getTabData = (tab: string) => {
@@ -72,7 +78,7 @@ export const ExampleTabsSecondary: React.FC = () => {
       <Tabs variant='secondary'>
         <Tabs.List>
           {tabs.map((tab, index) => (
-            <Tabs.Item key={`tab-item-${index}`}>{tab.title}</Tabs.Item>
+            <Tabs.Item key={`tab-item-${index}`} disabled={tab.disabled}>{tab.title}</Tabs.Item>
           ))}
 
           <HoverCard

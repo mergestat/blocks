@@ -57,7 +57,7 @@
 .t-tab-secondary[disabled] {
     @apply from-gray-100
            to-gray-100
-           text-gray-200
+           text-gray-400
            opacity-80
            border-gray-200
            pointer-events-none;

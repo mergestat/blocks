@@ -64,7 +64,7 @@ export const HoverCard = ({
               top: y ?? 0,
               left: x ?? 0,
               width: 'max-content',
-              zIndex: 10
+              zIndex: 30
             }
           })}
         >

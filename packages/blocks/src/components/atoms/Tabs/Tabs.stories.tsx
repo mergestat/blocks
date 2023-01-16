@@ -34,18 +34,24 @@ export const ExampleTabs: React.FC = () => {
 interface TabData {
   title: ReactElement | string
   content: ReactElement | string
+  disabled?: boolean
 }
 
 export const ExampleTabsSecondary: React.FC = () => {
   const [tabs, setTabs] = useState<TabData[]>([
     {
       title: <><TableIcon className='t-icon' /> <span className='ml-2'>Table</span></>,
-      content: 'Content Table'
+      content: <div>Content Table</div>
     },
     {
       title: <><ChartBarIcon className='t-icon' /> <span className='ml-2'>Bar chart</span></>,
-      content: 'Content Bar chart'
+      content: 'Content Bar chart',
+      disabled: true
     },
+    {
+      title: <><TrendUpIcon className='t-icon' /> <span className='ml-2'>Line chart</span></>,
+      content: 'Content Line chart'
+    }
   ])
 
   const getTabData = (tab: string) => {
@@ -72,7 +78,7 @@ export const ExampleTabsSecondary: React.FC = () => {
       <Tabs variant='secondary'>
         <Tabs.List>
           {tabs.map((tab, index) => (
-            <Tabs.Item key={`tab-item-${index}`}>{tab.title}</Tabs.Item>
+            <Tabs.Item key={`tab-item-${index}`} disabled={tab.disabled}>{tab.title}</Tabs.Item>
           ))}
 
           <HoverCard
@@ -103,6 +109,7 @@ export const ExampleTabsSecondary: React.FC = () => {
               <CaretDownIcon className="t-icon" />
             </div>
           </HoverCard>
+          <div className='flex-1 border-b border-gray-200'></div>
         </Tabs.List>
         <Tabs.Panels>
           {tabs.map((tab, index) => (

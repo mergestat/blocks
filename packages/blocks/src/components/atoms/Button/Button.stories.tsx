@@ -1,4 +1,4 @@
-import { ClipboardIcon } from '@mergestat/icons';
+import { CaretDownIcon, ClipboardIcon } from '@mergestat/icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Spinner } from '../Loader/Spinner/Spinner';
 import { Button, ButtonGroup } from './Button';
@@ -67,11 +67,20 @@ Disabled.args = {
   disabled: true,
 }
 
-export const Block = Template.bind({});
-Block.args = {
+export const BlockCenter = Template.bind({});
+BlockCenter.args = {
   label: 'Button',
   skin: 'primary',
+  startIcon: <ClipboardIcon className="t-icon" />,
   isBlock: true,
+}
+
+export const BlockBetween = Template.bind({});
+BlockBetween.args = {
+  label: 'Button',
+  skin: 'ghost',
+  endIcon: <CaretDownIcon className="t-icon" />,
+  isBlockBetween: true,
 }
 
 export const ButtonIcon = Template.bind({});

@@ -41,6 +41,12 @@
          justify-center;
 }
 
+.t-button-block-between {
+  @apply w-full
+         flex
+         justify-between;
+}
+
 /* Button sizes */
 .t-button-small {
   @apply px-2
@@ -71,10 +77,12 @@
 }
 
 /* Button skins */
-.t-button-ghost-i {
-  @apply border-gray-500
-         text-gray-200
-         hover_bg-gray-700;
+.t-button-ghost {
+  @apply border-gray-300
+         text-gray-700
+         hover_bg-gradient-to-b
+         hover_from-white
+         hover_to-gray-100;
 }
 
 .t-button-secondary {

@@ -9,6 +9,7 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
     children,
     skin,
     isBlock,
+    isBlockBetween,
     isIconOnly,
     startIcon,
     endIcon,
@@ -31,6 +32,9 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
 
         case 'secondary':
           return 't-button-secondary';
+
+        case 'ghost':
+          return 't-button-ghost';
 
         case 'danger-primary':
           return 't-button-danger-primary';
@@ -87,6 +91,7 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
           {
             't-button-icon': isIconOnly,
             't-button-block': isBlock,
+            't-button-block-between': isBlockBetween,
             [getButtonActive(skin ?? 'primary')]: isActive,
             't-button-disabled': props.disabled,
             ..._classname
@@ -115,6 +120,7 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
               {
                 't-button-icon': isIconOnly,
                 't-button-block': isBlock,
+                't-button-block-between': isBlockBetween,
                 ..._classname,
               },
               size && `t-button-${size}`

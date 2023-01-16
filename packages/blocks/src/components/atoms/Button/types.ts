@@ -7,6 +7,7 @@ export type EnumSize = 'small';
 export type EnumSkin =
   | 'primary'
   | 'secondary'
+  | 'ghost'
   | 'danger-primary'
   | 'danger'
   | 'borderless'
@@ -19,6 +20,7 @@ export interface ButtonProps {
   endIcon?: React.ReactNode
   skin?: EnumSkin
   isBlock?: boolean
+  isBlockBetween?: boolean
   isIconOnly?: boolean
   size?: EnumSize
   label?: string

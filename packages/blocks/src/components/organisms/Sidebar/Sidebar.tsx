@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronRightIcon } from '@mergestat/icons';
+import { ChevronDownIcon, ChevronUpIcon } from '@mergestat/icons';
 import cx from 'classnames';
 import React, { createContext, RefAttributes, useCallback, useState } from 'react';
 import logo from '../../../../public/logo-inverse.svg';
@@ -178,7 +178,11 @@ const SidebarItem: React.FC<
                 e.preventDefault()
                 onClick && onClick()
               }}
-              >
+            >
+              {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
+              {(!collapsedContext || level === 'sub') &&
+                <div className='flex-1 truncate max-w-full'>{label}</div>
+              }
               {subNav && !collapsedContext &&
                 <button
                   className='t-sidebar-item-toggle'
@@ -186,12 +190,8 @@ const SidebarItem: React.FC<
                     e.preventDefault()
                     toggleSubNav()
                   }}>
-                  {showSubNav ? <ChevronDownIcon className='t-icon t-icon-small' /> : <ChevronRightIcon className='t-icon t-icon-small' />}
+                  {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}
                 </button>
-              }
-              {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
-              {(!collapsedContext || level === 'sub') &&
-                <div className='flex-1 truncate max-w-full'>{label}</div>
               }
             </a>
 
@@ -200,7 +200,6 @@ const SidebarItem: React.FC<
                 {subNav}
               </ul>
             }
-
           </>
         }
       </li>

@@ -23,7 +23,7 @@
 
 /*Sidebar header */
 .t-sidebar-header {
-  @apply px-4
+  @apply px-5
          py-5
          flex
          items-center;
@@ -31,7 +31,7 @@
 
 /*Sidebar footer */
 .t-sidebar-footer {
-  @apply px-4
+  @apply px-5
          h-14
          flex
          mt-4
@@ -45,7 +45,7 @@
 /*Sidebar main */
 .t-sidebar-main {
   @apply flex-grow
-         py-4
+         py-3
          list-none;
 }
 
@@ -60,12 +60,11 @@
 
 /*Sidebar item */
 .t-sidebar-item {
-  padding-left: 48px;
   @apply  flex
           items-center
           py-2
-          pr-4
-          space-x-2
+          px-5
+          space-x-3
           font-medium
           text-gray-500
           focus_outline-none
@@ -77,10 +76,6 @@
           cursor-pointer;
 }
 
-.t-sidebar-item-has-children {
-  @apply pl-4;
-}
-
 .t-sidebar-item-icon-wrap {
   color: inherit;
   @apply flex-shrink-0;
@@ -90,8 +85,8 @@
 .t-sidebar-item-toggle {
   color: inherit;
   @apply flex-shrink-0
-          w-6
-          h-6
+          w-7
+          h-7
           flex
           items-center
           justify-center
@@ -121,7 +116,7 @@
 }
 
 .t-sidebar-item-sub {
-  padding-left: 76px;
+  padding-left: 3.25rem;
   @apply text-sm
          py-2.5;
 }

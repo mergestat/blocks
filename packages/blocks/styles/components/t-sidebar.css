@@ -23,7 +23,7 @@
 
 /*Sidebar header */
 .t-sidebar-header {
-  @apply px-5
+  @apply px-4
          py-5
          flex
          items-center;
@@ -31,7 +31,7 @@
 
 /*Sidebar footer */
 .t-sidebar-footer {
-  @apply px-5
+  @apply px-4
          h-14
          flex
          mt-4

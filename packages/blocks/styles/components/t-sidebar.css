@@ -23,7 +23,7 @@
 
 /*Sidebar header */
 .t-sidebar-header {
-  @apply px-6
+  @apply px-5
          py-5
          flex
          items-center;
@@ -31,7 +31,7 @@
 
 /*Sidebar footer */
 .t-sidebar-footer {
-  @apply px-6
+  @apply px-5
          h-14
          flex
          mt-4
@@ -45,6 +45,7 @@
 /*Sidebar main */
 .t-sidebar-main {
   @apply flex-grow
+         py-3
          list-none;
 }
 
@@ -62,7 +63,7 @@
   @apply  flex
           items-center
           py-2
-          px-6
+          px-5
           space-x-3
           font-medium
           text-gray-500
@@ -80,6 +81,19 @@
   @apply flex-shrink-0;
 }
 
+
+.t-sidebar-item-toggle {
+  color: inherit;
+  @apply flex-shrink-0
+          w-7
+          h-7
+          flex
+          items-center
+          justify-center
+          hover_bg-gray-600
+          rounded;
+
+}
 .t-sidebar-item.active {
     @apply text-blue-600
            bg-blue-100;
@@ -102,9 +116,9 @@
 }
 
 .t-sidebar-item-sub {
+  padding-left: 3.25rem;
   @apply text-sm
-         py-2.5
-         pl-14;
+         py-2.5;
 }
 
 .t-sidebar-sub-menu.active {
@@ -167,6 +181,7 @@
 .t-sidebar-collapsed .t-sidebar-footer,
 .t-sidebar-collapsed .t-sidebar-header {
   @apply px-1
+         flex-none
          justify-center;
 }
 

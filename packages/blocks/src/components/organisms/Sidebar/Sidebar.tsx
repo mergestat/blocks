@@ -168,7 +168,7 @@ const SidebarItem: React.FC<
                 ..._classname,
                 't-sidebar-item-compact ': compact,
                 't-sidebar-item-sub': level === 'sub',
-                't-sidebar-item-has-children': children,
+                't-sidebar-item-has-children': subNav,
                 disabled: disabled,
                 active: active,
               })}
@@ -177,7 +177,6 @@ const SidebarItem: React.FC<
               onClick={(e) => {
                 e.preventDefault()
                 onClick && onClick()
-                toggleSubNav()
               }}
             >
               {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
@@ -185,14 +184,14 @@ const SidebarItem: React.FC<
                 <div className='flex-1 truncate max-w-full'>{label}</div>
               }
               {subNav && !collapsedContext &&
-                <div
-                  className='t-sidebar-item-icon-wrap'
+                <button
+                  className='t-sidebar-item-toggle'
                   onClick={(e) => {
                     e.preventDefault()
                     toggleSubNav()
                   }}>
                   {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}
-                </div>
+                </button>
               }
             </a>
 

@@ -52,7 +52,7 @@ const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEleme
 
   return (
     <RCTab.List
-      className={cx({ 't-tab-line-b': isDefault }, { ..._classname })}
+      className={cx('w-full overflow-x-auto', { 't-tab-line-b': isDefault }, { ..._classname })}
       {...props}
     >
       <nav className={cx('flex', { 'space-x-2': isDefault }, { 't-tab-box-secondary': isSecondary })}>

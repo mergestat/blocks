@@ -26,8 +26,6 @@
 .t-tab-line-b {
     @apply border-b
            border-gray-200
-           w-full 
-           overflow-x-auto
 }
 
 .t-tab-secondary {

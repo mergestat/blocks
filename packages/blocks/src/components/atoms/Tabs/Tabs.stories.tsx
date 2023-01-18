@@ -119,13 +119,13 @@ export const ExampleTabsSecondary: React.FC = () => {
               </Menu>
             )}
           >
-            <div className='t-tab-btn'>
+            <div className='t-tab-btn border-t border-gray-200'>
               <PlusIcon className="t-icon" />
               <span className='whitespace-nowrap'>Add view</span>
               <CaretDownIcon className="t-icon" />
             </div>
           </HoverCard>
-          <div className='flex-1 border-b border-gray-200'></div>
+          <div className='flex-1 border-y border-gray-200'></div>
         </Tabs.List>
         <Tabs.Panels>
           {tabs.map((tab, index) => (

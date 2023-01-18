@@ -26,6 +26,8 @@
 .t-tab-line-b {
     @apply border-b
            border-gray-200
+           w-full 
+           overflow-x-auto
 }
 
 .t-tab-secondary {
@@ -40,14 +42,14 @@
            h-full
            bg-gray-100
            hover_bg-gray-200
-           border-b
+           border-y
            border-r
+           border-gray-200
+           whitespace-nowrap
 }
 
 .t-tab-box-secondary {
-    @apply border-t
-           h-12
-           border-gray-200
+    @apply h-12
 }
 
 .t-tab-btn {

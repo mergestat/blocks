@@ -16,7 +16,6 @@
 
 .t-table-sticky-header thead tr {
   @apply sticky
-         z-10
          top-0;
 }
 

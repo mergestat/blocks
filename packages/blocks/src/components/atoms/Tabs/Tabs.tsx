@@ -1,31 +1,31 @@
 import { Tab as RCTab } from '@headlessui/react';
+import { XIcon } from '@mergestat/icons';
 import cx from 'classnames';
 import React from 'react';
 
 type TabGroupProps = {
   as?: string | React.Component
   defaultIndex?: number
+  selectedIndex?: number
   onChange?: (index: number) => void
   vertical?: boolean
   manual?: boolean
   variant?: 'secondary' | 'default'
+  children?: React.ReactNode
 }
 
 type TabItemProps = {
   disabled?: boolean
+  closable?: boolean,
+  onClose?: () => void
   variant?: 'secondary' | 'default'
 }
 
-const TabGroup: React.FC<
-  TabGroupProps &
-  React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLBaseElement>,
-    HTMLBaseElement
-  >
-> = ({ children, defaultIndex, onChange, vertical, variant = 'default' }) => {
+const TabGroup: React.FC<TabGroupProps> = ({ children, defaultIndex, selectedIndex, onChange, vertical, variant = 'default' }) => {
   return (
     <RCTab.Group
       defaultIndex={defaultIndex}
+      selectedIndex={selectedIndex}
       onChange={onChange}
       vertical={vertical}
       manual
@@ -34,7 +34,7 @@ const TabGroup: React.FC<
         return React.cloneElement(child as React.ReactElement, { variant })
       })}
     </RCTab.Group>
-  );
+  )
 }
 
 const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElement>> = ({
@@ -49,7 +49,7 @@ const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEleme
 
   return (
     <RCTab.List
-      className={cx({ 't-tab-line-b': isDefault }, { ..._classname })}
+      className={cx('w-full overflow-x-auto', { 't-tab-line-b': isDefault }, { ..._classname })}
       {...props}
     >
       <nav className={cx('flex', { 'space-x-2': isDefault }, { 't-tab-box-secondary': isSecondary })}>
@@ -58,13 +58,15 @@ const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEleme
         })}
       </nav>
     </RCTab.List>
-  );
+  )
 }
 
 const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
   className,
   disabled = false,
   children,
+  closable,
+  onClose,
   variant,
   ...props
 }) => {
@@ -81,8 +83,17 @@ const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
       }
     >
       {children}
+      {closable &&
+        <div
+          className='t-tab-close-btn'
+          onClick={() => {
+            onClose && onClose()
+          }}>
+          <XIcon className='t-icon t-icon-small' />
+        </div>
+      }
     </RCTab>
-  );
+  )
 }
 
 const TabPanels: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElement>> =
@@ -93,7 +104,7 @@ const TabPanels: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEle
       <RCTab.Panels {...props} className={cx({ ..._classname })}>
         {children}
       </RCTab.Panels>
-    );
+    )
   }
 
 const TabPanel: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElement>> = ({
@@ -107,17 +118,10 @@ const TabPanel: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElem
     <RCTab.Panel {...props} className={cx({ ..._classname })}>
       {children}
     </RCTab.Panel>
-  );
+  )
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<
-    TabGroupProps &
-    React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLBaseElement>,
-      HTMLBaseElement
-    >
-  > {
+interface CompoundedComponent extends React.ForwardRefExoticComponent<TabGroupProps> {
   Group: typeof TabGroup;
   List: typeof TabList;
   Item: typeof TabItem;

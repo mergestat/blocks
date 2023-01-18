@@ -10,12 +10,14 @@
 }
 
 .t-tab {
-    padding-top: 0.9375rem;
-    padding-bottom: 0.9375rem;
+    padding-top: .9375rem;
+    padding-bottom: .9375rem;
     @apply px-1
            flex
            items-center
            border-b-2
+           leading-6
+           space-x-2
            border-transparent
            font-medium
            -mb-px;
@@ -27,22 +29,41 @@
 }
 
 .t-tab-secondary {
-    padding-top: 0.9375rem;
-    padding-bottom: 0.9375rem;
     @apply px-3
+           py-3
            flex
            text-gray-500
            font-medium
            items-center
+           leading-6
+           space-x-2
+           h-full
            bg-gray-100
            hover_bg-gray-200
+           border-t
            border-b
            border-r
+           border-gray-200
+           whitespace-nowrap
 }
 
 .t-tab-box-secondary {
-    @apply border-t
-           border-gray-200
+    @apply h-12
+}
+
+.t-tab-btn {
+  @apply flex
+         px-3
+         py-3
+         h-full
+         items-center
+         space-x-2
+         leading-6
+         text-blue-600
+         border-b
+         border-gray-200
+         hover_bg-gray-100
+         cursor-pointer;
 }
 
 .t-tab[disabled] {
@@ -87,3 +108,15 @@
            hover_border-gray-300;
 }
 /* purgecss end ignore */
+
+.t-tab-close-btn {
+  @apply ml-2
+         hover_bg-gray-150
+         mix-blend-multiply
+         flex
+         items-center
+         justify-center
+         h-6
+         w-6
+         rounded;
+}

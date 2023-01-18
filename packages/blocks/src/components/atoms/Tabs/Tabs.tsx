@@ -1,6 +1,7 @@
 import { Tab as RCTab } from '@headlessui/react';
 import cx from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
+import { XIcon } from '@mergestat/icons';
 
 type TabGroupProps = {
   as?: string | React.Component
@@ -13,6 +14,8 @@ type TabGroupProps = {
 
 type TabItemProps = {
   disabled?: boolean
+  closable?: boolean,
+  onClose?: () => void
   variant?: 'secondary' | 'default'
 }
 
@@ -65,9 +68,15 @@ const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
   className,
   disabled = false,
   children,
+  closable,
+  onClose,
   variant,
   ...props
 }) => {
+  const [visible, setVisible] = useState<boolean>(true);
+
+  if (!visible) return null;
+
   const variantStyle = variant === 'secondary' ? 't-tab-secondary' : 't-tab'
   return (
     <RCTab
@@ -81,6 +90,16 @@ const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
       }
     >
       {children}
+      {closable &&
+        <div
+          className='t-tab-close-btn'
+          onClick={() => {
+            setVisible(false);
+            if (onClose) onClose();
+          }}>
+          <XIcon className='t-icon t-icon-small' />
+        </div>
+      }
     </RCTab>
   );
 }

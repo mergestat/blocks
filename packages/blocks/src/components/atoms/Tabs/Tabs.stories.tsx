@@ -35,22 +35,25 @@ interface TabData {
   title: ReactElement | string
   content: ReactElement | string
   disabled?: boolean
+  closable?: boolean
 }
 
 export const ExampleTabsSecondary: React.FC = () => {
   const [tabs, setTabs] = useState<TabData[]>([
     {
-      title: <><TableIcon className='t-icon' /> <span className='ml-2'>Table</span></>,
+      title: <><TableIcon className='t-icon' /><span className='whitespace-nowrap'>Table</span></>,
       content: <div>Content Table</div>
     },
     {
-      title: <><ChartBarIcon className='t-icon' /> <span className='ml-2'>Bar chart</span></>,
+      title: <><ChartBarIcon className='t-icon' /><span className='whitespace-nowrap'>Bar chart</span></>,
       content: 'Content Bar chart',
-      disabled: true
+      disabled: true,
+      closable: true
     },
     {
-      title: <><TrendUpIcon className='t-icon' /> <span className='ml-2'>Line chart</span></>,
-      content: 'Content Line chart'
+      title: <><TrendUpIcon className='t-icon' /><span className='whitespace-nowrap'>Line chart</span></>,
+      content: 'Content Line chart',
+      closable: true
     }
   ])
 
@@ -58,13 +61,15 @@ export const ExampleTabsSecondary: React.FC = () => {
     switch (tab) {
       case 'line':
         return {
-          title: <><TrendUpIcon className='t-icon' /> <span className='ml-2'>Line chart</span></>,
-          content: 'Content Line chart'
+          title: <><TrendUpIcon className='t-icon' /><span className='whitespace-nowrap'>Line Chart</span></>,
+          content: 'Content Line chart',
+          closable: true
         }
       default:
         return {
-          title: <><DocumentTextIcon className='t-icon' /> <span className='ml-2'>Single metric</span></>,
-          content: 'Content Single metric'
+          title: <><DocumentTextIcon className='t-icon' /><span className='whitespace-nowrap'>Single Metric</span></>,
+          content: 'Content Single metric',
+          closable: true
         }
     }
   }
@@ -78,7 +83,7 @@ export const ExampleTabsSecondary: React.FC = () => {
       <Tabs variant='secondary'>
         <Tabs.List>
           {tabs.map((tab, index) => (
-            <Tabs.Item key={`tab-item-${index}`} disabled={tab.disabled}>{tab.title}</Tabs.Item>
+            <Tabs.Item key={`tab-item-${index}`} disabled={tab.disabled} closable={tab.closable}>{tab.title}</Tabs.Item>
           ))}
 
           <HoverCard
@@ -103,9 +108,9 @@ export const ExampleTabsSecondary: React.FC = () => {
               </Menu>
             )}
           >
-            <div className='flex px-3 py-4 text-blue-600 border-b border-gray-200 hover_bg-gray-100 cursor-pointer'>
+            <div className='t-tab-btn'>
               <PlusIcon className="t-icon" />
-              <span className='px-1'>Add view</span>
+              <span className='whitespace-nowrap'>Add view</span>
               <CaretDownIcon className="t-icon" />
             </div>
           </HoverCard>

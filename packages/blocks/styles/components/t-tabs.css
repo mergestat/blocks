@@ -42,7 +42,8 @@
            h-full
            bg-gray-100
            hover_bg-gray-200
-           border-y
+           border-t
+           border-b
            border-r
            border-gray-200
            whitespace-nowrap

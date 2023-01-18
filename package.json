@@ -22,7 +22,7 @@
   },
   "private": true,
   "dependencies": {
-    "@floating-ui/react": "0.17.0",
+    "@floating-ui/react": "0.18.0",
     "@headlessui/react": "1.7.7",
     "classnames": "^2.3.2",
     "core-js": "^3.6.5",

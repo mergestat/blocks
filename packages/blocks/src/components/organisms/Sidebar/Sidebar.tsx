@@ -188,6 +188,7 @@ const SidebarItem: React.FC<
                   className='t-sidebar-item-toggle'
                   onClick={(e) => {
                     e.preventDefault()
+                    e.stopPropagation()
                     toggleSubNav()
                   }}>
                   {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}

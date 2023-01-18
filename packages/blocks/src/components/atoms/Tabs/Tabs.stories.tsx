@@ -39,6 +39,8 @@ interface TabData {
 }
 
 export const ExampleTabsSecondary: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<number>(0)
+
   const [tabs, setTabs] = useState<TabData[]>([
     {
       title: <><TableIcon className='t-icon' /><span className='whitespace-nowrap'>Table</span></>,
@@ -76,16 +78,18 @@ export const ExampleTabsSecondary: React.FC = () => {
 
   const addTab = (tab: string) => {
     setTabs([...tabs, getTabData(tab)])
+    setActiveTab(tabs.length)
   }
 
   const removeTab = (tabIndex: number) => {
     const newTabs = tabs.filter((tab, index) => index !== tabIndex)
     setTabs(newTabs)
+    setActiveTab(0)
   }
 
   return (
     <div className="p-2">
-      <Tabs variant='secondary'>
+      <Tabs variant='secondary' defaultIndex={0} selectedIndex={activeTab} onChange={(index) => setActiveTab(index)}>
         <Tabs.List>
           {tabs.map((tab, index) => (
             <Tabs.Item key={`tab-item-${index}`}

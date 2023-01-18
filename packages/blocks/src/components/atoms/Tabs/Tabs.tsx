@@ -6,10 +6,12 @@ import React from 'react';
 type TabGroupProps = {
   as?: string | React.Component
   defaultIndex?: number
+  selectedIndex?: number
   onChange?: (index: number) => void
   vertical?: boolean
   manual?: boolean
   variant?: 'secondary' | 'default'
+  children?: React.ReactNode
 }
 
 type TabItemProps = {
@@ -19,16 +21,11 @@ type TabItemProps = {
   variant?: 'secondary' | 'default'
 }
 
-const TabGroup: React.FC<
-  TabGroupProps &
-  React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLBaseElement>,
-    HTMLBaseElement
-  >
-> = ({ children, defaultIndex, onChange, vertical, variant = 'default' }) => {
+const TabGroup: React.FC<TabGroupProps> = ({ children, defaultIndex, selectedIndex, onChange, vertical, variant = 'default' }) => {
   return (
     <RCTab.Group
       defaultIndex={defaultIndex}
+      selectedIndex={selectedIndex}
       onChange={onChange}
       vertical={vertical}
       manual
@@ -124,14 +121,7 @@ const TabPanel: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElem
   )
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<
-    TabGroupProps &
-    React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLBaseElement>,
-      HTMLBaseElement
-    >
-  > {
+interface CompoundedComponent extends React.ForwardRefExoticComponent<TabGroupProps> {
   Group: typeof TabGroup;
   List: typeof TabList;
   Item: typeof TabItem;

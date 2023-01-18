@@ -78,12 +78,23 @@ export const ExampleTabsSecondary: React.FC = () => {
     setTabs([...tabs, getTabData(tab)])
   }
 
+  const removeTab = (tabIndex: number) => {
+    const newTabs = tabs.filter((tab, index) => index !== tabIndex)
+    setTabs(newTabs)
+  }
+
   return (
     <div className="p-2">
       <Tabs variant='secondary'>
         <Tabs.List>
           {tabs.map((tab, index) => (
-            <Tabs.Item key={`tab-item-${index}`} disabled={tab.disabled} closable={tab.closable}>{tab.title}</Tabs.Item>
+            <Tabs.Item key={`tab-item-${index}`}
+              disabled={tab.disabled}
+              closable={tab.closable}
+              onClose={() => removeTab(index)}
+            >
+              {tab.title}
+            </Tabs.Item>
           ))}
 
           <HoverCard

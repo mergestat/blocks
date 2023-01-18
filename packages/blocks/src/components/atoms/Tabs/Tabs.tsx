@@ -1,7 +1,7 @@
 import { Tab as RCTab } from '@headlessui/react';
-import cx from 'classnames';
-import React, { useState } from 'react';
 import { XIcon } from '@mergestat/icons';
+import cx from 'classnames';
+import React from 'react';
 
 type TabGroupProps = {
   as?: string | React.Component
@@ -37,7 +37,7 @@ const TabGroup: React.FC<
         return React.cloneElement(child as React.ReactElement, { variant })
       })}
     </RCTab.Group>
-  );
+  )
 }
 
 const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElement>> = ({
@@ -61,7 +61,7 @@ const TabList: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEleme
         })}
       </nav>
     </RCTab.List>
-  );
+  )
 }
 
 const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
@@ -73,10 +73,6 @@ const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
   variant,
   ...props
 }) => {
-  const [visible, setVisible] = useState<boolean>(true);
-
-  if (!visible) return null;
-
   const variantStyle = variant === 'secondary' ? 't-tab-secondary' : 't-tab'
   return (
     <RCTab
@@ -94,14 +90,13 @@ const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
         <div
           className='t-tab-close-btn'
           onClick={() => {
-            setVisible(false);
-            if (onClose) onClose();
+            onClose && onClose()
           }}>
           <XIcon className='t-icon t-icon-small' />
         </div>
       }
     </RCTab>
-  );
+  )
 }
 
 const TabPanels: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElement>> =
@@ -112,7 +107,7 @@ const TabPanels: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLEle
       <RCTab.Panels {...props} className={cx({ ..._classname })}>
         {children}
       </RCTab.Panels>
-    );
+    )
   }
 
 const TabPanel: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElement>> = ({
@@ -126,7 +121,7 @@ const TabPanel: React.FC<Record<string, unknown> & React.HTMLAttributes<HTMLElem
     <RCTab.Panel {...props} className={cx({ ..._classname })}>
       {children}
     </RCTab.Panel>
-  );
+  )
 }
 
 interface CompoundedComponent

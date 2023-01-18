@@ -110,7 +110,7 @@
 
 .t-tab-close-btn {
   @apply ml-2
-       hover_bg-gray-150
+         hover_bg-gray-150
          mix-blend-multiply
          flex
          items-center

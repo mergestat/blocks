@@ -24,7 +24,7 @@ export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ data, size }) => {
             {index !== 0 && <ChevronRightIcon className="t-icon t-icon-muted cursor-default" />}
             {item.startIcon && item.startIcon}
             <div
-              className={cx('t-breadcrumb-nav-title', index === data.length - 1 && 't-breadcrumb-nav-title-active')}
+              className={cx('t-breadcrumb-nav-title', index === data.length - 1 && size !== 'sm' && 't-breadcrumb-nav-title-active')}
               onClick={() => item.onClick && item.onClick()}
             >
               {item.text}

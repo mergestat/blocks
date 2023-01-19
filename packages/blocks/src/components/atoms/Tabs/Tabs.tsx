@@ -86,7 +86,9 @@ const TabItem: React.FC<TabItemProps & React.HTMLAttributes<HTMLElement>> = ({
       {closable &&
         <div
           className='t-tab-close-btn'
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
             onClose && onClose()
           }}>
           <XIcon className='t-icon t-icon-small' />

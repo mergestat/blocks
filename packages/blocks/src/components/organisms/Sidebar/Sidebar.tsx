@@ -99,26 +99,24 @@ const SidebarOuter: React.FC<
 /* Sidebar item */
 const SidebarItem: React.FC<
   SidebarItemProps &
-  RefAttributes<HTMLAnchorElement> &
+  RefAttributes<HTMLDivElement> &
   React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
+    React.AnchorHTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
   >
-> = React.forwardRef(
-  ({
-    label,
-    icon,
-    active,
-    onClick,
-    href,
-    className,
-    children,
-    disabled = false,
-    compact = true,
-    subNav,
-    level,
-    ...props
-  }, ref) => {
+> = ({
+  label,
+  icon,
+  active,
+  onClick,
+  className,
+  children,
+  disabled = false,
+  compact = true,
+  subNav,
+  level,
+  ...props
+}) => {
     const [showSubNav, setShowSubNav] = useState(false);
     const collapsedContext = React.useContext(SidebarContext)
 
@@ -141,7 +139,7 @@ const SidebarItem: React.FC<
                 </div>
               </Menu>
             )}>
-            <a
+            <div
               {...props}
               className={cx('t-sidebar-item default t-sidebar-item-has-children', {
                 ..._classname,
@@ -150,8 +148,6 @@ const SidebarItem: React.FC<
                 disabled: disabled,
                 active: active,
               })}
-              href={href}
-              ref={ref}
               onClick={(e) => {
                 e.preventDefault()
                 onClick && onClick()
@@ -159,10 +155,10 @@ const SidebarItem: React.FC<
               }}
             >
               {icon && <div className='t-sidebar-item-icon-wrap'>{icon}</div>}
-            </a>
+            </div>
           </HoverCard>
           : <>
-            <a
+            <div
               {...props}
               className={cx('t-sidebar-item default', {
                 ..._classname,
@@ -172,8 +168,6 @@ const SidebarItem: React.FC<
                 disabled: disabled,
                 active: active,
               })}
-              href={href}
-              ref={ref}
               onClick={(e) => {
                 e.preventDefault()
                 onClick && onClick()
@@ -194,7 +188,7 @@ const SidebarItem: React.FC<
                   {showSubNav ? <ChevronUpIcon className='t-icon t-icon-small' /> : <ChevronDownIcon className='t-icon t-icon-small' />}
                 </button>
               }
-            </a>
+            </div>
 
             {subNav &&
               <ul className={cx('t-sidebar-sub-menu', { 'active': showSubNav })}>
@@ -206,7 +200,6 @@ const SidebarItem: React.FC<
       </li>
     )
   }
-)
 
 /* Logo */
 const SidebarLogo: React.FC<

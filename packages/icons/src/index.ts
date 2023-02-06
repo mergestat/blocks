@@ -38,6 +38,7 @@ export { default as CircleWarningIcon } from './icons/CircleWarning';
 export { default as CircleWarningFilledIcon } from './icons/CircleWarningFilled';
 export { default as ClipboardIcon } from './icons/Clipboard';
 export { default as ClockIcon } from './icons/Clock';
+export { default as ClockHistoryIcon } from './icons/ClockHistory';
 export { default as CodeIcon } from './icons/Code';
 export { default as CogIcon } from './icons/Cog';
 export { default as CommitIcon } from './icons/Commit';

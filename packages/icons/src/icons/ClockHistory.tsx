@@ -3,7 +3,7 @@ import { IconProps } from '../utils/types';
 
 function SvgClock(props: IconProps) {
   return (
-    <Icon viewBox="0 0 18 18" {...props}>
+    <Icon height="18" viewBox="0 0 18 18" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

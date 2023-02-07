@@ -17,6 +17,12 @@ InputBasic.args = {
   placeholder: 'placeholder...',
 }
 
+export const InputGhost = Template.bind({});
+InputGhost.args = {
+  placeholder: 'Untitled',
+  variant: 'ghost',
+}
+
 export const InputError = Template.bind({});
 InputError.args = {
   placeholder: 'placeholder...',
@@ -35,7 +41,7 @@ export const InputWithLabel = () => {
       <Label>Label</Label>
       <Input />
     </div>
-  );
+  )
 }
 
 export const InputWithLabelAndHelper = () => {
@@ -45,7 +51,7 @@ export const InputWithLabelAndHelper = () => {
       <Input />
       <HelpText>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</HelpText>
     </div>
-  );
+  )
 }
 
 export const InputErrorWithLabel = () => {
@@ -55,7 +61,7 @@ export const InputErrorWithLabel = () => {
       <Input variant="error" />
       <HelpText variant="error">This is an error message</HelpText>
     </div>
-  );
+  )
 }
 
 const HelpTextTemplate: ComponentStory<typeof HelpText> = (args) => (

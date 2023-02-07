@@ -69,7 +69,7 @@ export const SplitButton: React.FC<SplitButtonProps> = React.forwardRef(({
                 <Menu.Item
                   key={index}
                   text={text}
-                  withIcon
+                  withIcon={!!icon}
                   className={cx("whitespace-nowrap", { ..._classname })}
                   onClick={() => {
                     if (onItemClick) onItemClick(index);

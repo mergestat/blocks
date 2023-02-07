@@ -6,7 +6,7 @@ type BaseInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
-type InputVarian = 'error' | 'default'
+type InputVarian = 'error' | 'ghost' | 'default'
 
 export type InputProps = {
   variant?: InputVarian;

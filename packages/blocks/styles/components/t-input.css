@@ -57,3 +57,20 @@
   @apply rounded-l-none
          -ml-px;
 }
+
+.t-input-ghost {
+  @apply border-transparent
+         hover_bg-gray-50
+         focus_bg-white
+         py-1
+}
+
+.t-input-title {
+  @apply text-lg
+         font-semibold
+}
+
+.t-input-desc {
+  @apply text-sm
+         text-gray-500
+}

@@ -1,8 +1,10 @@
+import cx from 'classnames';
 import React from 'react';
 import { ColoredBox } from '../../atoms/ColoredBox';
 import { Input } from '../../atoms/Form';
 
 export type EditableTextProps = {
+  className?: string
   icon?: React.ReactElement
   title: React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
@@ -14,9 +16,11 @@ export type EditableTextProps = {
   >
 }
 
-export const EditableText: React.FC<EditableTextProps> = ({ icon, title, desc }) => {
+export const EditableText: React.FC<EditableTextProps> = ({ className, icon, title, desc }) => {
+  const _classname = className ? { [className]: !!className } : {}
+
   return (
-    <div className='flex items-center'>
+    <div className={cx('flex items-center', { ..._classname })}>
       {icon && <ColoredBox size='10'>
         {icon}
       </ColoredBox>}

@@ -16,6 +16,7 @@ export const Default = () => {
   return (
     <div>
       <EditableText
+        className='flex-grow'
         icon={<TerminalIcon className="t-icon" />}
         title={{
           placeholder: 'Untitled',

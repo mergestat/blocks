@@ -21,6 +21,7 @@ export * from './components/atoms/Typography';
 export * from './components/molecules/Accordion';
 export * from './components/molecules/Alert';
 export * from './components/molecules/Dropdown';
+export * from './components/molecules/EditableText';
 export * from './components/molecules/Filter';
 export * from './components/molecules/KeyValue';
 export * from './components/molecules/Menu';

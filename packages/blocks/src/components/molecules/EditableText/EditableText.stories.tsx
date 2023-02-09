@@ -32,3 +32,28 @@ export const Default = () => {
     </div>
   )
 }
+
+export const ReadOnly = () => {
+  const [title, setTitle] = useState<string>('Untitled')
+  const [desc, setDesc] = useState<string>('This is a short description')
+
+  return (
+    <div>
+      <EditableText
+        className='flex-grow'
+        icon={<TerminalIcon className="t-icon" />}
+        title={{
+          value: title,
+          readOnly: true,
+          onClick: () => console.log('Go to'),
+          onChange: (e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)
+        }}
+        desc={{
+          value: desc,
+          readOnly: true,
+          onChange: (e: ChangeEvent<HTMLInputElement>) => setDesc(e.target.value)
+        }}
+      />
+    </div>
+  )
+}

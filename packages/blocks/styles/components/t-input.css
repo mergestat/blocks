@@ -60,6 +60,15 @@
 
 .t-input-ghost {
   @apply border-transparent
+         bg-transparent
+         hover_bg-gray-50
+         focus_bg-white
+         py-1
+}
+
+.t-input-ghost-error {
+  @apply border-red-500
+         bg-transparent
          hover_bg-gray-50
          focus_bg-white
          py-1
@@ -67,10 +76,22 @@
 
 .t-input-title {
   @apply text-lg
+         text-gray-700
          font-semibold
 }
 
 .t-input-desc {
   @apply text-sm
          text-gray-500
+}
+
+.t-input-readonly {
+  @apply hover_bg-transparent
+         focus_bg-transparent
+         focus_border-transparent
+}
+
+.t-input-onclick {
+  @apply cursor-pointer
+         hover_text-blue-600
 }

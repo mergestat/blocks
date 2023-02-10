@@ -81,14 +81,9 @@
 }
 
 .t-input-desc {
-  @apply text-sm
+  @apply font-normal
+         text-sm
          text-gray-500
-}
-
-.t-input-readonly {
-  @apply hover_bg-transparent
-         focus_bg-transparent
-         focus_border-transparent
 }
 
 .t-input-onclick {

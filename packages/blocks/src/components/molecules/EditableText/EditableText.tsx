@@ -3,18 +3,17 @@ import React from 'react';
 import { ColoredBox } from '../../atoms/ColoredBox';
 import { Input } from '../../atoms/Form';
 
-interface InputEditableText extends React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> {
-  error?: boolean
-}
-
 export type EditableTextProps = {
   className?: string
   icon?: React.ReactElement
-  title: InputEditableText
-  desc: InputEditableText
+  title: React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >
+  desc: React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >
 }
 
 export const EditableText: React.FC<EditableTextProps> = ({ className, icon, title, desc }) => {
@@ -34,7 +33,7 @@ export const EditableText: React.FC<EditableTextProps> = ({ className, icon, tit
             })}>
             {title?.value}
           </h4>
-          : <Input variant={title.error ? 'ghost-error' : 'ghost'}
+          : <Input variant={title.required ? 'ghost-error' : 'ghost'}
             className={cx('t-input-title leading-none')}
             {...title}
           />}
@@ -47,7 +46,7 @@ export const EditableText: React.FC<EditableTextProps> = ({ className, icon, tit
             })}>
             {desc?.value}
           </p>
-          : <Input variant={desc.error ? 'ghost-error' : 'ghost'}
+          : <Input variant={desc.required ? 'ghost-error' : 'ghost'}
             className={cx('t-input-desc leading-none')}
             {...desc}
           />}

@@ -24,7 +24,7 @@
 }
 
 .t-tree-item-name {
-    @apply ml-1
+    @apply ml-2
            text-gray-700
 }
 

@@ -1,0 +1,38 @@
+.t-tree {
+    @apply flex
+           flex-col
+           w-full;
+}
+
+.t-tree-item {
+    @apply flex
+           flex-col
+           p-1
+}
+
+.t-tree-item-header {
+    @apply flex 
+           items-center 
+           cursor-pointer
+}
+
+.t-tree-item-body {
+    @apply flex 
+           flex-col 
+           mt-2
+           ml-5
+}
+
+.t-tree-item-name {
+    @apply ml-2 
+           text-gray-700
+}
+
+.t-tree-subitem {
+    @apply flex
+           pl-3
+           pb-1
+           border-l-2
+           border-gray-200
+           text-gray-500
+}

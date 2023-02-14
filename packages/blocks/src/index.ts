@@ -31,6 +31,7 @@ export * from './components/molecules/Stat';
 export * from './components/molecules/Table';
 export * from './components/molecules/Toggle';
 export * from './components/molecules/Toolbar';
+export * from './components/molecules/Tree';
 export * from './components/molecules/VerticalNav';
 export * from './components/organisms/List';
 export * from './components/organisms/MultiSelect';

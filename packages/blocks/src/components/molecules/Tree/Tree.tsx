@@ -1,3 +1,4 @@
+import { CaretDownIcon, CaretRightIcon } from '@mergestat/icons';
 import cx from 'classnames';
 import React, { useState } from 'react';
 import { Tooltip } from '../../atoms/Tooltip';
@@ -27,6 +28,7 @@ const TreeItem: React.FC<TreeProps> = ({ children, className, icon, name, desc }
   return (
     <div className={cx('t-tree-item', { ..._classname })}>
       <div className='t-tree-item-header' onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <CaretDownIcon className="t-icon-muted mr-2" /> : <CaretRightIcon className="t-icon-muted mr-2" />}
         {icon}
         {desc ?
           <Tooltip content={desc} placement='right' offset={[0, 10]}>

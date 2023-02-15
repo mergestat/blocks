@@ -21,7 +21,7 @@ export const RadioCard: React.FC<RadioCardProps> = ({
   return (
     <div
       className={cx('t-radio-card', {
-        't-tag-blue': isSelected,
+        't-radio-card-selected': isSelected,
         ..._classname
       })}
       onClick={() => {

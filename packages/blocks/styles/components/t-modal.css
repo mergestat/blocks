@@ -47,7 +47,7 @@
           shadow-xl
           transform
           transition-all
-          sm_align-middle
+          align-middle
           sm_max-w-2xl
           w-full;
 }

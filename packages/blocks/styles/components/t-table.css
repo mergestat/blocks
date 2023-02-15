@@ -15,8 +15,10 @@
 }
 
 .t-table-sticky-header thead tr {
+  z-index: 1;
   @apply sticky
-         top-0;
+         top-0
+         bg-gray-50;
 }
 
 .t-table-sticky-header thead tr th:before {

@@ -6,9 +6,7 @@
 
 .t-button-toolbar {
     @apply flex
-           items-center;
+           items-center
+           space-x-2;
 }
 
-.t-button-toolbar .t-button + .t-button {
-    @apply ml-2;
-}

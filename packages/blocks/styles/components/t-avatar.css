@@ -11,7 +11,8 @@
            rounded-full
            font-medium
            overflow-hidden
-           bg-gray-200
+           bg-gray-100
+           mix-blend-multiply
            text-gray-500;
 }
 
@@ -54,8 +55,8 @@
 }
 
 .t-avatar-xl .t-icon {
-    @apply w-8
-           h-8;
+    @apply w-6
+           h-6;
 }
 
 .t-avatar-2xl {
@@ -89,7 +90,7 @@
 }
 
 .t-avatar-dark {
-    @apply bg-gray-700
+    @apply bg-gray-500
             text-white;
 }
 

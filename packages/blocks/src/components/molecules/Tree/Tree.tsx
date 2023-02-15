@@ -9,6 +9,8 @@ type TreeProps = React.HTMLAttributes<HTMLElement> & {
   icon?: React.ReactElement
   name: string
   desc?: string
+  open?: boolean
+  onClick?: () => void
 }
 
 const TreeOuter: React.FC<BaseProps> = ({ children, className }) => {
@@ -21,13 +23,18 @@ const TreeOuter: React.FC<BaseProps> = ({ children, className }) => {
   )
 }
 
-const TreeItem: React.FC<TreeProps> = ({ children, className, icon, name, desc }) => {
+const TreeItem: React.FC<TreeProps> = ({ children, className, icon, name, desc, open = false, onClick }) => {
   const _classname = className ? { [className]: !!className } : {}
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(open)
 
   return (
     <div className={cx('t-tree-item', { ..._classname })}>
-      <div className='t-tree-item-header' onClick={() => setIsOpen(!isOpen)}>
+      <div className='t-tree-item-header'
+        onClick={() => {
+          setIsOpen(!isOpen)
+          onClick && onClick()
+        }}
+      >
         {isOpen ? <CaretDownIcon className="t-icon t-icon-muted mr-2" /> : <CaretRightIcon className="t-icon t-icon-muted mr-2" />}
         {icon}
         {desc ?
@@ -45,11 +52,15 @@ const TreeItem: React.FC<TreeProps> = ({ children, className, icon, name, desc }
   )
 }
 
-const TreeSubItem: React.FC<TreeProps> = ({ className, name, desc }) => {
+const TreeSubItem: React.FC<TreeProps> = ({ className, name, desc, onClick }) => {
   const _classname = className ? { [className]: !!className } : {}
 
   return (
-    <div className={cx('t-tree-subitem', { ..._classname })}>
+    <div className={cx('t-tree-subitem', { ..._classname })}
+      onClick={() => {
+        onClick && onClick()
+      }}
+    >
       {desc ?
         <Tooltip content={desc} placement='right' offset={[0, 10]}>
           {name}

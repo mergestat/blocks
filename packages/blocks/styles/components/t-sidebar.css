@@ -62,7 +62,7 @@
 .t-sidebar-item {
   @apply  flex
           items-center
-          py-2
+          py-2.5
           px-5
           space-x-3
           font-medium

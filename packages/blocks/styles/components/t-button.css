@@ -128,7 +128,7 @@
 }
 
 .t-button-borderless-muted {
-  @apply text-gray-600;
+  @apply text-gray-500;
 }
 
 .t-button-danger-primary {

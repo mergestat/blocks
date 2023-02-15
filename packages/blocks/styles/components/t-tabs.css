@@ -19,8 +19,7 @@
            leading-6
            space-x-2
            border-transparent
-           font-medium
-           -mb-px;
+           font-medium;
 }
 
 .t-tab-line-b {
@@ -36,7 +35,8 @@
            font-medium
            items-center
            leading-6
-           space-x-2
+           space-x-1.5
+           text-sm
            h-full
            bg-gray-100
            hover_bg-gray-200
@@ -45,6 +45,12 @@
            border-r
            border-gray-200
            whitespace-nowrap
+}
+
+.t-tab-secondary .t-icon,
+.t-tab-btn .t-icon {
+  @apply h-4
+         w-4;
 }
 
 .t-tab-box-secondary {
@@ -57,9 +63,11 @@
          py-3
          h-full
          items-center
-         space-x-2
+         space-x-1.5
+         text-sm
          leading-6
          text-blue-600
+         font-medium
          border-b
          border-gray-200
          hover_bg-gray-100
@@ -82,6 +90,10 @@
            opacity-80
            border-gray-200
            pointer-events-none;
+}
+
+.t-tab-secondary:first-child {
+  @apply pl-8;
 }
 
 /* purgecss start ignore */
@@ -108,7 +120,6 @@
            hover_border-gray-300;
 }
 /* purgecss end ignore */
-
 .t-tab-close-btn {
   @apply ml-2
          hover_bg-gray-150

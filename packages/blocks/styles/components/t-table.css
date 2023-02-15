@@ -15,8 +15,10 @@
 }
 
 .t-table-sticky-header thead tr {
+  z-index: 1;
   @apply sticky
-         top-0;
+         top-0
+         bg-gray-50;
 }
 
 .t-table-sticky-header thead tr th:before {
@@ -63,7 +65,7 @@
          border-b-2
          font-semibold
          bg-gray-50
-         text-gray-700;
+         text-gray-600;
 }
 
 /* Alignment for button toolbars */
@@ -237,7 +239,7 @@ table th.down .sortable__th__arrow {
 /* Dense tables */
 .t-table-dense th,
 .t-table-dense td {
-  @apply py-2.5
+  @apply py-2
          text-sm;
 }
 

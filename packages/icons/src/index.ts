@@ -69,6 +69,7 @@ export { default as Plus1Icon } from './icons/Plus1';
 export { default as PullRequestIcon } from './icons/PullRequest';
 export { default as RefreshIcon } from './icons/Refresh';
 export { default as RepositoryIcon } from './icons/Repository';
+export { default as SchemaIcon } from './icons/Schema';
 export { default as SearchIcon } from './icons/Search';
 export { default as SelectorIcon } from './icons/Selector';
 export { default as ServerIcon } from './icons/Server';

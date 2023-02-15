@@ -16,20 +16,25 @@
            cursor-pointer
 }
 
+.t-tree-item-header > .t-icon {
+    @apply flex-shrink-0
+}
+
 .t-tree-item-body {
     @apply flex 
            flex-col 
            mt-2
-           ml-5
+           ml-6
 }
 
 .t-tree-item-name {
-    @apply ml-2 
+    @apply ml-2
            text-gray-700
 }
 
 .t-tree-subitem {
     @apply flex
+           ml-3
            pl-3
            pb-1
            border-l-2

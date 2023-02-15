@@ -5,7 +5,7 @@
 .t-label {
   @apply block
          font-medium
-         text-gray-800
+         text-gray-600
          py-1.5
          leading-6;
 }

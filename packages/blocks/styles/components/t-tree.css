@@ -16,6 +16,10 @@
            cursor-pointer
 }
 
+.t-tree-item-header > .t-icon {
+    @apply flex-shrink-0
+}
+
 .t-tree-item-body {
     @apply flex 
            flex-col 

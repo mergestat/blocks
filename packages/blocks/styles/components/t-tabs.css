@@ -19,8 +19,7 @@
            leading-6
            space-x-2
            border-transparent
-           font-medium
-           -mb-px;
+           font-medium;
 }
 
 .t-tab-line-b {
@@ -60,6 +59,7 @@
          space-x-2
          leading-6
          text-blue-600
+         font-medium
          border-b
          border-gray-200
          hover_bg-gray-100
@@ -82,6 +82,10 @@
            opacity-80
            border-gray-200
            pointer-events-none;
+}
+
+.t-tab-secondary:first-child {
+  @apply pl-8;
 }
 
 /* purgecss start ignore */
@@ -108,7 +112,6 @@
            hover_border-gray-300;
 }
 /* purgecss end ignore */
-
 .t-tab-close-btn {
   @apply ml-2
          hover_bg-gray-150

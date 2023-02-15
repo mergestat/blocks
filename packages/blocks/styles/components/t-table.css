@@ -62,7 +62,6 @@
 .t-table-default th {
   @apply py-3
          text-left
-         text-sm
          border-b-2
          font-semibold
          bg-gray-50

@@ -12,6 +12,7 @@ export const Label: React.FC<
   return (
     <label {...props} className={cx('t-label', { ..._classname })}>
       {children}
+      {props['aria-required'] && <span className='t-label-req'>*</span>}
     </label>
   );
 };

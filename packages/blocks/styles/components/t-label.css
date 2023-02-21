@@ -9,3 +9,8 @@
          py-1.5
          leading-6;
 }
+
+.t-label-req {
+   @apply ml-1
+          text-red-600;
+}

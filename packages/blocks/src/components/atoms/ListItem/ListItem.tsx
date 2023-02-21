@@ -11,6 +11,7 @@ type ListItemProps = {
   className?: string
   onClick?: () => void
   onTrashClick?: () => void
+  action?: React.ReactElement
 }
 
 export const ListItem: React.FC<ListItemProps> = ({
@@ -20,6 +21,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   className,
   onClick,
   onTrashClick,
+  action
 }) => {
   const _classname = className ? { [className]: !!className } : {}
 
@@ -47,15 +49,16 @@ export const ListItem: React.FC<ListItemProps> = ({
         </div>
       </div>
       <div className="t-list-item-right">
-        <Button
+        {onTrashClick && <Button
           isIconOnly
           skin="borderless-muted"
           startIcon={<TrashIcon className="t-icon" />}
           onClick={(e) => {
             e.preventDefault()
-            onTrashClick && onTrashClick()
+            onTrashClick()
           }}
-        />
+        />}
+        {action && action}
       </div>
     </div>
   );

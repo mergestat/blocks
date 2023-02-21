@@ -14,4 +14,10 @@ const LabelTemplate: ComponentStory<typeof Label> = (args) => (
 export const Default = LabelTemplate.bind({});
 Default.args = {
   children: 'This is an help text',
-};
+}
+
+export const Required = LabelTemplate.bind({});
+Required.args = {
+  children: 'This is an help text',
+  'aria-required': true
+}

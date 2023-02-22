@@ -170,6 +170,7 @@ const SidebarItem: React.FC<
               })}
               onClick={(e) => {
                 e.preventDefault()
+                setShowSubNav(true)
                 onClick && onClick()
               }}
             >

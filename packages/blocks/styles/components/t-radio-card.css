@@ -29,3 +29,10 @@
          hover_from-blue-100
          hover_to-blue-100;
 }
+
+.t-radio-card.t-radio-card-disabled {
+  @apply shadow-none
+         bg-gray-50
+         cursor-auto
+         text-gray-400;
+}

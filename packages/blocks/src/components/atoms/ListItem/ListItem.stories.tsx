@@ -16,7 +16,6 @@ TrashAction.args = {
   subline: "Subline",
   startIcon: <RepositoryIcon className="t-icon" />,
   className: "px-3 py-4 border-b",
-  onClick: () => console.log("click"),
   onTrashClick: () => console.log("click on trash")
 }
 

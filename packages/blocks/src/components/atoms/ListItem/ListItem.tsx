@@ -27,7 +27,10 @@ export const ListItem: React.FC<ListItemProps> = ({
 
   return (
     <div
-      className={cx('t-list-item-container', { ..._classname })}
+      className={cx('t-list-item-container', {
+        'cursor-pointer hover_text-blue-600': !!onClick,
+        ..._classname
+      })}
       onClick={(e) => {
         e.preventDefault()
         const element = e.target as HTMLElement;

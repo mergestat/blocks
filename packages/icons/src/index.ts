@@ -59,6 +59,7 @@ export { default as GithubIcon } from './icons/Github';
 export { default as GitlabIcon } from './icons/Gitlab';
 export { default as GoogleIcon } from './icons/Google';
 export { default as HomeIcon } from './icons/Home';
+export { default as KeyIcon } from './icons/Key';
 export { default as LinkIcon } from './icons/Link';
 export { default as LockClosedIcon } from './icons/LockClosed';
 export { default as LogoutIcon } from './icons/Logout';

@@ -9,7 +9,7 @@ type RadioCardProps = {
   isSelected?: boolean;
   disabled?: boolean;
   label?: string;
-  tooltip?: string;
+  tooltip?: string | React.ReactElement;
   onChange?: () => void;
 };
 

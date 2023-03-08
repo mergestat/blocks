@@ -36,5 +36,5 @@ Tooltip.args = {
   startIcon: <GithubIcon className="t-icon" />,
   label: "Option",
   disabled: true,
-  tooltip: 'This field is disabled'
+  tooltip: <div className='w-56 p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
 }

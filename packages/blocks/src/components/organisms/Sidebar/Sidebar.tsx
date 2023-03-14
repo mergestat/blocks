@@ -18,6 +18,7 @@ type SidebarItemProps = {
   subNav?: React.ReactNode
   collapsed?: boolean
   level?: 'sub' | 'default'
+  defaultOpen?: boolean
   onClick?: () => void
 }
 
@@ -117,7 +118,7 @@ const SidebarItem: React.FC<
   level,
   ...props
 }) => {
-    const [showSubNav, setShowSubNav] = useState(false);
+    const [showSubNav, setShowSubNav] = useState(props.defaultOpen || false);
     const collapsedContext = React.useContext(SidebarContext)
 
     const _classname = className ? { [className]: !!className } : {}

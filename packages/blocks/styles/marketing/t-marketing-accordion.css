@@ -1,0 +1,45 @@
+.t-marketing-accordion {
+  @apply flex
+         flex-col-reverse
+         lg_grid
+         grid-cols-12
+         gap-x-8;
+}
+
+.t-marketing-accordion-list {
+  @apply col-span-5;
+}
+
+.t-marketing-accordion-panels {
+  @apply col-span-6
+         col-start-7;
+}
+
+.t-marketing-accordion-panel {
+  @apply space-y-6;
+}
+
+.t-marketing-accordion-item {
+  @apply w-full
+         flex
+         flex-col
+         text-left
+         space-y-1
+         items-start
+         py-5
+         outline-none
+         border-b;
+}
+
+.t-marketing-accordion-title {
+  @apply font-semibold
+         flex
+         w-full;
+}
+
+
+.t-marketing-accordion-desc {
+  @apply text-gray-500
+         space-y-4
+         my-2;
+}

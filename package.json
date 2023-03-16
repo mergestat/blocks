@@ -30,6 +30,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-overlays": "^5.2.1",
+    "react-syntax-highlighter": "^15.5.0",
     "regenerator-runtime": "0.13.11",
     "tslib": "^2.3.0"
   },
@@ -59,6 +60,7 @@
     "@types/jest": "29.4.0",
     "@types/node": "18.14.0",
     "@types/react": "18.0.28",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.36.1",

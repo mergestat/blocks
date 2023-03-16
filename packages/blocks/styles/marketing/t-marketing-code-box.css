@@ -1,0 +1,13 @@
+.t-marketing-code-box {
+  @apply bg-gray-50
+         border
+         text-sm
+         shadow-sm
+         rounded-lg
+         p-2;
+}
+
+
+.t-marketing-code-box pre {
+  @apply bg-transparent;
+}

@@ -1,7 +1,7 @@
 import { Icon } from '../components/Icon';
 import { IconProps } from '../utils/types';
 
-function SvgArrowCollapse(props: IconProps) {
+function SvgBitbucket(props: IconProps) {
   return (
     <Icon width="20" height="18" viewBox="0 0 20 18" {...props}>
       <path
@@ -14,4 +14,4 @@ function SvgArrowCollapse(props: IconProps) {
   );
 }
 
-export default SvgArrowCollapse;
+export default SvgBitbucket;

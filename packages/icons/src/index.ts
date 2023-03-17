@@ -78,6 +78,7 @@ export { default as SelectorIcon } from './icons/Selector';
 export { default as ServerIcon } from './icons/Server';
 export { default as ShareIcon } from './icons/Share';
 export { default as SingleMetricIcon } from './icons/SingleMetric';
+export { default as SumIcon } from './icons/Sum';
 export { default as SwitchVertical } from './icons/SwitchVertical';
 export { default as TableIcon } from './icons/Table';
 export { default as TerminalIcon } from './icons/Terminal';

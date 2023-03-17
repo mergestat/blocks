@@ -1,7 +1,7 @@
 import { Icon } from '../components/Icon';
 import { IconProps } from '../utils/types';
 
-function SvgClock(props: IconProps) {
+function SvgClockHistory(props: IconProps) {
   return (
     <Icon {...props}>
       <path
@@ -13,4 +13,4 @@ function SvgClock(props: IconProps) {
   );
 }
 
-export default SvgClock;
+export default SvgClockHistory;

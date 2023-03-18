@@ -69,7 +69,7 @@ export const ExampleDarkSideBar: React.FC = () => {
         <Sidebar.Item
           compact={false}
           label='Settings'
-          open
+          defaultOpen
           icon={<CogIcon className='t-icon' />}
           subNav={
             <>

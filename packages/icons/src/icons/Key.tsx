@@ -1,7 +1,7 @@
 import { Icon } from '../components/Icon';
 import { IconProps } from '../utils/types';
 
-function SvgArrowCollapse(props: IconProps) {
+function SvgKey(props: IconProps) {
   return (
     <Icon viewBox='0 0 20 20' {...props}>
       <path
@@ -14,4 +14,4 @@ function SvgArrowCollapse(props: IconProps) {
   );
 }
 
-export default SvgArrowCollapse;
+export default SvgKey;

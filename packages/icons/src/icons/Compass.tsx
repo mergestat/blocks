@@ -1,7 +1,7 @@
 import { Icon } from '../components/Icon';
 import { IconProps } from '../utils/types';
 
-function SvgCog(props: IconProps) {
+function SvgCompass(props: IconProps) {
   return (
     <Icon {...props}>
       <path
@@ -12,4 +12,4 @@ function SvgCog(props: IconProps) {
   );
 }
 
-export default SvgCog;
+export default SvgCompass;

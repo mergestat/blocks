@@ -1,7 +1,6 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { transparent } from 'tailwindcss/colors';
 
 type MarketingCodeBoxProps = {
   code?: string,
@@ -22,8 +21,8 @@ HTMLElement
         style={a11yLight}
         showLineNumbers={true}
         customStyle={{
-          backgroundColor: transparent,
-          userSelect: undefined
+          backgroundColor: 'white',
+          userSelect: 'auto'
         }}>
         {code as string}
       </SyntaxHighlighter>

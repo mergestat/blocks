@@ -5,10 +5,19 @@
          inline-block
          text-white
          font-medium
-         px-6
+         px-4
          py-2
          w-auto
          md_max-w-md
          rounded-lg
          rounded-br-none;
+}
+
+.t-marketing-highlight-left {
+  @apply rounded-bl-none
+}
+
+.t-marketing-highlight-right {
+  @apply rounded-br-none
+         ml-auto;
 }

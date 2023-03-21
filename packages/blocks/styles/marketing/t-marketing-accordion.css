@@ -1,22 +1,48 @@
 .t-marketing-accordion {
   @apply flex
          flex-col-reverse
-         lg_grid
+         items-stretch
+         md_grid
          grid-cols-12
          gap-x-8;
 }
 
 .t-marketing-accordion-list {
-  @apply col-span-5;
+  @apply col-span-6;
 }
 
 .t-marketing-accordion-panels {
   @apply col-span-6
-         col-start-7;
+         hidden
+         h-full
+         md_block;
 }
 
-.t-marketing-accordion-panel {
-  @apply space-y-6;
+.t-marketing-accordion-content {
+  @apply space-y-6
+        h-full
+        bg-gray-50
+        flex
+        flex-col
+        justify-center
+        p-12;
+}
+
+.t-marketing-accordion-mobile-content {
+  @apply md_hidden
+         w-full
+         bg-gray-50
+         p-8
+         overflow-hidden
+         space-y-6;
+}
+
+.t-marketing-accordion-button {
+  @apply w-full
+         flex
+         flex-col
+         text-left
+         py-5;
 }
 
 .t-marketing-accordion-item {
@@ -26,20 +52,20 @@
          text-left
          space-y-1
          items-start
-         py-5
          outline-none
          border-b;
 }
 
 .t-marketing-accordion-title {
   @apply font-semibold
+         text-gray-900
          flex
          w-full;
 }
 
-
 .t-marketing-accordion-desc {
   @apply text-gray-500
          space-y-4
-         my-2;
+         my-2
+         pb-4;
 }

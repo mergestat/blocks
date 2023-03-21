@@ -1,13 +1,18 @@
 import React from 'react';
+import cx from 'classnames';
 
-export const MarketingHighlight: React.FC<
+type MarketingCodeBoxProps = {
+  direction: 'left' | 'right'
+}
+
+export const MarketingHighlight: React.FC<MarketingCodeBoxProps &
   React.DetailedHTMLProps<
     React.DetailsHTMLAttributes<HTMLElement>,
     HTMLElement
   >
-> = ({ children }) => {
+> = ({ direction = 'right', children }) => {
   return (
-    <div className="t-marketing-highlight">
+    <div className={cx('t-marketing-highlight', `t-marketing-highlight-${direction}`)}>
       {children}
     </div>
   );

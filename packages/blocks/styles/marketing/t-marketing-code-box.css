@@ -1,5 +1,5 @@
 .t-marketing-code-box {
-  @apply bg-gray-50
+  @apply bg-white
          border
          text-sm
          shadow-sm
@@ -7,7 +7,19 @@
          p-2;
 }
 
-
 .t-marketing-code-box pre {
   @apply bg-transparent;
+}
+
+.t-marketing-code-box pre[class*="language-"]::selection,
+.t-marketing-code-box pre[class*="language-"] ::selection,
+.t-marketing-code-box code[class*="language-"]::selection,
+.t-marketing-code-box code[class*="language-"] ::selection {
+  @apply bg-gray-200;
+}
+
+
+.t-marketing-code-box code[class*="language-"],
+.t-marketing-code-box pre[class*="language-"] {
+  @apply text-gray-700;
 }

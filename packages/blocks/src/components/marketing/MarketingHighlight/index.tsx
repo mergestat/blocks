@@ -1,0 +1,1 @@
+export { MarketingHighlight } from './MarketingHighlight';

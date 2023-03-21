@@ -17,12 +17,14 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
     label,
     onClick,
     className,
+    href,
     type,
     isActive = false,
     tooltip,
     tooltipOffset,
     tooltipPlacement = 'top',
     tooltipDelay = 100,
+    component: Component = href? 'a' : 'button',
     ...props
   }) => {
     const getButtonSkin = (skin: string) => {
@@ -81,9 +83,10 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
     const tooltipBoxProps = useTooltip(tooltipPlacement, tooltipOffset || [0, 10], tooltipDelay)
 
     const MainComp = (
-      <button
+      <Component
         {...props}
         ref={tooltipBoxProps.reference}
+        href={href}
         onClick={onClick}
         className={cx(
           't-button',
@@ -98,7 +101,7 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
           },
           size && `t-button-${size}`
         )}
-        type={type || 'button'}
+        type={href? '' : type || 'button'}
       >
         {startIcon && startIcon}
         {(children || label) && (
@@ -107,7 +110,7 @@ export const Button: React.FC<ButtonProps & ButtonBaseProps> = (
           </span>
         )}
         {endIcon && endIcon}
-      </button>
+      </Component>
     )
 
     return tooltip ? (

@@ -1,0 +1,140 @@
+/* ==========================================================================
+   t-display
+   ---
+   Usage: wrap a .t-display class around content to turn it into rich text.
+
+   .t-display-1, .t-display-2, .t-display-3, .t-display-4 .t-display-body
+   ---
+   Usage: use these classes to style individual components like their rich text equivalent
+   ========================================================================== */
+
+.t-display-1,
+.t-display-2,
+.t-display-3,
+.t-display-4,
+.t-display-5,
+.t-display h1,
+.t-display h2,
+.t-display h3,
+.t-display h4,
+.t-display h5 {
+    @apply font-semibold
+            text-gray-900;
+}
+
+.t-display-1,
+.t-display-2,
+.t-display-3,
+.t-display h1,
+.t-display h2,
+.t-display h3 {
+    letter-spacing: 0.02em;
+    @apply font-display;
+}
+
+
+
+.t-display-1,
+.t-display h1 {
+    @apply text-4xl
+           sm_text-5xl
+           leading-tight
+           mb-6;
+}
+
+.t-display-2,
+.t-display h2 {
+    @apply text-2xl
+           sm_text-4xl
+           leading-tight
+           mb-5;
+}
+
+.t-display-3,
+.t-display h3 {
+    @apply text-lg
+           sm_text-2xl
+           leading-tight
+           mb-4;
+}
+
+.t-display-4,
+.t-display h4 {
+    @apply text-base
+           sm_text-lg
+           font-semibold
+           mb-2;
+}
+
+.t-display-5,
+.t-display h5 {
+    @apply text-sm
+           font-semibold
+           mb-1;
+}
+
+.t-lead {
+    @apply text-lg
+           md_text-2xl;
+}
+
+.t-display-body,
+.t-display p {
+    @apply text-sm
+           sm_text-base
+           leading-7;
+}
+
+.t-display a,
+.t-link {
+    text-underline-offset: 3px;
+    @apply text-blue-600
+           underline
+           cursor-pointer
+           hover_text-blue-500;
+}
+
+.t-display-body + .t-display-body,
+.t-display p + p {
+    @apply mt-6
+}
+
+.t-display h1 {
+    @apply mt-16;
+}
+
+.t-display h2 {
+    @apply mt-14;
+}
+
+.t-display h3 {
+    @apply mt-12;
+}
+
+.t-display h4 {
+    @apply mt-8;
+}
+
+.t-display ol,
+.t-display ul {
+    @apply my-6
+           ml-6;
+}
+
+.t-display ul {
+    list-style: disc;
+}
+
+.t-display li {
+    @apply my-4
+           pl-1;
+}
+
+.t-display strong {
+    @apply font-semibold
+           text-gray-900;
+}
+
+.t-display table {
+    @apply my-10;
+}

@@ -15,7 +15,8 @@ export type EnumSkin =
   | 'borderless-i'
 
 export interface ButtonProps {
-  href?: string
+  href?: string,
+  component?: React.ElementType
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
   skin?: EnumSkin

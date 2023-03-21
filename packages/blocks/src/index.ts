@@ -18,6 +18,9 @@ export * from './components/atoms/SplitButton';
 export * from './components/atoms/Tabs';
 export * from './components/atoms/Tooltip';
 export * from './components/atoms/Typography';
+export * from './components/marketing/MarketingAccordion'
+export * from './components/marketing/MarketingCodeBox'
+export * from './components/marketing/MarketingHighlight'
 export * from './components/molecules/Accordion';
 export * from './components/molecules/Alert';
 export * from './components/molecules/Dropdown';
@@ -38,4 +41,3 @@ export * from './components/organisms/MultiSelect';
 export * from './components/organisms/Navbar';
 export * from './components/organisms/Sidebar';
 export * from './components/Page';
-

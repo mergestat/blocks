@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { ChevronUpIcon, ChevronDownIcon } from '@mergestat/icons';
-import cx from 'classnames';
 import { Tab } from '@headlessui/react'
 
 type MarketingAccordionProps = {

@@ -30,7 +30,6 @@
 @import "./components/t-menu.css";
 @import "./components/t-modal.css";
 @import "./components/t-multi-select.css";
-@import "./components/t-nav-marketing.css";
 @import "./components/t-nav.css";
 @import "./components/t-panel.css";
 @import "./components/t-progress-bar.css";
@@ -54,8 +53,13 @@
 
 
 @import "./marketing/t-marketing-accordion.css";
+@import "./marketing/t-marketing-bg.css";
+@import "./marketing/t-marketing-box.css";
 @import "./marketing/t-marketing-code-box.css";
+@import "./marketing/t-marketing-footer.css";
 @import "./marketing/t-marketing-highlight.css";
+@import "./marketing/t-marketing-nav.css";
+@import "./marketing/t-marketing-timeline.css";
 
 @import "./custom-fonts.css";
 @import "./custom-utility-styles.css";

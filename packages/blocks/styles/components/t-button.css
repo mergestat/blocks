@@ -71,9 +71,11 @@
 }
 
 .t-button-large {
-  font-size: 0.9375rem;
   @apply px-4
-         py-2.5;
+         text-base
+         rounded-md
+         sm_text-lg
+         py-2;
 }
 
 /* Button skins */
@@ -157,15 +159,36 @@
       hover_to-gray-50;
 }
 
+.t-button-success {
+  @apply border-green-800
+         bg-gradient-to-b
+         text-white
+         from-green-500
+         to-green-600
+         hover_from-green-600
+         hover_to-green-700
+         active_from-blue-700
+         active_shadow-inner;
+}
+
 .t-button-primary[disabled],
 .t-button-secondary[disabled],
-.t-button-disabled {
+.t-button-success[disabled],
+.t-button-danger[disabled],
+.t-button-disabled, {
   @apply from-gray-100
-        to-gray-100
-        text-gray-400
-        border-gray-200
-        pointer-events-none
-        cursor-not-allowed;
+          to-gray-100
+          text-gray-400
+          border-gray-200
+          pointer-events-none
+          cursor-not-allowed;
+}
+
+.t-button-block-mobile {
+  @apply w-full
+         text-center
+         justify-center
+         md_w-auto;
 }
 
 .t-button-active {
@@ -195,6 +218,7 @@
 .t-button-group > button:not(:last-of-type) {
   @apply rounded-r-none;
 }
+
 .t-button-group > button:not(:first-of-type) {
   @apply rounded-l-none border-l-0;
 }

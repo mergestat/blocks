@@ -10,7 +10,8 @@
          leading-6;
 }
 
-.t-label-req {
+.t-label-req,
+.t-label em {
    @apply ml-1
           text-red-600;
 }

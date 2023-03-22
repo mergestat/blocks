@@ -1,6 +1,6 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { a11yLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 type MarketingCodeBoxProps = {
   code?: string,
@@ -8,11 +8,11 @@ type MarketingCodeBoxProps = {
 }
 
 export const MarketingCodeBox: React.FC<
-MarketingCodeBoxProps &
-React.DetailedHTMLProps<
-React.DetailsHTMLAttributes<HTMLElement>,
-HTMLElement
->
+  MarketingCodeBoxProps &
+  React.DetailedHTMLProps<
+    React.DetailsHTMLAttributes<HTMLElement>,
+    HTMLElement
+  >
 > = ({ code, language = 'sql' }) => {
   return (
     <div className="t-marketing-code-box">

@@ -57,9 +57,9 @@ export const Alert: React.FC<AlertProps> = ({
       {icon && icon}
       {isInline ? (
         children && (
-          <p className={cx("t-inline-alert-message", { 'ml-2': !noIcon })}>
+          <div className={cx("t-inline-alert-message", { 'ml-2': !noIcon })}>
             {children}
-          </p>
+          </div>
         )
       ) : (
         <div className={cx("t-alert-body", { 'ml-3': !noIcon })}>
@@ -67,9 +67,9 @@ export const Alert: React.FC<AlertProps> = ({
             <h3 className="t-alert-title">{title}</h3>
           )}
           {children && (
-            <p className="t-alert-message">
+            <div className="t-alert-message">
               {children}
-            </p>
+            </div>
           )}
         </div>
       )}

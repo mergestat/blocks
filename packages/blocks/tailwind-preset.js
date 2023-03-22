@@ -13,7 +13,8 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['"Inter UI"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-        'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace']
+        'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+        'display': ['"Cal Sans"'],
       }
     },
     colors: {
@@ -24,8 +25,12 @@ module.exports = {
       lime: colors.lime,
       red: colors.red,
       blue: colors.sky,
+      indigo: colors.indigo,
       yellow: colors.amber,
       white: colors.white,
+      purple: colors.purple,
+      teal: colors.teal,
+      pink: colors.pink
     }
   },
   variants: {

@@ -30,3 +30,11 @@
   src: url("./fonts/inter-ui-bold.woff2") format("woff2"),
        url("./fonts/inter-ui-bold.woff") format("woff");
 }
+
+@font-face {
+  font-family: 'Cal Sans';
+  font-style:  normal;
+  font-weight: 600;
+  src: url("./fonts/calsans-semibold.woff2") format("woff2"),
+       url("./fonts/calsans-semibold.woff") format("woff");
+}

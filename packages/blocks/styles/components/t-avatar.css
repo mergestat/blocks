@@ -39,6 +39,17 @@
            h-4;
 }
 
+
+.md_t-avatar-md {
+  @apply md_h-10
+         md_w-10;
+}
+
+.md_t-avatar-md .t-icon {
+  @apply md_w-6
+         md_h-6;
+}
+
 .t-avatar-lg {
     @apply h-12
            w-12;

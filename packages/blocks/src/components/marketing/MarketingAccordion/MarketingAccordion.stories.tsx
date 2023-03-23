@@ -16,7 +16,6 @@ const data = [
   {
     title: 'First item',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, suspendisse eu lobortis ut tempus hendrerit pellentesque amet.',
-    href: 'https://docs.mergestat.com/',
     cta: <Button component='a' skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
     content:
       <>

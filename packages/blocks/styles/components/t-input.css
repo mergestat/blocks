@@ -30,8 +30,8 @@
     @apply top-2
            left-2
            absolute;
-
 }
+
 .t-input-with-icon .t-input {
     @apply pl-8;
 }
@@ -89,4 +89,9 @@
 .t-input-onclick {
   @apply cursor-pointer
          hover_text-blue-600
+}
+
+.t-input-large {
+  @apply px-4
+         py-2.5;
 }

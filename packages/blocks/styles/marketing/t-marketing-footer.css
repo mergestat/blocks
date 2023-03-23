@@ -1,0 +1,31 @@
+/* ==========================================================================
+   t-marketing-footer
+   ========================================================================== */
+
+.t-marketing-footer {
+  @apply bg-gray-50
+           border-t border-gray-150;
+}
+
+.t-marketing-footer-nav {
+  @apply list-none;
+}
+
+.t-marketing-footer-nav li {
+  @apply my-4;
+}
+
+.t-marketing-footer-link {
+  @apply text-gray-600
+           hover_text-gray-500
+             no-underline;
+}
+
+.t-marketing-footer-social {
+  @apply text-gray-500
+           hover_text-gray-400;
+}
+
+.t-cta + .t-marketing-footer {
+  @apply border-0;
+}

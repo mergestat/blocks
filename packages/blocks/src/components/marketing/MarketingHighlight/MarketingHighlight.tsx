@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 type MarketingCodeBoxProps = {
-  direction: 'left' | 'right'
+  direction?: 'left' | 'right'
 }
 
 export const MarketingHighlight: React.FC<MarketingCodeBoxProps &

@@ -1,0 +1,17 @@
+/* ==========================================================================
+   t-marketing-box
+   ========================================================================== */
+
+.t-marketing-box {
+    @apply  bg-white
+            border
+            rounded-lg
+            border-gray-200
+            shadow-lg;
+}
+
+.t-marketing-box-interactive:hover {
+   @apply drop-shadow
+          cursor-pointer
+          border-gray-300;
+}

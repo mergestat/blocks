@@ -25,6 +25,10 @@
            h-full;
 }
 
+.t-icon svg * {
+  @apply fill-current;
+}
+
 .t-button .t-icon {
     display: inline;
 }

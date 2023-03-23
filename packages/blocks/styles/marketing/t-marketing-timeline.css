@@ -1,0 +1,79 @@
+/* ==========================================================================
+   t-marketing-timeline-item
+   ========================================================================== */
+
+.t-marketing-timeline {
+    @apply md_flex;
+}
+
+.t-marketing-timeline-item {
+@apply relative
+        pl-6
+        ml-4
+        md_ml-0
+        py-8
+        md_px-8
+        lg_px-12
+        md_pt-16
+        md_pb-5
+        flex
+        items-start
+        md_block
+        md_text-center;
+}
+
+.t-marketing-timeline-item:last-child {
+    @apply pb-0
+           md_pb-5;
+}
+
+.t-marketing-timeline-item .t-avatar {
+    @apply flex-none
+           mr-5
+           md_mr-0;
+}
+
+.t-marketing-timeline-item:after {
+content: "";
+transform: translateX(-50%);
+top: 2.8rem;
+@apply   w-4
+         h-4
+         bg-white
+         border-2
+         block
+         absolute
+         left-0
+         md_left-2/4
+         md_top-0
+         rounded-full;
+}
+
+.t-marketing-timeline-item:before {
+content: " ";
+@apply bg-gray-200
+         w-0.5
+         top-0
+         md_top-2
+         md_w-full
+         h-full
+         md_h-0.5
+         absolute
+         left-0;
+}
+
+.t-marketing-timeline-item:first-child:before {
+    height: calc(100% - 3.6rem);
+    top: 3.6rem;
+    @apply
+        md_top-2
+        md_h-0.5
+        md_left-1/2
+        md_w-1/2;
+}
+
+.t-marketing-timeline-item:last-child:before {
+    @apply h-16
+           md_h-0.5
+           md_w-1/2;
+}

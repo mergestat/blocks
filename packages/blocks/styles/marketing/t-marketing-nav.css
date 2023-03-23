@@ -1,0 +1,161 @@
+/* ==========================================================================
+   t-marketing-nav
+   ========================================================================== */
+
+/* purgecss start ignore */
+.t-marketing-nav {
+    @apply lg_flex
+           lg_space-x-16;
+}
+
+.t-marketing-nav-menu,
+.t-marketing-nav-socials {
+    @apply hidden
+           lg_flex
+           items-center
+           space-x-6;
+}
+
+.t-marketing-nav-item {
+    @apply py-1.5
+           px-0
+           flex
+           opacity-50
+           items-center
+           /*border-b-2
+           border-transparent*/
+           font-medium;
+}
+
+.t-marketing-nav-item:hover {
+    @apply opacity-100;
+}
+
+.t-marketing-nav-item-active {
+    @apply border-blue-600
+           text-blue-600
+           opacity-100;
+}
+
+.t-marketing-nav-i {
+    .t-marketing-nav-item {
+        @apply text-white;
+    }
+    /*
+    .t-marketing-nav-item-active {
+        @apply border-white;
+    }*/
+}
+
+@media (max-width: 1024px) {
+    .t-marketing-nav-active {
+        @apply bg-gray-800
+               bottom-0
+               top-0
+               left-0
+               right-0
+               overflow-y-auto
+               absolute
+               pt-24
+               opacity-100
+               h-full
+               w-full
+               z-10;
+    }
+
+    .t-marketing-nav-active .t-marketing-nav-menu,
+    .t-marketing-nav-active .t-marketing-nav-socials {
+        @apply sm_px-10
+               md_px-12
+               px-6
+               py-8
+               container;
+    }
+
+    .t-marketing-nav-active .t-marketing-nav-menu {
+        @apply space-x-0
+               space-y-4
+               block;
+    }
+
+    .t-marketing-nav-active .t-marketing-nav-socials {
+        @apply space-x-10
+               flex;
+    }
+
+    .t-marketing-nav-active .t-icon {
+        @apply w-6
+               h-6;
+    }
+
+    .t-marketing-nav-active .t-marketing-nav-item {
+        @apply text-xl
+        border-b-0;
+    }
+
+    .t-marketing-nav-toggle {
+        @apply w-12
+               h-12
+               flex
+               bg-none
+               appearance-none
+               cursor-pointer
+               border-none
+               items-center
+               justify-center;
+    }
+
+    .t-marketing-nav-toggle .t-icon {
+        @apply block
+               w-6
+               h-6
+               z-20
+               text-white;
+    }
+
+    .t-marketing-nav-toggle .t-icon * {
+        fill: currentColor;
+    }
+
+    .t-marketing-nav-toggle-line1,
+    .t-marketing-nav-toggle-line2,
+    .t-marketing-nav-toggle-line3 {
+        transform-origin: 12px 13px;
+    }
+
+    .t-marketing-nav-toggle-line1 {
+        @apply transform
+               -translate-y-1.5;
+    }
+
+    .t-marketing-nav-toggle-line2 {
+        transform: scaleX(1);
+    }
+
+    .t-marketing-nav-toggle-line3 {
+        @apply transform
+               translate-y-1.5;
+    }
+
+    .t-marketing-nav-toggle-active .t-marketing-nav-toggle-line1 {
+        transform: rotate(45deg);
+    }
+
+    .t-marketing-nav-toggle-active .t-marketing-nav-toggle-line2 {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .t-marketing-nav-toggle-active .t-marketing-nav-toggle-line3 {
+        transform: rotate(-45deg);
+    }
+}
+
+.nav-active {
+    @apply overflow-hidden
+           relative
+           md_overflow-auto
+}
+
+/* purgecss end ignore */
+

@@ -32,6 +32,7 @@
            h-4
            bg-white
            border
+           flex-none
            border-gray-300;
 }
 

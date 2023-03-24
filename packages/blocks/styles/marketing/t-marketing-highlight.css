@@ -1,6 +1,8 @@
 .t-marketing-highlight {
   @apply bg-blue-500
          border-blue-600
+         text-sm
+         sm_text-base
          border
          inline-block
          text-white

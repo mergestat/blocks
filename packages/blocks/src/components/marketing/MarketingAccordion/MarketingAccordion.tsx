@@ -35,10 +35,14 @@ export const MarketingAccordion: React.FC<MarketingAccordionProps & React.HTMLAt
                         </button>
                           { selected &&
                             <>
-                              <div className='t-marketing-accordion-desc'>{item.desc}
-                                <div className='mt-3'>
-                                  {item.cta}
-                                </div>
+                              <div className='t-marketing-accordion-desc'>
+
+                                {item.desc &&
+                                <div className='mb-3'>
+                                  {item.desc}
+                                </div>}
+                                {item.cta}
+
                               </div>
                               <div className='t-marketing-accordion-mobile-content'>{item.content}</div>
                             </>

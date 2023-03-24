@@ -44,7 +44,7 @@
 
 .t-display-2,
 .t-display h2 {
-    @apply text-2xl
+    @apply text-3xl
            sm_text-4xl
            leading-tight
            mb-5;
@@ -52,23 +52,23 @@
 
 .t-display-3,
 .t-display h3 {
-    @apply text-lg
-           sm_text-2xl
+    @apply text-2xl
+           sm_text-3xl
            leading-tight
            mb-4;
 }
 
 .t-display-4,
 .t-display h4 {
-    @apply text-base
-           sm_text-lg
+    @apply text-lg
+           sm_text-xl
            font-semibold
            mb-2;
 }
 
 .t-display-5,
 .t-display h5 {
-    @apply text-sm
+    @apply text-base
            font-semibold
            mb-1;
 }
@@ -80,8 +80,8 @@
 
 .t-display-body,
 .t-display p {
-    @apply text-sm
-           sm_text-base
+    @apply text-base
+           sm_text-lg
            leading-7;
 }
 

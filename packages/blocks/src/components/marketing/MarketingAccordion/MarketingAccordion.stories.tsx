@@ -16,7 +16,7 @@ const data = [
   {
     title: 'First item',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, suspendisse eu lobortis ut tempus hendrerit pellentesque amet.',
-    cta: <Button component='a' skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
+    cta: <Button skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
     content:
       <>
         <MarketingHighlight>What are the most common vulnerabilities?</MarketingHighlight>
@@ -34,7 +34,7 @@ ORDER BY count(*) DESC`}
   {
     title: 'Second item',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, suspendisse eu lobortis ut tempus hendrerit pellentesque amet.',
-    cta: <Button component='a' skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
+    cta: <Button skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
     content:
       <>
         <MarketingHighlight>What are the most common vulnerabilities?</MarketingHighlight>
@@ -60,7 +60,7 @@ ORDER BY count(*) DESC`}
   {
     title: 'Fourth item',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, suspendisse eu lobortis ut tempus hendrerit pellentesque amet.',
-    cta: <Button component='a' skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
+    cta: <Button skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
     content:
       <>
         <MarketingHighlight>What are the most common vulnerabilities?</MarketingHighlight>
@@ -72,7 +72,7 @@ ORDER BY count(*) DESC`}
   {
     title: 'Fifth item',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, suspendisse eu lobortis ut tempus hendrerit pellentesque amet.',
-    cta: <Button component='a' skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
+    cta: <Button skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
     content:
       <>
         <MarketingHighlight>What are the most common vulnerabilities?</MarketingHighlight>
@@ -95,7 +95,7 @@ ORDER BY count(*) DESC`}
   {
     title: 'Seventh item',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, suspendisse eu lobortis ut tempus hendrerit pellentesque amet.',
-    cta: <Button component='a' skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
+    cta: <Button skin='borderless' label='Learn More' endIcon={<ChevronRightIcon className='t-icon'/>} href='https://docs.mergestat.com/' />,
     content:
       <>
         <MarketingHighlight>What are the most common vulnerabilities?</MarketingHighlight>

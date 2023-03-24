@@ -57,7 +57,9 @@
 }
 
 .t-marketing-accordion-title {
-  @apply font-semibold
+  @apply text-base
+         sm_text-xl
+         font-semibold
          text-gray-900
          flex
          w-full;

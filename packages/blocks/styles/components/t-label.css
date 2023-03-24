@@ -10,8 +10,9 @@
          leading-6;
 }
 
-.t-label-req,
+.t-label-req ,
 .t-label em {
    @apply ml-1
+          not-italic
           text-red-600;
 }

@@ -68,7 +68,7 @@
 
 .t-display-5,
 .t-display h5 {
-    @apply text-sm
+    @apply text-base
            font-semibold
            mb-1;
 }

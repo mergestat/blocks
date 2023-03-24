@@ -36,7 +36,9 @@
 }
 
 .t-checkbox input[type="checkbox"] + span,
-.t-radio input[type="radio"] + span {
+.t-radio input[type="radio"] + span,
+.t-checkbox input[type="checkbox"] + label,
+.t-radio input[type="radio"] + label {
     @apply ml-2;
 }
 
@@ -52,6 +54,17 @@
     @apply space-x-4
            flex
            items-center;
+}
+
+.t-checkbox-large input[type="checkbox"],
+.t-radio-large input[type="radio"] {
+    @apply w-5
+           h-5;
+}
+
+.t-checkbox-group .t-checkbox-large,
+.t-radio-group .t-radio-large {
+  @apply py-1.5;
 }
 
 /* Checkbox specific */

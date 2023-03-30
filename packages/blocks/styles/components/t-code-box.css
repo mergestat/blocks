@@ -1,0 +1,30 @@
+.t-code-box-container {
+    @apply border
+           pb-4
+           rounded-md;
+}
+
+.t-code-box-subcontainer {
+    @apply flex
+           relative
+           p-2
+           pl-3
+           h-52
+           bg-transparent
+           overflow-auto;
+}
+
+.t-code-box-textarea {
+    caret-color: black;
+    @apply absolute
+           inset-0
+           top-1
+           pl-5
+           pt-4
+           resize-none
+           bg-transparent
+           font-mono
+           text-transparent
+           outline-none
+           overflow-hidden;
+}

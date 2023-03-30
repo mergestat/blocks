@@ -29,10 +29,7 @@
 .t-display h2,
 .t-display h3 {
     letter-spacing: 0.02em;
-    @apply font-display;
 }
-
-
 
 .t-display-1,
 .t-display h1 {

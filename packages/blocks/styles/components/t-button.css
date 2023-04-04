@@ -175,7 +175,7 @@
 .t-button-secondary[disabled],
 .t-button-success[disabled],
 .t-button-danger[disabled],
-.t-button-disabled, {
+.t-button-disabled {
   @apply from-gray-100
           to-gray-100
           text-gray-400

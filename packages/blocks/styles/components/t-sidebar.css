@@ -55,7 +55,8 @@
 
 /*Sidebar logo */
 .t-sidebar-logo img {
-  @apply h-7;
+  @apply h-7
+         cursor-pointer;
 }
 
 /*Sidebar item */

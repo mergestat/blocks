@@ -1,13 +1,13 @@
-import { ChevronDownIcon, ChevronUpIcon } from '@mergestat/icons';
-import cx from 'classnames';
-import React, { createContext, RefAttributes, useCallback, useState } from 'react';
-import logo from '../../../../public/logo-inverse.svg';
-import logoMark from '../../../../public/logo-mark-inverse.svg';
-import { Badge } from '../../atoms/Badge';
-import { Button } from '../../atoms/Button';
-import { HoverCard } from '../../atoms/HoverCard';
-import { Tooltip } from '../../atoms/Tooltip';
-import { Menu } from '../../molecules/Menu';
+import { ChevronDownIcon, ChevronUpIcon } from '@mergestat/icons'
+import cx from 'classnames'
+import React, { RefAttributes, createContext, useCallback, useState } from 'react'
+import logo from '../../../../public/logo-inverse.svg'
+import logoMark from '../../../../public/logo-mark-inverse.svg'
+import { Badge } from '../../atoms/Badge'
+import { Button } from '../../atoms/Button'
+import { HoverCard } from '../../atoms/HoverCard'
+import { Tooltip } from '../../atoms/Tooltip'
+import { Menu } from '../../molecules/Menu'
 
 type SidebarItemProps = {
   icon?: React.ReactNode
@@ -29,7 +29,11 @@ type SidebarProps = {
 }
 
 type SidebarLogoProps = {
-  onClick?: () => void;
+  onClick?: () => void
+}
+
+type SidebarHeaderProps = {
+  onClick?: () => void
 }
 
 const SidebarContext = createContext(false)
@@ -119,7 +123,7 @@ const SidebarItem: React.FC<
   defaultOpen,
   ...props
 }) => {
-    const [showSubNav, setShowSubNav] = useState(defaultOpen || false);
+    const [showSubNav, setShowSubNav] = useState(defaultOpen || false)
     const collapsedContext = React.useContext(SidebarContext)
 
     const _classname = className ? { [className]: !!className } : {}
@@ -206,45 +210,37 @@ const SidebarItem: React.FC<
 
 /* Logo */
 const SidebarLogo: React.FC<
-  SidebarLogoProps &
-  RefAttributes<HTMLAnchorElement> &
-  React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
-> = React.forwardRef(
-  ({
-    className,
-    href,
-    onClick,
-  }, ref) => {
+  SidebarLogoProps & React.HTMLAttributes<HTMLDivElement>
+> = ({
+  className,
+  onClick,
+  ...props }) => {
     const collapsedContext = React.useContext(SidebarContext)
     const _classname = className ? { [className]: !!className } : {}
 
     return (
-      <a
+      <div {...props}
         className={cx('t-sidebar-logo', { ..._classname })}
-        href={href}
-        ref={ref}
         onClick={onClick}>
         <img src={collapsedContext ? logoMark : logo} alt='MergeStat' />
-      </a>
+      </div>
     )
   }
-)
 
 /* Header */
 const SidebarHeader: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+  SidebarHeaderProps & React.HTMLAttributes<HTMLDivElement>
 > = ({
+  onClick,
   children,
   className }) => {
     const _classname = className ? { [className]: !!className } : {}
 
     return (
       <div className={cx('t-sidebar-header', { ..._classname })}>
-        {children ? children :
-          <Sidebar.Logo href='/' />
+        {children ?
+          React.cloneElement(children as React.ReactElement, { onClick }) :
+          <Sidebar.Logo onClick={onClick} />
         }
       </div>
     )
@@ -277,7 +273,7 @@ const SidebarFooter: React.FC<
       <div className={cx('t-sidebar-footer', { ..._classname })}>
         {children}
       </div>
-    );
+    )
   }
 
 /* Divider */
@@ -326,23 +322,23 @@ interface CompoundedComponent
       HTMLDivElement
     >
   > {
-  Outer: typeof SidebarOuter;
-  Item: typeof SidebarItem;
-  Divider: typeof SidebarDivider;
-  Header: typeof SidebarHeader;
-  Footer: typeof SidebarFooter;
-  Main: typeof SidebarMain;
-  Logo: typeof SidebarLogo;
-  Version: typeof SidebarVersion;
+  Outer: typeof SidebarOuter
+  Item: typeof SidebarItem
+  Divider: typeof SidebarDivider
+  Header: typeof SidebarHeader
+  Footer: typeof SidebarFooter
+  Main: typeof SidebarMain
+  Logo: typeof SidebarLogo
+  Version: typeof SidebarVersion
 }
 
-const CompoundedSidebar = SidebarOuter as CompoundedComponent;
-CompoundedSidebar.Item = SidebarItem;
-CompoundedSidebar.Divider = SidebarDivider;
-CompoundedSidebar.Header = SidebarHeader;
-CompoundedSidebar.Footer = SidebarFooter;
-CompoundedSidebar.Main = SidebarMain;
-CompoundedSidebar.Logo = SidebarLogo;
-CompoundedSidebar.Version = SidebarVersion;
+const CompoundedSidebar = SidebarOuter as CompoundedComponent
+CompoundedSidebar.Item = SidebarItem
+CompoundedSidebar.Divider = SidebarDivider
+CompoundedSidebar.Header = SidebarHeader
+CompoundedSidebar.Footer = SidebarFooter
+CompoundedSidebar.Main = SidebarMain
+CompoundedSidebar.Logo = SidebarLogo
+CompoundedSidebar.Version = SidebarVersion
 
-export const Sidebar = CompoundedSidebar;
+export const Sidebar = CompoundedSidebar

@@ -1,7 +1,7 @@
-import { CogIcon, DatabaseIcon, DocumentTextIcon, TableIcon, TerminalIcon } from '@mergestat/icons';
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
-import { Sidebar } from './Sidebar';
+import { CogIcon, DatabaseIcon, DocumentTextIcon, TableIcon, TerminalIcon } from '@mergestat/icons'
+import { ComponentMeta } from '@storybook/react'
+import React from 'react'
+import { Sidebar } from './Sidebar'
 
 export default {
   title: 'Organisms/Sidebar',
@@ -39,7 +39,7 @@ export const ExampleSideBar: React.FC = () => {
 export const ExampleDarkSideBar: React.FC = () => {
   return (
     <Sidebar dark={true} compact={false} collapsible={true}>
-      <Sidebar.Header />
+      <Sidebar.Header onClick={() => console.log('Click on logo')} />
       <Sidebar.Main>
         <Sidebar.Item
           compact={false}

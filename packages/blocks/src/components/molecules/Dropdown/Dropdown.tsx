@@ -1,7 +1,7 @@
-import cx from 'classnames';
-import React, { useState } from 'react';
-import { Dropdown as RoDropdown, useDropdownMenu, useDropdownToggle } from 'react-overlays';
-import type { DropDirection } from 'react-overlays/DropdownContext';
+import cx from 'classnames'
+import React, { useState } from 'react'
+import { Dropdown as RoDropdown, useDropdownMenu, useDropdownToggle } from 'react-overlays'
+import type { DropDirection } from 'react-overlays/DropdownContext'
 
 type DropdownZIndex = 0 | 10 | 20 | 30 | 40 | 50 | 'auto' | undefined
 
@@ -12,6 +12,8 @@ type DropdownProps = {
   drop?: DropDirection
   disabled?: boolean
   zIndex?: DropdownZIndex
+  onClickToOpen?: () => void
+  onClickToClose?: () => void
   overlay: (close: () => void) => React.ReactNode
 }
 
@@ -19,12 +21,14 @@ type DropdownToggleProps = {
   id: string
   disabled: boolean
   children?: React.ReactNode
+  onClickToOpen?: () => void
+  onClickToClose?: () => void
 }
 
 const DropdownContent: React.FC<
   {
-    overlay: () => React.ReactNode;
-    zIndex: DropdownZIndex;
+    overlay: () => React.ReactNode
+    zIndex: DropdownZIndex
   } & React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLSpanElement>,
     HTMLSpanElement
@@ -34,13 +38,13 @@ const DropdownContent: React.FC<
 
   return (
     <div {...props} className={cx('absolute flex-col', show ? 'flex' : 'hidden', zIndex ? `z-${zIndex}` : 'z-10')}>
-      {overlay()}
+      {show && overlay()}
     </div>
   )
 }
 
-const DropdownToggle: React.FC<DropdownToggleProps> = ({ id, disabled, children }) => {
-  const [{ onClick, ...props }, { toggle, show }] = useDropdownToggle();
+const DropdownToggle: React.FC<DropdownToggleProps> = ({ id, disabled, children, onClickToOpen, onClickToClose }) => {
+  const [{ onClick, ...props }, { toggle, show }] = useDropdownToggle()
 
   return (
     <div
@@ -49,8 +53,10 @@ const DropdownToggle: React.FC<DropdownToggleProps> = ({ id, disabled, children 
       className={cx('h-full')}
       {...(!disabled && {
         onClick: (event) => {
-          onClick(event);
-          toggle(!show);
+          onClick(event)
+          toggle(!show)
+          !show && onClickToOpen && onClickToOpen()
+          show && onClickToClose && onClickToClose()
         },
       })}
     >
@@ -65,12 +71,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
   drop = 'down',
   trigger,
   overlay,
+  onClickToOpen,
+  onClickToClose,
   disabled = false,
   zIndex,
 }) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
-  const dropdownToggle = () => setShow(!show);
+  const dropdownToggle = () => setShow(!show)
 
   return (
     <RoDropdown
@@ -81,7 +89,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
       itemSelector="button:not(:disabled)"
       children={
         <>
-          <DropdownToggle id="dropdown-toggle" disabled={disabled}>
+          <DropdownToggle id="dropdown-toggle"
+            disabled={disabled}
+            onClickToOpen={onClickToOpen}
+            onClickToClose={onClickToClose}
+          >
             {trigger}
           </DropdownToggle>
           <DropdownContent

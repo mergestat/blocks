@@ -1,13 +1,13 @@
-import { ComponentMeta } from '@storybook/react';
-import React from 'react';
-import { Button } from '../Button';
-import { Tooltip } from './Tooltip';
+import { ComponentMeta } from '@storybook/react'
+import React from 'react'
+import { Button } from '../Button'
+import { Tooltip } from './Tooltip'
 
 export default {
   title: 'Atoms/Tooltip',
   component: Tooltip,
   argTypes: {},
-} as ComponentMeta<typeof Tooltip>;
+} as ComponentMeta<typeof Tooltip>
 
 export const ExampleTooltip: React.FC = () => {
   return (

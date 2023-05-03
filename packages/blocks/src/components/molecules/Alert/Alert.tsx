@@ -1,21 +1,23 @@
-import { XIcon } from '@mergestat/icons';
-import cx from 'classnames';
-import React, { useState } from 'react';
-import { Button } from '../../atoms/Button';
-import { AlertIcon } from './AlertIcon';
+import { XIcon } from '@mergestat/icons'
+import cx from 'classnames'
+import React, { useState } from 'react'
+import { Button } from '../../atoms/Button'
+import { Tooltip } from '../../atoms/Tooltip'
+import { AlertIcon } from './AlertIcon'
 
 type AlertProps = {
-  type?: 'warning' | 'info' | 'success' | 'error' | 'default';
-  closable?: boolean;
-  onClose?: () => void;
-  theme?: 'dark' | 'light';
-  className?: string;
-  isInline?: boolean;
-  isFullWidth?: boolean;
-  title?: string | React.ReactNode;
-  noIcon?: boolean;
-  icon?: React.ReactNode;
-  children?: React.ReactNode;
+  type?: 'warning' | 'info' | 'success' | 'error' | 'default'
+  closable?: boolean
+  onClose?: () => void
+  theme?: 'dark' | 'light'
+  className?: string
+  isInline?: boolean
+  isFullWidth?: boolean
+  title?: string | React.ReactNode
+  tooltip?: string | React.ReactElement
+  noIcon?: boolean
+  icon?: React.ReactNode
+  children?: React.ReactNode
 }
 
 export const Alert: React.FC<AlertProps> = ({
@@ -24,6 +26,7 @@ export const Alert: React.FC<AlertProps> = ({
   theme = 'light',
   onClose,
   title,
+  tooltip,
   className,
   isInline = false,
   isFullWidth = false,
@@ -31,14 +34,14 @@ export const Alert: React.FC<AlertProps> = ({
   icon = null,
   children
 }) => {
-  const [visible, setVisible] = useState<boolean>(true);
+  const [visible, setVisible] = useState<boolean>(true)
 
   const handleOnClose = () => {
-    setVisible(false);
-    onClose && onClose();
+    setVisible(false)
+    onClose && onClose()
   }
 
-  if (!visible) return null;
+  if (!visible) return null
 
   const _classname = className ? { [className]: !!className } : {}
 
@@ -53,7 +56,13 @@ export const Alert: React.FC<AlertProps> = ({
         }
       )}
     >
-      {!noIcon && !icon && <AlertIcon type={type} />}
+      {!noIcon && !icon && (
+        tooltip ?
+          <Tooltip content={tooltip} placement='bottom' offset={[0, 10]}>
+            <AlertIcon type={type} />
+          </Tooltip>
+          : <AlertIcon type={type} />)
+      }
       {icon && icon}
       {isInline ? (
         children && (
@@ -80,5 +89,5 @@ export const Alert: React.FC<AlertProps> = ({
         </Button>
       )}
     </div>
-  );
+  )
 }

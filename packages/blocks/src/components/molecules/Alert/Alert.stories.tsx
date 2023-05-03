@@ -1,22 +1,22 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Spinner } from '../../atoms/Loader/Spinner/Spinner';
-import { Alert } from './Alert';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Spinner } from '../../atoms/Loader/Spinner/Spinner'
+import { Alert } from './Alert'
 
 export default {
   title: 'Molecules/Alert',
   component: Alert,
   argTypes: {},
-} as ComponentMeta<typeof Alert>;
+} as ComponentMeta<typeof Alert>
 
-const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
+const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   title: 'Alert Title',
   children: 'Alert Content',
 }
 
-export const WarningLight = Template.bind({});
+export const WarningLight = Template.bind({})
 WarningLight.args = {
   type: 'warning',
   theme: 'light',
@@ -24,21 +24,21 @@ WarningLight.args = {
   children: 'Alert Content',
 }
 
-export const WarningLightMessageOnly = Template.bind({});
+export const WarningLightMessageOnly = Template.bind({})
 WarningLightMessageOnly.args = {
   type: 'warning',
   theme: 'light',
   children: 'Alert Content',
 }
 
-export const WarningLightTitleOnly = Template.bind({});
+export const WarningLightTitleOnly = Template.bind({})
 WarningLightTitleOnly.args = {
   type: 'warning',
   theme: 'light',
   title: 'Alert Title'
 }
 
-export const WarningFullWidth = Template.bind({});
+export const WarningFullWidth = Template.bind({})
 WarningFullWidth.args = {
   type: 'warning',
   isFullWidth: true,
@@ -46,7 +46,7 @@ WarningFullWidth.args = {
   children: 'Alert Content',
 }
 
-export const DefaultLight = Template.bind({});
+export const DefaultLight = Template.bind({})
 DefaultLight.args = {
   type: 'default',
   theme: 'light',
@@ -54,7 +54,7 @@ DefaultLight.args = {
   children: 'Alert Content',
 }
 
-export const InfoLight = Template.bind({});
+export const InfoLight = Template.bind({})
 InfoLight.args = {
   type: 'info',
   theme: 'light',
@@ -62,7 +62,7 @@ InfoLight.args = {
   children: 'Alert Content',
 }
 
-export const SuccessLight = Template.bind({});
+export const SuccessLight = Template.bind({})
 SuccessLight.args = {
   type: 'success',
   theme: 'light',
@@ -70,7 +70,7 @@ SuccessLight.args = {
   children: 'Alert Content',
 }
 
-export const ErrorLight = Template.bind({});
+export const ErrorLight = Template.bind({})
 ErrorLight.args = {
   type: 'error',
   theme: 'light',
@@ -78,7 +78,7 @@ ErrorLight.args = {
   children: 'Alert Content',
 }
 
-export const WarningDark = Template.bind({});
+export const WarningDark = Template.bind({})
 WarningDark.args = {
   type: 'warning',
   theme: 'dark',
@@ -86,7 +86,7 @@ WarningDark.args = {
   children: 'Alert Content',
 }
 
-export const InfoDark = Template.bind({});
+export const InfoDark = Template.bind({})
 InfoDark.args = {
   type: 'info',
   theme: 'dark',
@@ -94,7 +94,7 @@ InfoDark.args = {
   children: 'Alert Content',
 }
 
-export const SuccessDark = Template.bind({});
+export const SuccessDark = Template.bind({})
 SuccessDark.args = {
   type: 'success',
   theme: 'dark',
@@ -102,7 +102,7 @@ SuccessDark.args = {
   children: 'Alert Content',
 }
 
-export const ErrorDark = Template.bind({});
+export const ErrorDark = Template.bind({})
 ErrorDark.args = {
   type: 'error',
   theme: 'dark',
@@ -110,42 +110,50 @@ ErrorDark.args = {
   children: 'Alert Content',
 }
 
-export const InlineAlertInfo = Template.bind({});
+export const InlineAlertInfo = Template.bind({})
 InlineAlertInfo.args = {
   type: 'info',
   isInline: true,
   children: 'This is an inline alert message',
 }
 
-export const InlineAlertSuccess = Template.bind({});
+export const InlineAlertInfoTooltip = Template.bind({})
+InlineAlertInfoTooltip.args = {
+  type: 'info',
+  isInline: true,
+  tooltip: 'Tooltip message',
+  children: 'This is an inline alert message with tooltip',
+}
+
+export const InlineAlertSuccess = Template.bind({})
 InlineAlertSuccess.args = {
   type: 'success',
   isInline: true,
   children: 'This is an inline alert message',
 }
 
-export const InlineAlertWarning = Template.bind({});
+export const InlineAlertWarning = Template.bind({})
 InlineAlertWarning.args = {
   type: 'warning',
   isInline: true,
   children: 'This is an inline alert message',
 }
 
-export const InlineAlertError = Template.bind({});
+export const InlineAlertError = Template.bind({})
 InlineAlertError.args = {
   type: 'error',
   isInline: true,
   children: 'This is an inline alert message',
 }
 
-export const InfoAlertSpinner = Template.bind({});
+export const InfoAlertSpinner = Template.bind({})
 InfoAlertSpinner.args = {
   type: 'info',
   icon: <Spinner size='sm' className="t-icon self-center" />,
   title: 'This is an alert with a spinner'
 }
 
-export const InfoAlertSpinnerContent = Template.bind({});
+export const InfoAlertSpinnerContent = Template.bind({})
 InfoAlertSpinnerContent.args = {
   type: 'info',
   icon: <Spinner size='sm' className="t-icon" />,

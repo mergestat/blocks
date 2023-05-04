@@ -1,17 +1,17 @@
-import { CircleInformationIcon } from '@mergestat/icons';
-import cx from 'classnames';
-import React from 'react';
-import { Tooltip } from '../Tooltip';
+import { CircleInformationIcon } from '@mergestat/icons'
+import cx from 'classnames'
+import React from 'react'
+import { Tooltip } from '../Tooltip'
 
 type RadioCardProps = {
-  className?: string | undefined;
-  startIcon?: React.ReactNode;
-  isSelected?: boolean;
-  disabled?: boolean;
-  label?: string;
-  tooltip?: string | React.ReactElement;
-  onChange?: () => void;
-};
+  className?: string | undefined
+  startIcon?: React.ReactNode
+  isSelected?: boolean
+  disabled?: boolean
+  label?: string
+  tooltip?: string | React.ReactElement
+  onChange?: () => void
+}
 
 export const RadioCard: React.FC<RadioCardProps> = ({
   className,
@@ -25,14 +25,14 @@ export const RadioCard: React.FC<RadioCardProps> = ({
   const _classname = className ? { [className]: !!className } : {}
 
   return (
-    <div
+    <button
       className={cx('t-radio-card', {
         't-radio-card-selected': isSelected,
         't-radio-card-disabled': disabled,
         ..._classname
       })}
       onClick={() => {
-        if (!isSelected && !disabled && onChange) onChange();
+        if (!isSelected && !disabled && onChange) onChange()
       }}
     >
       {startIcon && startIcon}
@@ -41,6 +41,6 @@ export const RadioCard: React.FC<RadioCardProps> = ({
         <Tooltip content={tooltip} placement='right'>
           <CircleInformationIcon className="t-icon t-icon-muted cursor-pointer" />
         </Tooltip>}
-    </div >
-  );
-};
+    </button >
+  )
+}
